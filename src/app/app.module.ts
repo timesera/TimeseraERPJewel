@@ -45,6 +45,9 @@ import { SmithIssueRegisterComponent } from './smith-issue-register/smith-issue-
 import { SmithReceivalRegisterComponent } from './smith-receival-register/smith-receival-register.component';
 import { JobWorkIssueRegisterComponent } from './job-work-issue-register/job-work-issue-register.component';
 import { JobWorkReceivalRegisterComponent } from './job-work-receival-register/job-work-receival-register.component';
+import { TimeseraloginComponent } from './timeseralogin/timeseralogin.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ErpComponent } from './erp/erp.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +93,10 @@ import { JobWorkReceivalRegisterComponent } from './job-work-receival-register/j
     SmithIssueRegisterComponent,
     SmithReceivalRegisterComponent,
     JobWorkIssueRegisterComponent,
-    JobWorkReceivalRegisterComponent
+    JobWorkReceivalRegisterComponent,
+    TimeseraloginComponent,
+    DashboardComponent,
+    ErpComponent
   ],
   imports: [
     BrowserModule,
