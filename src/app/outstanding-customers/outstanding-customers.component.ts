@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TimeseraerpserviceService } from '../timesersutilities/timeseraerpservice.service'
+import { ErpService } from '../erp.service';
 
 @Component({
   selector: 'app-outstanding-customers',
@@ -12,15 +12,14 @@ export class OutstandingCustomersComponent implements OnInit {
   custName: any = null;
   mobileNum: any = null;
   tempList: any;
-  constructor(private timeseraservice: TimeseraerpserviceService){
-
+  constructor(private service: ErpService){
   }
   ngOnInit() {
     this.getOutstandingCustomerDetails();
   }
 
   getOutstandingCustomerDetails(){
-    this.timeseraservice.GetOutStandingCustomer(this.cityName, this.custName, this.mobileNum).subscribe(data => {
+    this.service.GetOutStandingCustomer(this.cityName, this.custName, this.mobileNum).subscribe(data => {
       if(data.length > 0){
         this.tempList = data;
       }

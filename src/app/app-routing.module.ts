@@ -55,122 +55,113 @@ const routes: Routes = [
         path: '', component: DashboardComponent
       },
       {
-path:'StockBalance',component:StockBalanceComponent
+        path: 'StockBalance', component: StockBalanceComponent
       },
       {
-path:'PuritySummary',component:PuritySummaryComponent
+        path: 'PuritySummary', component: PuritySummaryComponent
       },
       {
         path: 'dashboard', component: DashboardComponent
       },
       {
-path:'BillingStockGS11',component:BillingStockGS11Component
+        path: 'BillingStockGS11', component: BillingStockGS11Component
       },
       {
-path:'OldGoldSilverBook',component:OldGoldSilverBookComponent
+        path: 'OldGoldSilverBook', component: OldGoldSilverBookComponent
       },
 
-{
-path:'DayGlance',component:DayGlanceComponent
-},
+      {
+        path: 'DayGlance', component: DayGlanceComponent
+      },
 
-{
-path:'SaleRegister',component:SaleRegisterComponent
-},
-{
-path:'ProductWiseSaleSummary',component:ProductWiseSaleSummaryComponent
-},
-{
-  path:'DayTranscations',component:DayTranscationsComponent
-},
-{
-path:'OrderStatusRegister',component:OrderStatusRegisterComponent
-},
-{
-path:'RepairRecevialsRegister',component:RepairRecevialsRegisterComponent
-},
-{
-path:'RepairDeliveryRegister',component:RepairDeliveryRegisterComponent
-},
-{
-path:'BankStatement',component:BankStatementComponent
-},
-{
-  path:'Journals',component:JournalsComponent
+      {
+        path: 'SaleRegister', component: SaleRegisterComponent
+      },
+      {
+        path: 'ProductWiseSaleSummary', component: ProductWiseSaleSummaryComponent
+      },
+      {
+        path: 'DayTranscations', component: DayTranscationsComponent
+      },
+      {
+        path: 'OrderStatusRegister', component: OrderStatusRegisterComponent
+      },
+      {
+        path: 'RepairRecevialsRegister', component: RepairRecevialsRegisterComponent
+      },
+      {
+        path: 'RepairDeliveryRegister', component: RepairDeliveryRegisterComponent
+      },
+      {
+        path: 'BankStatement', component: BankStatementComponent
+      },
+      {
+        path: 'Journals', component: JournalsComponent
 
-},
-{
-  path:'CustomerLeader',component:CustomerLeaderComponent
+      },
+      {
+        path: 'CustomerLeader', component: CustomerLeaderComponent
 
-},
-{
-  path:'OutstandingCustomers',component:OutstandingCustomersComponent
+      },
+      {
+        path: 'OutstandingCustomers', component: OutstandingCustomersComponent
 
-},
-{
-  path:'MailBook',component:MailBookComponent
-},
+      },
+      {
+        path: 'MailBook', component: MailBookComponent
+      },
+      {
+        path: 'InvoiceWiseOutstanding', component: InvoiceWiseOutstandingComponent
+      },
+      {
+        path: 'CustomerLeader', component: CustomerLeaderComponent
+      },
+      {
+        path: 'CustomerVistingInfo', component: CustomerVistingInfoComponent
+      },
+      {
+        path: 'PrevilageCardPoints', component: PrevilageCardPointsComponent
+      },
+      {
+        path: 'PrevilageCardMemberDetails', component: PrevilageCardMemberDetailsComponent
+      },
+      {
+        path: 'smithIssueRegister', component: SmithIssueRegisterComponent
+      },
 
-{
-  path:'OutstandingCustomers',component:OutstandingCustomersComponent
-},
-{
-  path:'InvoiceWiseOutstanding',component:InvoiceWiseOutstandingComponent
-},
-{
-  path:'CustomerLeader',component:CustomerLeaderComponent
-},
-{
-  path:'CustomerVistingInfo',component:CustomerVistingInfoComponent
-},
-{
-  path:'PrevilageCardPoints',component:PrevilageCardPointsComponent
-},
-{
-  path:'PrevilageCardMemberDetails',component:PrevilageCardMemberDetailsComponent
-},
-{
-  path:'smithIssueRegister',component:SmithIssueRegisterComponent
-},
+      {
+        path: 'SmithReceivalRegister', component: SmithReceivalRegisterComponent
+      },
 
-{
-  path:'SmithReceivalRegister',component:SmithReceivalRegisterComponent
-},
+      {
+        path: 'JobWorkIssueRegister', component: JobWorkIssueRegisterComponent
+      },
+      {
+        path: 'JobWorkReceivalRegister', component: JobWorkReceivalRegisterComponent
+      },
+      {
+        path: 'OutstandingDealers', component: OutstandingDealersComponent
 
-{
-  path:'JobWorkIssueRegister',component:JobWorkIssueRegisterComponent
-},
-{
-  path:'JobWorkReceivalRegister',component:JobWorkReceivalRegisterComponent
-},
+      },
+      {
+        path: 'SizeWiseStock', component: SizeWiseStockComponent
 
+      },
+      {
+        path: 'SizeWiseSales', component: SizeWiseSalesComponent
 
+      },
+      {
+        path: 'ReOrderStock', component: ReOrderStockComponent
 
+      },
+      {
+        path: 'ProductWiseSaleSummary', component: ProductWiseSaleSummaryComponent
 
-
-{
-  path:'OutstandingDealers',component:OutstandingDealersComponent
-
-},
-{
-  path:'SizeWiseStock',component:SizeWiseStockComponent
-
-},
-{
-  path:'SizeWiseSales',component:SizeWiseSalesComponent
-
-},
-{
-  path:'ReOrderStock',component:ReOrderStockComponent
-
-},
-{
-  path:'ProductWiseSaleSummary',component:ProductWiseSaleSummaryComponent
-
-},
-{
-path:'CustomerPurchaseAnalysis',component:CustomerPurchaseAnalysisComponent
-},
+      },
+      {
+        path: 'CustomerPurchaseAnalysis', component: CustomerPurchaseAnalysisComponent
+      },
       {
         path: 'cashbook', component: CashBookComponent
       },
@@ -183,24 +174,24 @@ path:'CustomerPurchaseAnalysis',component:CustomerPurchaseAnalysisComponent
     path: '**', component: TimeseraloginComponent
   },
   {
-path:'PurchaseEstimation',component:PurchaseEstimationComponent
-  },{
-    path:'EstimationRegister',component:EstimationRegisterComponent
+    path: 'PurchaseEstimation', component: PurchaseEstimationComponent
+  }, {
+    path: 'EstimationRegister', component: EstimationRegisterComponent
   },
   {
-    path:'PurchaseEstimationRegister',component:PurchaseEstimationRegisterComponent
+    path: 'PurchaseEstimationRegister', component: PurchaseEstimationRegisterComponent
   },
   {
-path:'ProductSummaryComponent',component:ProductSummaryComponent
+    path: 'ProductSummaryComponent', component: ProductSummaryComponent
   },
   {
-path:"CounterChartComponent",component:CounterChartComponent
+    path: "CounterChartComponent", component: CounterChartComponent
   },
   {
-path:'TagDetails',component:TagDetailsComponent
+    path: 'TagDetails', component: TagDetailsComponent
   },
   {
-    path: 'stockchart', component:StockChartComponent 
+    path: 'stockchart', component: StockChartComponent
   },
   {
     path: 'OrnamentStock', component: OrnamentStockGS12Component
@@ -209,10 +200,10 @@ path:'TagDetails',component:TagDetailsComponent
     path: 'CounterNetSummary', component: CounterNetSummaryComponent
   },
   {
-path:'OrderRegister',component:OrderRegisterComponent
+    path: 'OrderRegister', component: OrderRegisterComponent
   },
   {
-path:'OrderStatus',component:OrderStatusComponent
+    path: 'OrderStatus', component: OrderStatusComponent
   },
 ];
 

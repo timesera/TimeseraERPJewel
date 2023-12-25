@@ -63,6 +63,8 @@ import { TimeseraloginComponent } from './timeseralogin/timeseralogin.component'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErpComponent } from './erp/erp.component';
 import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -115,17 +117,18 @@ import { MatSelectModule } from '@angular/material/select';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     MatOptionModule,
     MatSelectModule,
     AppRoutingModule,
-    
     MatSidenavModule,
     MatMenuModule,
     MatSortModule,
     MatSelectModule,
     MatDialogModule,
     MatPaginatorModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatListModule,
