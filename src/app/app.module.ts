@@ -65,6 +65,10 @@ import { ErpComponent } from './erp/erp.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableDataSource } from '@angular/material/table';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,6 +127,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatOptionModule,
     MatSelectModule,
     AppRoutingModule,
+    // MatTableDataSource,
     MatSidenavModule,
     MatMenuModule,
     MatSortModule,
@@ -134,6 +139,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatButtonModule,
     MatExpansionModule,
+    MatInputModule,
 MatTableModule,
 MatCardModule,
   ],

@@ -16,9 +16,9 @@ export class ErpService {
     constructor(private httpClient: HttpClient, private cookieService: CookieService) {
     }
 
-    GetOutStandingCustomer(cityName: any, custName: any, mobileNum: any):  Observable<any>{
+    GetOutStandingCustomer(filterName: any, cityName: any, custName: any, mobileNum: any):  Observable<any>{
         this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
-        const params = new HttpParams().set('cityName', cityName).set('custName', custName).set('mobileNum', mobileNum);
+        const params = new HttpParams().set('filterName', filterName).set('cityName', cityName).set('custName', custName).set('mobileNum', mobileNum);
         return this.httpClient.get<any>(this.getOutStandingCustomerURL, { 'params': params, 'headers': this.headers });
     }
 }
