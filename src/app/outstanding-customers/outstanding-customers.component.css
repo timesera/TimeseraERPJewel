@@ -1,0 +1,57 @@
+.mat-column-position {
+    
+    border-right: 1px solid currentColor;
+    
+  }
+  .header-colour{
+    background-color:  rgb(92, 176, 218) !important;
+    color: red !important;
+  }
+  .data-colour{
+    background-color:  rgb(176, 218, 92) !important;
+    /* color: red !important; */
+  }
+  .footer-colour {
+    background-color: #cf8989 !important; /* Set your desired background color */
+    font-weight: bold;
+  }
+  .align{
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+  table {
+    /* width: 80%; */
+    border-collapse: collapse;
+    /* margin: 20px !important; */
+    margin-bottom: 20px; /* Add some spacing between tables */
+  }
+  
+  /* Style table headers */
+  th {
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Add a border between header and content */
+  }
+  
+  /* Style table rows */
+  tr {
+    border-bottom: 1px solid #ddd; /* Add a border between rows */
+    height: 20px !important;
+  }
+  
+  /* Style even rows differently for better readability */
+  tr:nth-child(even) {
+    background-color: #f9f9f9; /* Lighter background for even rows */
+  }
+  
+  /* Style table cells */
+  td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Hover effect on rows for better user experience */
+  tr:hover {
+    background-color: #e5e5e5; /* Light gray background on hover */
+  }

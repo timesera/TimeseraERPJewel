@@ -1,8 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule, Routes } from '@angular/router';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatOptionModule } from '@angular/material/core';
 import { EstimationComponent } from './estimation/estimation.component';
 import { PurchaseEstimationComponent } from './purchase-estimation/purchase-estimation.component';
 import { EstimationRegisterComponent } from './estimation-register/estimation-register.component';
@@ -48,6 +62,12 @@ import { JobWorkReceivalRegisterComponent } from './job-work-receival-register/j
 import { TimeseraloginComponent } from './timeseralogin/timeseralogin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErpComponent } from './erp/erp.component';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +77,7 @@ import { ErpComponent } from './erp/erp.component';
     EstimationRegisterComponent,
     PurchaseEstimationRegisterComponent,
     TagDetailsComponent,
+    
     StockChartComponent,
     OrnamentStockGS12Component,
     CounterNetSummaryComponent,
@@ -100,7 +121,27 @@ import { ErpComponent } from './erp/erp.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatOptionModule,
+    MatSelectModule,
+    AppRoutingModule,
+    // MatTableDataSource,
+    MatSidenavModule,
+    MatMenuModule,
+    MatSortModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatInputModule,
+MatTableModule,
+MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
