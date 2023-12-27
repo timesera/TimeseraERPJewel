@@ -12,6 +12,7 @@ export class ErpService {
   private URLHostName = "http://www.service.timeseraerp.in";
     getOutStandingCustomerURL: string = this.URLHostName + "/api/Erp/GetOutStandingCustomer";
     getOutStandingDealorURL: string = this.URLHostName + "/api/Erp/GetOutStandingDealers";
+    getCashBookURL: string = this.URLHostName + "/api/Erp/GetCashBook";
 
     headers: any;
     constructor(private httpClient: HttpClient, private cookieService: CookieService) {
@@ -27,4 +28,9 @@ export class ErpService {
       const params = new HttpParams().set('filterName', filterName).set('partyName', partyName).set('mobileNumber', mobileNumber);
       return this.httpClient.get<any>(this.getOutStandingDealorURL, { 'params': params, 'headers': this.headers });
   }
+  GetCashBookData(billStartDate: any, billEndDate: any):  Observable<any>{
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('billStartDate', billStartDate).set('billEndDate', billEndDate);
+    return this.httpClient.get<any>(this.getCashBookURL, { 'params': params, 'headers': this.headers });
+}
 }
