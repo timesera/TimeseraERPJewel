@@ -166,45 +166,48 @@ const routes: Routes = [
         path: 'cashbook', component: CashBookComponent
       },
       {
+        path: 'PurchaseEstimation', component: PurchaseEstimationComponent
+      }, 
+      {
+        path: 'EstimationRegister', component: EstimationRegisterComponent
+      },
+      {
+        path: 'PurchaseEstimationRegister', component: PurchaseEstimationRegisterComponent
+      },
+      {
+        path: 'ProductSummaryComponent', component: ProductSummaryComponent
+      },
+      {
+        path: "CounterChartComponent", component: CounterChartComponent
+      },
+      {
+        path: 'TagDetails', component: TagDetailsComponent
+      },
+      {
+        path: 'stockchart', component: StockChartComponent
+      },
+      {
+        path: 'OrnamentStock', component: OrnamentStockGS12Component
+      },
+      {
+        path: 'CounterNetSummary', component: CounterNetSummaryComponent
+      },
+      {
+        path: 'OrderRegister', component: OrderRegisterComponent
+      },
+      {
+        path: 'OrderStatus', component: OrderStatusComponent
+      },
+      {
         path: '**', component: DashboardComponent
-      }
+      },
+      
     ]
   },
   {
     path: '**', component: TimeseraloginComponent
   },
-  {
-    path: 'PurchaseEstimation', component: PurchaseEstimationComponent
-  }, {
-    path: 'EstimationRegister', component: EstimationRegisterComponent
-  },
-  {
-    path: 'PurchaseEstimationRegister', component: PurchaseEstimationRegisterComponent
-  },
-  {
-    path: 'ProductSummaryComponent', component: ProductSummaryComponent
-  },
-  {
-    path: "CounterChartComponent", component: CounterChartComponent
-  },
-  {
-    path: 'TagDetails', component: TagDetailsComponent
-  },
-  {
-    path: 'stockchart', component: StockChartComponent
-  },
-  {
-    path: 'OrnamentStock', component: OrnamentStockGS12Component
-  },
-  {
-    path: 'CounterNetSummary', component: CounterNetSummaryComponent
-  },
-  {
-    path: 'OrderRegister', component: OrderRegisterComponent
-  },
-  {
-    path: 'OrderStatus', component: OrderStatusComponent
-  },
+  
 ];
 
 @NgModule({

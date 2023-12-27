@@ -1,73 +1,61 @@
-
 <div class="example-container">
-     
-    <div>
-      <label style="margin-left: 20px !important;">Party Name: </label>
-      <mat-form-field class="example-full-width ml-2">
-  
-        <mat-label >Select Party</mat-label>
-      <mat-select disableRipple [(ngModel)]="partyName" >
+
+  <div>
+    <label style="margin-left: 20px !important;">Party Name: </label>
+    <mat-form-field class="example-full-width ml-2">
+      <mat-label>Select Party</mat-label>
+      <mat-select disableRipple [(ngModel)]="partyName">
         <mat-option value=""></mat-option>
         <mat-option *ngFor="let item of tempList" value={{item}}>{{item}}</mat-option>
-       
       </mat-select>
-      </mat-form-field>
-      
-      <label class="ml-2">Mobile No: </label>
-     
-  
-        <input matInput placeholder="Ex. 0000000000" style="margin-right: 20px !important;" [ngModelOptions]="{ standalone: true }"  [(ngModel)]="mobileNumber">
+    </mat-form-field>
 
-      <button mat-raised-button color="warn"  class="ml-4" (click)="getOutstandingDealorDetails(false)">Show</button>
-
-     
-    </div>
-
-  
+    <label class="ml-2">Mobile No: </label>
+    <input matInput placeholder="Ex. 0000000000" style="margin-right: 20px !important;"
+      [ngModelOptions]="{ standalone: true }" [(ngModel)]="mobileNumber">
+    <button mat-raised-button color="warn" class="ml-4" (click)="getOutstandingDealorDetails(false)">Show</button>
+  </div>
 </div>
 <div class="mat-elevation-z8 align">
-    <table mat-table  [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> S.No. </th>
-      <td mat-cell *matCellDef="let element; let i = index" > {{ getSerialNumber(i) }} </td>
-      <td mat-footer-cell *matFooterCellDef >Total</td>  
-  </ng-container>
-  <ng-container matColumnDef="partyName">
-    <th mat-header-cell *matHeaderCellDef> Party Name </th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.partyname}} </td>
-    <td mat-footer-cell *matFooterCellDef ></td>  
-</ng-container>
-<ng-container matColumnDef="mobileNO">
-  <th mat-header-cell *matHeaderCellDef> Mobile No </th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobileno}} </td>
-  <td mat-footer-cell *matFooterCellDef ></td>  
-</ng-container>
-<ng-container matColumnDef="add1">
-<th mat-header-cell *matHeaderCellDef> Add1 </th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.adD1}} </td>
-<td mat-footer-cell *matFooterCellDef ></td>  
-</ng-container>
-<ng-container matColumnDef="add2">
-    <th mat-header-cell *matHeaderCellDef> Add2 </th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.adD2}} </td>
-    <td mat-footer-cell *matFooterCellDef ></td>  
+      <td mat-cell *matCellDef="let element; let i = index"> {{ getSerialNumber(i) }} </td>
+      <td mat-footer-cell *matFooterCellDef>Total</td>
     </ng-container>
-<ng-container matColumnDef="balance">
-<th mat-header-cell *matHeaderCellDef>Balance</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.balance}} </td>
-<td mat-footer-cell *matFooterCellDef >{{balaceAmt}}</td>  
-</ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <ng-container matColumnDef="partyName">
+      <th mat-header-cell *matHeaderCellDef> Party Name </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.partyname}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="mobileNO">
+      <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobileno}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="add1">
+      <th mat-header-cell *matHeaderCellDef> Add1 </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.adD1}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="add2">
+      <th mat-header-cell *matHeaderCellDef> Add2 </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.adD2}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef>Balance</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.balance}} </td>
+      <td mat-footer-cell *matFooterCellDef>{{balaceAmt}}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 
-  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
-  <!-- </mat-table> -->
+    <!-- </mat-table> -->
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-               showFirstLastButtons
-               aria-label="Select page">
-</mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+  </mat-paginator>
 </div>
- 
