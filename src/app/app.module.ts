@@ -16,7 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { EstimationComponent } from './estimation/estimation.component';
 import { PurchaseEstimationComponent } from './purchase-estimation/purchase-estimation.component';
 import { EstimationRegisterComponent } from './estimation-register/estimation-register.component';
@@ -67,6 +67,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -127,6 +128,8 @@ import { MatTableDataSource } from '@angular/material/table';
     MatOptionModule,
     MatSelectModule,
     AppRoutingModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     // MatTableDataSource,
     MatSidenavModule,
     MatMenuModule,

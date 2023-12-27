@@ -1,1 +1,143 @@
 <p>sale-register works!</p>
+<div class="example-container">
+     
+    <div>
+      <label style="margin-left: 20px !important;">From: </label>
+          <mat-form-field>
+      <input matInput [matDatepicker]="picker1"  placeholder="Choose a date" [(ngModel)]="saleStartDate">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>   
+    
+    <label style="margin-left: 20px !important;">To: </label>
+          <mat-form-field>
+      <input matInput [matDatepicker]="picker2"  placeholder="Choose a date" [(ngModel)]="saleEndDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <label style="margin-left: 20px !important;">Jewel Type: </label>
+          <mat-form-field class="example-full-width ml-2">
+      
+            <mat-label >Select Jewel</mat-label>
+          <mat-select disableRipple [(ngModel)]="jewelType" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of jewelList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+          <label style="margin-left: 20px !important;">Customer: </label>
+          <mat-form-field class="example-full-width ml-2">
+      
+            <mat-label >Select City</mat-label>
+          <mat-select disableRipple [(ngModel)]="cstName" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of custList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+          <label style="margin-left: 20px !important;">Bill No: </label>
+         
+          <input matInput  placeholder="Ex. Manasa" style="margin-right: 20px !important;" [(ngModel)]="billNo">
+          <label style="margin-left: 20px !important;">Mobile No: </label>
+         
+          <input matInput  placeholder="Ex. Manasa" style="margin-right: 20px !important;" [(ngModel)]="mobileNo">
+       
+      
+      <button mat-raised-button color="warn"  class="m-4" >Show</button>
+      
+      
+    </div>
+
+  
+</div>
+<div class="mat-elevation-z8 align">
+    <table mat-table  [dataSource]="dataSource">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> S.No. </th>
+      <td mat-cell *matCellDef="let element; let i = index" > {{ i+1 }} </td>
+      <td mat-footer-cell *matFooterCellDef >Total</td>  
+  </ng-container>
+  <ng-container matColumnDef="billDate">
+    <th mat-header-cell *matHeaderCellDef>Bill Date</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cityname}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="jewelType">
+  <th mat-header-cell *matHeaderCellDef> Jewel Type </th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custname}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="billNo">
+<th mat-header-cell *matHeaderCellDef> Bill No </th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobilenum}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="custName">
+<th mat-header-cell *matHeaderCellDef>Customer Name</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.balance}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="pcs">
+    <th mat-header-cell *matHeaderCellDef>Pcs</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cityname}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="gwt">
+  <th mat-header-cell *matHeaderCellDef>Gwt</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custname}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="nwt">
+<th mat-header-cell *matHeaderCellDef>Nwt</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobilenum}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="totalAmt">
+<th mat-header-cell *matHeaderCellDef>Total Amount</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.balance}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="discount">
+    <th mat-header-cell *matHeaderCellDef>Discount</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cityname}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="grsAmt">
+  <th mat-header-cell *matHeaderCellDef>Gross Amt</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custname}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="cgst">
+<th mat-header-cell *matHeaderCellDef>CGST</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobilenum}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="sgst">
+<th mat-header-cell *matHeaderCellDef>SGST</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.balance}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container><ng-container matColumnDef="igst">
+    <th mat-header-cell *matHeaderCellDef>IGST</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cityname}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="netAmount">
+  <th mat-header-cell *matHeaderCellDef>Net Amount</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custname}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+  <!-- </mat-table> -->
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+</div>
+
