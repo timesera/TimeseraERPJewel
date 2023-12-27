@@ -175,7 +175,7 @@ const routes: Routes = [
         path: 'PurchaseEstimationRegister', component: PurchaseEstimationRegisterComponent
       },
       {
-        path: 'ProductSummaryComponent', component: ProductSummaryComponent
+        path: 'ProductSummary', component: ProductSummaryComponent
       },
       {
         path: "CounterChartComponent", component: CounterChartComponent

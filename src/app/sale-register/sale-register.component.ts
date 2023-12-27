@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
+import { DatePipe } from '@angular/common';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -19,48 +21,111 @@ export class SaleRegisterComponent implements OnInit{
   cstName:any;
   billNo:any;
   mobileNo:any;
+  jewelName: any = "JEWELTYPE";
+  custName: any = "CUSTNAME";
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
 
   constructor(private service: ErpService){
   }
   ngOnInit() {
     // this.getSaleRegisterData();
+    this.getCustomerList();
+    this.getJweleryList()
   }
 
-  // getSaleRegisterData(){
+  getJweleryList(){
 
-  //   if(isMaster == false){
-  //     this.filterName = "";
-  //   }
-  //   console.log("this.cityName",this.cityName)
-  //   console.log("this.custName",this.custName)
-  //   console.log("this.mobileNum",this.mobileNum)
+    const datePipe = new DatePipe('en-US');
+    let saleStartingDate = datePipe.transform(this.saleStartDate, 'yyyy/MM/dd') || '';
+    let saleEndingDate = datePipe.transform(this.saleEndDate, 'yyyy/MM/dd') || '';
+    
 
-  //   this.service.GetSaleRegistersData(this.name, this.billStartDate, this.billEndDate, this.custName,this.jewelType).subscribe(data => {
-  //     if(data.length > 0){
-  //       if(isMaster == true){
-  //         this.tempList = data;
-  //       }else {
-  //         this.dataSource.data=data
-  //       }
+    this.service.GetSaleRegistersData(this.jewelName, saleStartingDate, saleEndingDate, this.cstName,this.jewelType).subscribe(data => {
+      if(data.length > 0){
+
+        console.log("JewelaryData",data)
+        this.jewelList=data;
+        // if(isMaster == true){
+        //   this.tempList = data;
+        // }else {
+        //   this.dataSource.data=data
+        // }
         
-  //       // this.dataSource.data=data 
-  //       this.dataSource.paginator = this.paginator;   
+        this.dataSource.data=data 
+        this.dataSource.paginator = this.paginator;   
 
-  //       this.dataSource.data.forEach((element:any)=>{
-  //         element.balance=parseInt(element.debit)-parseInt(element.credit)
-  //       this.balaceAmt+=element.balance
-  //       })
-  //       console.log("this.dataSource.data",this.dataSource.data)
+        this.dataSource.data.forEach((element:any)=>{
+        //   element.balance=parseInt(element.debit)-parseInt(element.credit)
+        // this.balaceAmt+=element.balance
+        })
+        console.log("this.dataSource.data",this.dataSource.data)
 
-  //     }     
-  //   });
+      }     
+    });
 
     
-  // }
+  }
+  getCustomerList(){
+    const datePipe = new DatePipe('en-US');
+    let saleStartingDate = datePipe.transform(this.saleStartDate, 'yyyy/MM/dd') || '';
+    let saleEndingDate = datePipe.transform(this.saleEndDate, 'yyyy/MM/dd') || '';
+    
+    this.service.GetSaleRegistersData(this.custName, saleStartingDate, saleEndingDate, this.cstName,this.jewelType).subscribe(data => {
+      if(data.length > 0){
 
-  // getSerialNumber(index: number): number {
+        console.log("customerData",data)
+        this.custList=data;
+        
+        
+        this.dataSource.data=data 
+        this.dataSource.paginator = this.paginator;   
+
+        this.dataSource.data.forEach((element:any)=>{
+        //   element.balance=parseInt(element.debit)-parseInt(element.credit)
+        // this.balaceAmt+=element.balance
+        })
+        console.log("this.dataSource.data",this.dataSource.data)
+
+      }     
+    });
+  }
+  getSaleRegisterData(){
+    
+    const datePipe = new DatePipe('en-US');
+    let saleStartingDate = datePipe.transform(this.saleStartDate, 'yyyy/MM/dd') || '';
+    let saleEndingDate = datePipe.transform(this.saleEndDate, 'yyyy/MM/dd') || '';
+    this.custName=" "
+
+    this.service.GetSaleRegistersData(this.custName, saleStartingDate, saleEndingDate, this.cstName,this.jewelType).subscribe(data => {
+      if(data.length > 0){
+
+        console.log("tableData",data)
+        this.jewelList=data;
+        // if(isMaster == true){
+        //   this.tempList = data;
+        // }else {
+        //   this.dataSource.data=data
+        // }
+        
+        this.dataSource.data=data 
+        this.dataSource.paginator = this.paginator;   
+
+        this.dataSource.data.forEach((element:any)=>{
+        //   element.balance=parseInt(element.debit)-parseInt(element.credit)
+        // this.balaceAmt+=element.balance
+        })
+        console.log("this.dataSource.data",this.dataSource.data)
+
+      }     
+    });
+
+
+  }
+
+  getSerialNumber(index: number): number {
   
-  //   return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
-  // }
+    return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
+  }
 }
