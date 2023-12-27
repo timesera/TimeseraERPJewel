@@ -37,7 +37,7 @@ export class OrnamentStockGS12Component {
      let billStartingDate= datePipe.transform(this.billStartDate, 'yyyy/MM/dd') || '';
      let billEndingDate= datePipe.transform(this.billEndDate, 'yyyy/MM/dd') || '';
     if(this.prefix == undefined){this.prefix = "";}
-    forkJoin(this.service.GetOrnmentStock(name, billStartingDate, billEndingDate, this.particulars, this.prefix), this.service.GetOrnmentStock("", billStartingDate, "", this.particulars, this.prefix)).subscribe(data => {
+    forkJoin(this.service.GetOrnmentStock(name, billStartingDate.toString(), billEndingDate.toString(), this.particulars.toString(), this.prefix.toString()), this.service.GetOrnmentStock("", billStartingDate, "", this.particulars, this.prefix)).subscribe(data => {
       if(name == "PARTICULARS"){
         this.productList = data[0];
       }

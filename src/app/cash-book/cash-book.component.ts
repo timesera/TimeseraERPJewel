@@ -13,63 +13,37 @@ import { forkJoin } from 'rxjs';
 })
 export class CashBookComponent {
   billStartDate: any;
-  billEndDate:any;
-  displayedColumns: string[] = ['position','date','type','particular','voucherNo','debit','credit','balance'];
+  billEndDate: any;
 
-  
-  // partyName: any = "";
-  // mobileNumber: any = "";
+  displayedColumns: string[] = ['position', 'date', 'type', 'particular', 'voucherNo', 'debit', 'credit', 'balance'];
   tempList: any;
-  balaceAmt:number=0
-  // tempList: any;
+  balaceAmt: number = 0
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
-  
-  constructor(private service: ErpService){
+
+  constructor(private service: ErpService) {
   }
   ngOnInit() {
   }
+  getCashBookDetails() {
 
-
-
-  getCashBookDetails(){
-
-    console.log("billStartDate",this.billStartDate)
-    console.log("billEndDate",this.billEndDate)
+    console.log("billStartDate", this.billStartDate)
+    console.log("billEndDate", this.billEndDate)
     const datePipe = new DatePipe('en-US');
-     let billStartingDate= datePipe.transform(this.billStartDate, 'yyyy/MM/dd') || '';
-     let billEndingDate= datePipe.transform(this.billEndDate, 'yyyy/MM/dd') || '';
+    let billStartingDate = datePipe.transform(this.billStartDate, 'yyyy/MM/dd') || '';
+    let billEndingDate = datePipe.transform(this.billEndDate, 'yyyy/MM/dd') || '';
 
-
-     console.log("billStartingDate",billStartingDate)
-     console.log("billEndingDate",billEndingDate)
-    // console.log("this.cityName",this.cityName)
-    // console.log("this.custName",this.custName)
-    // console.log("this.mobileNum",this.mobileNum)
-    forkJoin(this.service.GetCashBookData(billStartingDate, ""),this.service.GetCashBookData(billStartingDate, billEndingDate)).subscribe(data => {
-      if(billEndingDate==undefined){
-        this.tempList=data
-        console.log
-      } else {
-        this.dataSource.data=data;
-      }
+    forkJoin(this.service.GetCashBookData(billStartingDate, ""), this.service.GetCashBookData(billStartingDate, billEndingDate)).subscribe(data => {
+      this.tempList = data
+      this.dataSource.data = data;
     });
+    this.dataSource.data.forEach((element) => {
+      element.balanceperAmount = parseInt(element.debit) - parseInt(element.credit)
+      console.log("element.balanceperAmount", element.balanceperAmount)
+      this.balaceAmt += element.balanceperAmount
+    })
 
-    // this.service.GetCashBookData(billStartingDate, billEndingDate).subscribe(data => {
-    //   if(data.length > 0){
-
-    //     this.dataSource.data=data 
-    //     this.dataSource.paginator = this.paginator;   
-
-    //     this.dataSource.data.forEach((element:any)=>{
-    //       element.balance=parseInt(element.debit)-parseInt(element.credit)
-    //     this.balaceAmt+=element.balance
-    //     })
-    //     console.log("this.dataSource.data",this.dataSource.data)
-
-    //   }     
-    // });
   }
   getSerialNumber(index: number): number {
     return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
