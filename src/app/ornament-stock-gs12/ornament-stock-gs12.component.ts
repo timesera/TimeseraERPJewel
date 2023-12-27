@@ -17,7 +17,7 @@ export class OrnamentStockGS12Component {
   prefix: any = "";
   productList: any = [];
   purityList: any = [];
-  displayedColumns: string[] = ['date','partyname','hsncode','invno','grosswt','balance','purity'];
+  displayedColumns: string[] = ['date','partyname','hsncode','invno','jama', 'nama','balance','purity'];
   openingBalance:number = 0;
 
   @ViewChild(MatPaginator)
@@ -52,8 +52,6 @@ export class OrnamentStockGS12Component {
         this.dataSource.data.forEach((element:any)=>{
           element.balance=parseInt(element.debit)-parseInt(element.credit)
         })
-        console.log("this.dataSource.data",this.dataSource.data)
-
       }     
     });    
   }

@@ -16,7 +16,7 @@ export class BillingStockGS11Component {
   particulars: any;
   productList: any = [];
   purityList: any = [];
-  displayedColumns: string[] = ['date','partyname','hsncode','invno','grosswt','balance','purity'];
+  displayedColumns: string[] = ['date','partyname','hsncode','invno','jama', 'nama','balance'];
   openingBalance:number = 0;
 
   @ViewChild(MatPaginator)
@@ -42,13 +42,12 @@ export class BillingStockGS11Component {
       }
       else {
         this.openingBalance = data[1].nama - data[1].jama;
-        this.dataSource.data=data 
+        this.dataSource.data=data[0] 
         this.dataSource.paginator = this.paginator;   
 
         this.dataSource.data.forEach((element:any)=>{
           element.balance=parseInt(element.debit)-parseInt(element.credit)
         })
-        console.log("this.dataSource.data",this.dataSource.data)
 
       }     
     });
