@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
@@ -10,14 +10,14 @@ import { forkJoin } from 'rxjs';
   templateUrl: './ornament-stock-gs12.component.html',
   styleUrls: ['./ornament-stock-gs12.component.css']
 })
-export class OrnamentStockGS12Component {
+export class OrnamentStockGS12Component implements OnInit {
   billStartDate: any = new Date();
   billEndDate:any = new Date();
   particulars: any = "";
   prefix: any = "";
   productList: any = [];
   purityList: any = [];
-  displayedColumns: string[] = ['date','partyname','hsncode','invno','grosswt','balance','purity'];
+  displayedColumns: string[] = ['date','partyname','hsncode','invno','jama', 'nama','balance','purity'];
   openingBalance:number = 0;
 
   @ViewChild(MatPaginator)
@@ -52,8 +52,6 @@ export class OrnamentStockGS12Component {
         this.dataSource.data.forEach((element:any)=>{
           element.balance=parseInt(element.debit)-parseInt(element.credit)
         })
-        console.log("this.dataSource.data",this.dataSource.data)
-
       }     
     });    
   }

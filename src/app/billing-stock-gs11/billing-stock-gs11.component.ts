@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
@@ -10,13 +10,13 @@ import { forkJoin } from 'rxjs';
   templateUrl: './billing-stock-gs11.component.html',
   styleUrls: ['./billing-stock-gs11.component.css']
 })
-export class BillingStockGS11Component {
+export class BillingStockGS11Component implements OnInit {
   billStartDate: any = new Date();
   billEndDate:any = new Date();
   particulars: any;
   productList: any = [];
   purityList: any = [];
-  displayedColumns: string[] = ['date','partyname','hsncode','invno','grosswt','balance','purity'];
+  displayedColumns: string[] = ['date','partyname','hsncode','invno','jama', 'nama','balance'];
   openingBalance:number = 0;
 
   @ViewChild(MatPaginator)
@@ -30,9 +30,7 @@ export class BillingStockGS11Component {
     
   }
   getBuillonStockDetails(name: any = ""){
-    console.log("billStartDate",this.billStartDate)
-    console.log("billEndDate",this.billEndDate)
-    const datePipe = new DatePipe('en-US');
+     const datePipe = new DatePipe('en-US');
      let billStartingDate= datePipe.transform(this.billStartDate, 'yyyy/MM/dd') || '';
      let billEndingDate= datePipe.transform(this.billEndDate, 'yyyy/MM/dd') || '';
 
@@ -42,13 +40,12 @@ export class BillingStockGS11Component {
       }
       else {
         this.openingBalance = data[1].nama - data[1].jama;
-        this.dataSource.data=data 
+        this.dataSource.data=data[0] 
         this.dataSource.paginator = this.paginator;   
 
         this.dataSource.data.forEach((element:any)=>{
           element.balance=parseInt(element.debit)-parseInt(element.credit)
         })
-        console.log("this.dataSource.data",this.dataSource.data)
 
       }     
     });
