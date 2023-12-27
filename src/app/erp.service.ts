@@ -17,6 +17,7 @@ export class ErpService {
   getBullionStockURL: string = this.URLHostName + "/api/Erp/GetBullionStock";
   getSaleRegisterURL: string = this.URLHostName + "/api/Erp/GetSaleRegister";
   getBankTransactionsURL: string = this.URLHostName + "/api/Erp/GetBankTransactions";
+  getBankTransactionsOpeningURL: string = this.URLHostName + "/api/Erp/GetBankTransactionsOpening";
 
   headers: any;
   constructor(private httpClient: HttpClient, private cookieService: CookieService) {
@@ -52,9 +53,14 @@ export class ErpService {
     const params = new HttpParams().set('name', name).set('billStartDate', billStartDate).set('billEndDate', billEndDate).set('custName', custName).set('jewelType', jewelType);
     return this.httpClient.get<any>(this.getSaleRegisterURL, { 'params': params, 'headers': this.headers });
   }
-  GetBankTransactions(name: any, depStartDate: any, depEndDate: any,accno: any, transtype: any, mode: any){
+  GetBankTransactions(name: any, depStartDate: any, depEndDate: any,accno: any, transtype: any, mode: any) : Observable<any>{
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('name', name).set('depStartDate', depStartDate).set('depEndDate', depEndDate).set('accno', accno).set('transtype', transtype).set('mode', mode);
     return this.httpClient.get<any>(this.getBankTransactionsURL, { 'params': params, 'headers': this.headers });
+  }
+  GetBankTransactionsOpening(depStartDate: any, accno: any, mode: any) : Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('depStartDate', depStartDate).set('accno', accno).set('mode', mode);
+    return this.httpClient.get<any>(this.getBankTransactionsOpeningURL, { 'params': params, 'headers': this.headers });
   }
 }

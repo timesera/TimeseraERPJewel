@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
@@ -10,7 +10,7 @@ import { forkJoin } from 'rxjs';
   templateUrl: './billing-stock-gs11.component.html',
   styleUrls: ['./billing-stock-gs11.component.css']
 })
-export class BillingStockGS11Component {
+export class BillingStockGS11Component implements OnInit {
   billStartDate: any = new Date();
   billEndDate:any = new Date();
   particulars: any;
@@ -30,9 +30,7 @@ export class BillingStockGS11Component {
     
   }
   getBuillonStockDetails(name: any = ""){
-    console.log("billStartDate",this.billStartDate)
-    console.log("billEndDate",this.billEndDate)
-    const datePipe = new DatePipe('en-US');
+     const datePipe = new DatePipe('en-US');
      let billStartingDate= datePipe.transform(this.billStartDate, 'yyyy/MM/dd') || '';
      let billEndingDate= datePipe.transform(this.billEndDate, 'yyyy/MM/dd') || '';
 

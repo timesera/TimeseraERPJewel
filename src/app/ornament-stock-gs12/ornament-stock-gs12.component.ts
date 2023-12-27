@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
@@ -10,7 +10,7 @@ import { forkJoin } from 'rxjs';
   templateUrl: './ornament-stock-gs12.component.html',
   styleUrls: ['./ornament-stock-gs12.component.css']
 })
-export class OrnamentStockGS12Component {
+export class OrnamentStockGS12Component implements OnInit {
   billStartDate: any = new Date();
   billEndDate:any = new Date();
   particulars: any = "";
