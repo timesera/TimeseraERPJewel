@@ -14,7 +14,7 @@ export class CustomerreceiptregisterComponent implements OnInit {
   billEndDate: any = new Date();
   customerName: any = "";
   customerNameList: any = [];
-  displayedColumns: string[] = ['vno', 'date', 'transtype', 'paymode', 'particulars', 'partyname', 'debit', 'credit', 'closebalance'];
+  displayedColumns: string[] = ['recno', 'recdate', 'customername'];
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -50,5 +50,9 @@ export class CustomerreceiptregisterComponent implements OnInit {
         }
       }     
     });
+  }
+
+  getSerialNumber(index: number): number {
+    return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }
 }
