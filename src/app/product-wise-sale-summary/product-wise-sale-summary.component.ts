@@ -28,7 +28,7 @@ export class ProductWiseSaleSummaryComponent implements OnInit {
   tagNo: any;
   empCode: any;
   
-  displayedColumns: string[] = ['vno', 'date', 'transtype', 'paymode', 'particulars', 'partyname', 'debit', 'credit', 'closebalance'];
+  displayedColumns: string[] = ['billdate', 'jeweltype', 'billno', 'tagno', 'mainproduct', 'productname', 'prefix', 'pcs', 'gwt', 'less', 'nwt', 'cts', 'diacts', 'uncuts', 'amount', 'stoneamount', 'totamount', 'tagdate', 'huid', 'hsncode'];
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -71,6 +71,10 @@ export class ProductWiseSaleSummaryComponent implements OnInit {
         }
       }     
     });
+  }
+
+  getSerialNumber(index: number): number {
+    return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }
 
   GetJewelAndCustNameDetails(name: any = ""){

@@ -69,55 +69,110 @@
 </div>
 
 <div class="mat-elevation-z8 align">
-    <!-- <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
             <td mat-cell *matCellDef="let element; let i = index"> {{ getSerialNumber(i) }} </td>
             <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
-        <ng-container matColumnDef="vno">
-            <th mat-header-cell *matHeaderCellDef> VNO </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{ element.recNo }} </td>
+        <ng-container matColumnDef="billdate">
+            <th mat-header-cell *matHeaderCellDef> Bill Date </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ element.billDate }} </td>
             <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
-        <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef> DATE </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.depdate}} </td>
+        <ng-container matColumnDef="jeweltype">
+            <th mat-header-cell *matHeaderCellDef> Jewel Type </th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.jewelType}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="transtype">
-            <th mat-header-cell *matHeaderCellDef> TRANS TYPE </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.transtype}} </td>
+        <ng-container matColumnDef="billno">
+            <th mat-header-cell *matHeaderCellDef> Bill No </th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billNo}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="paymode">
-            <th mat-header-cell *matHeaderCellDef>PAYMODE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position">  {{element.mode}}  </td>
+        <ng-container matColumnDef="tagno">
+            <th mat-header-cell *matHeaderCellDef>Tag No</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position">  {{element.tagNo}}  </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="particulars">
-            <th mat-header-cell *matHeaderCellDef> PARTICULARS </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.ptype}} </td>
+        <ng-container matColumnDef="mainproduct">
+            <th mat-header-cell *matHeaderCellDef>Main Product</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mname}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="partyname">
-            <th mat-header-cell *matHeaderCellDef>PARTY NAME</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
+        <ng-container matColumnDef="productname">
+            <th mat-header-cell *matHeaderCellDef>Product Name</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.productName}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="debit">
-            <th mat-header-cell *matHeaderCellDef>DEBIT</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.debit}} </td>
+        <ng-container matColumnDef="prefix">
+            <th mat-header-cell *matHeaderCellDef>Prefix</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.prefix}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="closebalance">
-            <th mat-header-cell *matHeaderCellDef>CLOSEING BALANCE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> 0 </td>
+        <ng-container matColumnDef="pcs">
+            <th mat-header-cell *matHeaderCellDef>Pcs</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.pieces}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="credit">
-            <th mat-header-cell *matHeaderCellDef>CREDIT</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.credit}} </td>
+        <ng-container matColumnDef="gwt">
+            <th mat-header-cell *matHeaderCellDef>Gwt</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.gwt}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="less">
+            <th mat-header-cell *matHeaderCellDef>Less</th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ element.gwt - element.nwt }} </td>
+            <td mat-footer-cell *matFooterCellDef>Total</td>
+        </ng-container>
+        <ng-container matColumnDef="nwt">
+            <th mat-header-cell *matHeaderCellDef>Nwt</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.nwt}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="cts">
+            <th mat-header-cell *matHeaderCellDef>Cts</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.item_Cts}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="diacts">
+            <th mat-header-cell *matHeaderCellDef>Dia Cts</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position">  {{element.item_Diamonds}}  </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="uncuts">
+            <th mat-header-cell *matHeaderCellDef>Uncuts</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.item_Uncuts}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Amount</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.amount}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="stoneamount">
+            <th mat-header-cell *matHeaderCellDef>Stone Amount</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.itemamt}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="totamount">
+            <th mat-header-cell *matHeaderCellDef>TOT Amount</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totamt}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="tagdate">
+            <th mat-header-cell *matHeaderCellDef>Tag Date</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position">{{element.tagDate}}</td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="huid">
+            <th mat-header-cell *matHeaderCellDef>HUID</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position">{{element.huid}}</td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="hsncode">
+            <th mat-header-cell *matHeaderCellDef>HSN Code</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position">{{element.hsncode}}</td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -126,5 +181,5 @@
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
-    </mat-paginator> -->
+    </mat-paginator>
 </div>
