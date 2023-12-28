@@ -9,12 +9,13 @@
         <mat-label >Select Product</mat-label>
       <mat-select disableRipple [(ngModel)]="prodName" >
         <mat-option value=""></mat-option>
-        <mat-option *ngFor="let item of tempList" value={{item}}>{{item}}</mat-option>
+        <mat-option *ngFor="let item of prodList" value={{item}}>{{item}}</mat-option>
        
       </mat-select>
       </mat-form-field>
       
-     
+      <button mat-raised-button color="warn"  class="m-4" (click)="getProductSummaryData()">Show</button>
+
     </div>
 
   
@@ -24,47 +25,27 @@
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> S.No. </th>
       <td mat-cell *matCellDef="let element; let i = index" > {{ getSerialNumber(i) }} </td>
-      <td mat-footer-cell *matFooterCellDef >Total</td>  
+      <td mat-footer-cell *matFooterCellDef ></td>  
   </ng-container>
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef> Product Category </th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.partyname}} </td>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.productcategory}} </td>
     <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="pcs">
   <th mat-header-cell *matHeaderCellDef> Pcs </th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobileno}} </td>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.pieces}} </td>
   <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="gwt">
 <th mat-header-cell *matHeaderCellDef> GWT </th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.adD1}} </td>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.gwt}} </td>
 <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="nwt">
     <th mat-header-cell *matHeaderCellDef> Nwt </th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.adD2}} </td>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.nwt}} </td>
     <td mat-footer-cell *matFooterCellDef ></td>  
-    </ng-container>
-<ng-container matColumnDef="cts">
-<th mat-header-cell *matHeaderCellDef>Cts</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.balance}} </td>
-<td mat-footer-cell *matFooterCellDef >{{balaceAmt}}</td>  
-</ng-container>
-<ng-container matColumnDef="diaCts">
-    <th mat-header-cell *matHeaderCellDef>Dia Cts</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.adD1}} </td>
-    <td mat-footer-cell *matFooterCellDef ></td>  
-    </ng-container>
-    <ng-container matColumnDef="uncts">
-        <th mat-header-cell *matHeaderCellDef> Uncuts </th>
-        <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.adD2}} </td>
-        <td mat-footer-cell *matFooterCellDef ></td>  
-        </ng-container>
-    <ng-container matColumnDef="grams">
-    <th mat-header-cell *matHeaderCellDef>Grams</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.balance}} </td>
-    <td mat-footer-cell *matFooterCellDef >{{balaceAmt}}</td>  
     </ng-container>
     
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

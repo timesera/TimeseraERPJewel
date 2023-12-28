@@ -47,11 +47,7 @@ export class SaleRegisterComponent implements OnInit{
 
         console.log("JewelaryData",data)
         this.jewelList=data;
-        // if(isMaster == true){
-        //   this.tempList = data;
-        // }else {
-        //   this.dataSource.data=data
-        // }
+        
         
         this.dataSource.data=data 
         this.dataSource.paginator = this.paginator;   
@@ -103,17 +99,12 @@ export class SaleRegisterComponent implements OnInit{
 
         console.log("tableData",data)
         this.jewelList=data;
-        // if(isMaster == true){
-        //   this.tempList = data;
-        // }else {
-        //   this.dataSource.data=data
-        // }
-        
+              
         this.dataSource.data=data 
         this.dataSource.paginator = this.paginator;   
 
         this.dataSource.data.forEach((element:any)=>{
-        //   element.balance=parseInt(element.debit)-parseInt(element.credit)
+          element.grsAmt=element.totAmt-element.disAmt
         // this.balaceAmt+=element.balance
         })
         console.log("this.dataSource.data",this.dataSource.data)

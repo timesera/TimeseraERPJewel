@@ -9,10 +9,12 @@ import { ErpService } from '../erp.service';
   styleUrls: ['./product-summary.component.css']
 })
 export class ProductSummaryComponent implements OnInit{
-  displayedColumns: string[] = ['position','category','pcs','gwt','nwt','cts','diaCts','uncts','grams'];
+  displayedColumns: string[] = ['position','category','pcs','gwt','nwt'];
   tempList: any;
   prodName:any;
   balaceAmt:number=0
+  name: any = "MNAME";
+  prodList:any=[];
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
@@ -20,10 +22,33 @@ export class ProductSummaryComponent implements OnInit{
   constructor(private service: ErpService){
   }
   ngOnInit() {
-    this.getProductSummartData();
+    this.getProductData();
   }
-   getProductSummartData(){
+   getProductData(){
+    
+    this.service.GetProductService(this.name).subscribe(data => {
 
+      console.log("Product Summary Data",data)
+      if(data.length > 0){
+
+        this.prodList=data;
+      }     
+    });
+
+    
+   }
+   getProductSummaryData(){
+    
+    this.service.GetProductData(this.prodName).subscribe(data => {
+      if(data.length > 0){
+        console.log("Purity Summary Data",data)
+          this.dataSource.data=data
+        }
+        
+        this.dataSource.paginator = this.paginator;
+    });    
+
+    
    }
    getSerialNumber(index: number): number {
   

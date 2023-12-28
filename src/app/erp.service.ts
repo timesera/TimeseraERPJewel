@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class ErpService {
 
   private URLHostName = "http://www.service.timeseraerp.in";
+  getTagGenerationDetails:string = this.URLHostName + "/api/Erp/GetTagGenerationDetails";
   getOutStandingCustomerURL: string = this.URLHostName + "/api/Erp/GetOutStandingCustomer";
   getOutStandingDealorURL: string = this.URLHostName + "/api/Erp/GetOutStandingDealers";
   getCashBookURL: string = this.URLHostName + "/api/Erp/GetCashBook";
@@ -18,11 +19,22 @@ export class ErpService {
   getSaleRegisterURL: string = this.URLHostName + "/api/Erp/GetSaleRegister";
   getBankTransactionsURL: string = this.URLHostName + "/api/Erp/GetBankTransactions";
   getBankTransactionsOpeningURL: string = this.URLHostName + "/api/Erp/GetBankTransactionsOpening";
+  getProductWiseSaleRegisterURL: string = this.URLHostName + "/api/Erp/GetProductWiseSaleRegister";
+  getReceiptRegisterURL: string = this.URLHostName + "/api/Erp/GetReceiptRegister";
+  getProductURL: string = this.URLHostName + "/api/Erp/GetTagGenerationDetails";
+  getProductDataURL: string = this.URLHostName + "/api/Erp/GetMainProductDetails";
+  getCounterNetDataURL: string = this.URLHostName + "/api/Erp/GetCounterNetSummary";
+  getStockPrefixDataURL: string = this.URLHostName + "/api/Erp/GetPrefixSummary";
+
 
   headers: any;
   constructor(private httpClient: HttpClient, private cookieService: CookieService) {
   }
-
+  GetTagGenerationDetails(filterName: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('filterName', filterName);
+    return this.httpClient.get<any>(this.getTagGenerationDetails, { 'params': params, 'headers': this.headers });
+  }
   GetOutStandingCustomer(filterName: any, cityName: any, custName: any, mobileNum: any): Observable<any> {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('filterName', filterName).set('cityName', cityName).set('custName', custName).set('mobileNum', mobileNum);
@@ -63,4 +75,35 @@ export class ErpService {
     const params = new HttpParams().set('depStartDate', depStartDate).set('accno', accno).set('mode', mode);
     return this.httpClient.get<any>(this.getBankTransactionsOpeningURL, { 'params': params, 'headers': this.headers });
   }
+  GetProductWiseSaleRegister(name: any, billStartDate: any, billEndDate: any, jewelType: any, productName: any, counterName: any, prefix: any){
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('name', name).set('billStartDate', billStartDate).set('billEndDate', billEndDate).set('jewelType', jewelType).set('productName', productName).set('counterName', counterName).set('prefix', prefix);
+    return this.httpClient.get<any>(this.getProductWiseSaleRegisterURL, { 'params': params, 'headers': this.headers });
+  }
+  GetReceiptRegister(recStartDate: any, recEndDate:any, custName: any){
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('recStartDate', recStartDate).set('recEndDate', recEndDate).set('custName', custName);
+    return this.httpClient.get<any>(this.getReceiptRegisterURL, { 'params': params, 'headers': this.headers });
+  }
+  GetProductService(filterName: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('filterName', filterName);
+    return this.httpClient.get<any>(this.getProductURL, { 'params': params, 'headers': this.headers });
+  }
+  GetProductData(mName: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('mName', mName);
+    return this.httpClient.get<any>(this.getProductDataURL, { 'params': params, 'headers': this.headers });
+  }
+  GetCounterNetData(mName: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('mName', mName);
+    return this.httpClient.get<any>(this.getCounterNetDataURL, { 'params': params, 'headers': this.headers });
+  }
+  GetPuritySummaryData(mName: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('mName', mName);
+    return this.httpClient.get<any>(this.getStockPrefixDataURL, { 'params': params, 'headers': this.headers });
+  }
+
 }

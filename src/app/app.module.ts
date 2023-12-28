@@ -8,7 +8,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { RouterModule, Routes } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -66,9 +69,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { CustomerreceiptregisterComponent } from './customerreceiptregister/customerreceiptregister.component';
+import { DiamondsalesComponent } from './diamondsales/diamondsales.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -78,11 +85,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     EstimationRegisterComponent,
     PurchaseEstimationRegisterComponent,
     TagDetailsComponent,
-    
+
     StockChartComponent,
     OrnamentStockGS12Component,
     CounterNetSummaryComponent,
     ProductSummaryComponent,
+    TimeseraloginComponent,
     CounterChartComponent,
     StockBalanceComponent,
     PuritySummaryComponent,
@@ -118,18 +126,26 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     JobWorkReceivalRegisterComponent,
     TimeseraloginComponent,
     DashboardComponent,
-    ErpComponent
+    ErpComponent,
+    CustomerreceiptregisterComponent,
+    DiamondsalesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatGridListModule,
     MatOptionModule,
     MatSelectModule,
     AppRoutingModule,
+    MatFormFieldModule,
+    MatButtonToggleModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatTabsModule,
     // MatTableDataSource,
     MatSidenavModule,
     MatMenuModule,
