@@ -61,36 +61,6 @@
         <label style="margin-left: 5px !important;">Bill No: </label>
         <input matInput style="margin-right: 10px !important;" [(ngModel)]="billNO">
 
-
-        <!-- <label style="margin-left: 5px !important;">Type: </label>
-        <input matInput style="margin-right: 10px !important;" [(ngModel)]="transtype">
-        <label style="margin-left: 5px !important;">Amount: </label>
-        <input matInput style="margin-right: 10px !important;" [(ngModel)]="currBal">
-        <label style="margin-left: 5px !important;">PAYMODE: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Party</mat-label>
-            <mat-select disableRipple [(ngModel)]="payMode">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of payModeList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        
-        <label style="margin-left: 5px !important;">Purity: {{openingBalance}}</label>
-        <div>
-            <label style="margin-left: 5px !important;">From: </label>
-            <mat-form-field>
-                <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="billStartDate">
-                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field>
-
-            <label style="margin-left: 5px !important;">To: </label>
-            <mat-form-field>
-                <input matInput [matDatepicker]="picker2" placeholder="Choose a date" [(ngModel)]="billEndDate">
-                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field> 
-        </div>-->
         <button mat-raised-button color="warn" class="ml-4" (click)="GetProduceWiseSalesDetails()"
             style="margin-left: 5px !important;">Show</button>
     </div>

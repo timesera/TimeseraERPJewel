@@ -1,1 +1,92 @@
-<p>customerreceiptregister works!</p>
+<div class="example-container">
+    <div>
+        <label style="margin-left: 5px !important;">From: </label>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="billStartDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <label style="margin-left: 5px !important;">To: </label>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker2" placeholder="Choose a date" [(ngModel)]="billEndDate">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <label style="margin-left: 5px !important;">Customer: </label>
+        <mat-form-field class="example-full-width ml-2">
+            <mat-label>Select Jewel</mat-label>
+            <mat-select disableRipple [(ngModel)]="customerName">
+                <mat-option value=""></mat-option>
+                <mat-option *ngFor="let item of customerNameList" value={{item}}>{{item}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+
+        <button mat-raised-button color="warn" class="ml-4" (click)="GetCustomerReceiptRegisterDetails()"
+            style="margin-left: 5px !important;">Show</button>
+    </div>
+
+
+</div>
+
+<div class="mat-elevation-z8 align">
+    <!-- <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> S.No. </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ getSerialNumber(i) }} </td>
+            <td mat-footer-cell *matFooterCellDef>Total</td>
+        </ng-container>
+        <ng-container matColumnDef="vno">
+            <th mat-header-cell *matHeaderCellDef> VNO </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ element.recNo }} </td>
+            <td mat-footer-cell *matFooterCellDef>Total</td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> DATE </th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.depdate}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="transtype">
+            <th mat-header-cell *matHeaderCellDef> TRANS TYPE </th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.transtype}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="paymode">
+            <th mat-header-cell *matHeaderCellDef>PAYMODE</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position">  {{element.mode}}  </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="particulars">
+            <th mat-header-cell *matHeaderCellDef> PARTICULARS </th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.ptype}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="partyname">
+            <th mat-header-cell *matHeaderCellDef>PARTY NAME</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="debit">
+            <th mat-header-cell *matHeaderCellDef>DEBIT</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.debit}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="closebalance">
+            <th mat-header-cell *matHeaderCellDef>CLOSEING BALANCE</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> 0 </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="credit">
+            <th mat-header-cell *matHeaderCellDef>CREDIT</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.credit}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator> -->
+</div>

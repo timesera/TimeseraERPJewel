@@ -14,15 +14,15 @@ export class ProductWiseSaleSummaryComponent implements OnInit {
 
   billStartDate: any = new Date();
   billEndDate: any = new Date();
-  jewelType: any;
+  jewelType: any = "";
   jewelTypeList: any = [];
-  productName: any;
+  productName: any = "";
   productNameList: any = [];
-  counter: any;
+  counter: any = "";
   counterList: any = [];
-  prefix: any;
+  prefix: any = "";
   prefixList: any = [];
-  customerName: any;
+  customerName: any = "";
   customerNameList: any = [];
   billNO: any;
   tagNo: any;
