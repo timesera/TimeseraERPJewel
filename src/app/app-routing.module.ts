@@ -44,6 +44,8 @@ import { SmithIssueRegisterComponent } from './smith-issue-register/smith-issue-
 import { SmithReceivalRegisterComponent } from './smith-receival-register/smith-receival-register.component';
 import { JobWorkIssueRegisterComponent } from './job-work-issue-register/job-work-issue-register.component';
 import { JobWorkReceivalRegisterComponent } from './job-work-receival-register/job-work-receival-register.component';
+import { CustomerreceiptregisterComponent } from './customerreceiptregister/customerreceiptregister.component';
+import { DiamondsalesComponent } from './diamondsales/diamondsales.component';
 const routes: Routes = [
   {
     path: '', component: TimeseraloginComponent
@@ -197,6 +199,12 @@ const routes: Routes = [
       },
       {
         path: 'OrderStatus', component: OrderStatusComponent
+      },
+      {
+        path: 'CustomerReceeipt', component: CustomerreceiptregisterComponent
+      },
+      {
+        path: 'DiamonsSales', component: DiamondsalesComponent
       },
       {
         path: '**', component: DashboardComponent

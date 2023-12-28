@@ -68,6 +68,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CustomerreceiptregisterComponent } from './customerreceiptregister/customerreceiptregister.component';
+import { DiamondsalesComponent } from './diamondsales/diamondsales.component';
 
 
 @NgModule({
@@ -118,7 +120,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     JobWorkReceivalRegisterComponent,
     TimeseraloginComponent,
     DashboardComponent,
-    ErpComponent
+    ErpComponent,
+    CustomerreceiptregisterComponent,
+    DiamondsalesComponent
   ],
   imports: [
     BrowserModule,
