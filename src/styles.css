@@ -1,18 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: 'Times New Roman', Times, serif;
+html, body { height: 100%; }
+body { margin: 0;
+     font-family: 'Times New Roman', Times, serif;
     overflow: hidden;
-
-
-
 }
 
 a.mat-mdc-list-item.mdc-list-item.mat-mdc-list-item-interactive.mat-mdc-list-item-single-line.mdc-list-item--with-one-line:hover {
@@ -94,7 +86,9 @@ a.mat-mdc-list-item.mdc-list-item.mat-mdc-list-item-interactive.mat-mdc-list-ite
     color: #fff !important;
     overflow-x: hidden !important;
 }
-
+.mat-drawer-content{
+    overflow-x: hidden !important;
+}
 .mat-mdc-list-base {
     display: block;
     color: white !important;
@@ -175,8 +169,58 @@ hr {
 span.mat-expansion-indicator.ng-tns-c36-3.ng-trigger.ng-trigger-indicatorRotate.ng-star-inserted {
     visibility: hidden;
 }
-
-::-webkit-scrollbar-thumb {
+.cdk-overlay-pane{
+    padding-top: 15px;
+}
+.mat-mdc-form-field {
+    height: 90px;
+}
+.style {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    /* font-family : inherit; */
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .style td, .style th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .style tr:nth-child(even)
+  {background-color: #f2f2f2;}
+  
+  .style tr:hover 
+  {background-color: #ddd;}
+  
+  .style th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: orchid;
+    color: white;
+  }
+  .input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .button {
+    width: 50%;
+    padding: 12px 20px ;
+    margin: 0  25% 0 ;  
+    display: inline-block;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  ::-webkit-scrollbar-thumb {
     background: rgb(204, 70, 153);
     border-radius: 10px;
 }
