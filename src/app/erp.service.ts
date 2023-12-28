@@ -18,6 +18,7 @@ export class ErpService {
   getSaleRegisterURL: string = this.URLHostName + "/api/Erp/GetSaleRegister";
   getBankTransactionsURL: string = this.URLHostName + "/api/Erp/GetBankTransactions";
   getBankTransactionsOpeningURL: string = this.URLHostName + "/api/Erp/GetBankTransactionsOpening";
+  getProductWiseSaleRegisterURL: string = this.URLHostName + "/api/Erp/GetProductWiseSaleRegister";
 
   headers: any;
   constructor(private httpClient: HttpClient, private cookieService: CookieService) {
@@ -62,5 +63,10 @@ export class ErpService {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('depStartDate', depStartDate).set('accno', accno).set('mode', mode);
     return this.httpClient.get<any>(this.getBankTransactionsOpeningURL, { 'params': params, 'headers': this.headers });
+  }
+  GetProductWiseSaleRegister(name: any, billStartDate: any, billEndDate: any, jewelType: any, productName: any, counterName: any, prefix: any){
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('name', name).set('billStartDate', billStartDate).set('billEndDate', billEndDate).set('jewelType', jewelType).set('productName', productName).set('counterName', counterName).set('prefix', prefix);
+    return this.httpClient.get<any>(this.getProductWiseSaleRegisterURL, { 'params': params, 'headers': this.headers });
   }
 }
