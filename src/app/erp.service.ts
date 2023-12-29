@@ -25,6 +25,7 @@ export class ErpService {
   getProductDataURL: string = this.URLHostName + "/api/Erp/GetMainProductDetails";
   getCounterNetDataURL: string = this.URLHostName + "/api/Erp/GetCounterNetSummary";
   getStockPrefixDataURL: string = this.URLHostName + "/api/Erp/GetPrefixSummary";
+  getOrderRegisterDataURL: string = this.URLHostName + "/api/Erp/GetOrderRegister";  
 
 
   headers: any;
@@ -105,5 +106,9 @@ export class ErpService {
     const params = new HttpParams().set('mName', mName);
     return this.httpClient.get<any>(this.getStockPrefixDataURL, { 'params': params, 'headers': this.headers });
   }
-
+  GetOrderRegisterData(orderStartDate: any,orderEndDate: any,custName: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('orderStartDate', orderStartDate).set('orderEndDate', orderEndDate).set('custName', custName);
+    return this.httpClient.get<any>(this.getOrderRegisterDataURL, { 'params': params, 'headers': this.headers });
+  }
 }

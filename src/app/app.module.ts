@@ -76,6 +76,18 @@ import { CustomerreceiptregisterComponent } from './customerreceiptregister/cust
 import { DiamondsalesComponent } from './diamondsales/diamondsales.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
+import { OrnamentPurchaseRegisterComponent } from './ornament-purchase-register/ornament-purchase-register.component';
+import { PurchaseReturnRegisterComponent } from './purchase-return-register/purchase-return-register.component';
+import { BullionPurchaseRegisterComponent } from './bullion-purchase-register/bullion-purchase-register.component';
+import { SilverRegisterComponent } from './oldGold/silver-register/silver-register.component';
+import { StonePurchaseRegisterComponent } from './stone-purchase-register/stone-purchase-register.component';
+import { MeltingRegisterComponent } from './melting-register/melting-register.component';
+import { DealorWiseStockSummaryComponent } from './dealor-wise-stock-summary/dealor-wise-stock-summary.component';
+import { CounterWiseSalesComponent } from './counter-wise-sales/counter-wise-sales.component';
+import { EmployeeWiseSalesComponent } from './employee-wise-sales/employee-wise-sales.component';
+import { PurityWiseSalesComponent } from './purity-wise-sales/purity-wise-sales.component';
+import { DealerPaymentRegisterComponent } from './dealer-payment-register/dealer-payment-register.component';
+import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +97,6 @@ import {MatTabsModule} from '@angular/material/tabs';
     EstimationRegisterComponent,
     PurchaseEstimationRegisterComponent,
     TagDetailsComponent,
-
     StockChartComponent,
     OrnamentStockGS12Component,
     CounterNetSummaryComponent,
@@ -128,7 +139,19 @@ import {MatTabsModule} from '@angular/material/tabs';
     DashboardComponent,
     ErpComponent,
     CustomerreceiptregisterComponent,
-    DiamondsalesComponent
+    DiamondsalesComponent,
+    OrnamentPurchaseRegisterComponent,
+    PurchaseReturnRegisterComponent,
+    BullionPurchaseRegisterComponent,
+    SilverRegisterComponent,
+    StonePurchaseRegisterComponent,
+    MeltingRegisterComponent,
+    DealorWiseStockSummaryComponent,
+    CounterWiseSalesComponent,
+    EmployeeWiseSalesComponent,
+    PurityWiseSalesComponent,
+    DealerPaymentRegisterComponent,
+    DealerLedgerComponent
   ],
   imports: [
     BrowserModule,
