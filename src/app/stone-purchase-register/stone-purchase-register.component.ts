@@ -9,7 +9,7 @@ import { ErpService } from '../erp.service';
   styleUrls: ['./stone-purchase-register.component.css']
 })
 export class StonePurchaseRegisterComponent {
-  displayedColumns: string[] = ['position','voucherNO','date','mainPrdt','prtyName','gwt','less','nwt','totalAmt','cgst','sgst','igst','grsAmt'];
+  displayedColumns: string[] = ['position','invNO','date','prtyName','particlrs','gwt','less','nwt','totalAmt','cgst','sgst','igst','grsAmt'];
 
   stnPrcsStrtDt:Date=new Date();
   stnPrcsEndDt:Date=new Date();
