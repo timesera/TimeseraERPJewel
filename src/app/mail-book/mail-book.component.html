@@ -1,1 +1,186 @@
-<p>mail-book works!</p>
+<div class="example-container">
+     
+    <div>
+      <label style="margin-left: 20px !important;">From: </label>
+          <mat-form-field>
+      <input matInput [matDatepicker]="picker1"  placeholder="Choose a date" [(ngModel)]="mailStartDate">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>   
+    
+    <label style="margin-left: 20px !important;">To: </label>
+          <mat-form-field>
+      <input matInput [matDatepicker]="picker2"  placeholder="Choose a date" [(ngModel)]="mailEndDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <label style="margin-left: 20px !important;">Category: </label>
+          <mat-form-field class="example-full-width ml-2">
+      
+            <mat-label >Select Category</mat-label>
+          <mat-select disableRipple [(ngModel)]="ctgryType" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of ctgrList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <label style="margin-left: 20px !important;">City: </label>
+          <mat-form-field class="example-full-width ml-2">
+      
+            <mat-label >Select City</mat-label>
+          <mat-select disableRipple [(ngModel)]="cityType" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of cityList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+      <!-- </div> -->
+      
+          <label style="margin-left: 20px !important;">District: </label>
+          <mat-form-field class="example-full-width ml-2">
+      
+            <mat-label >Select District</mat-label>
+          <mat-select disableRipple [(ngModel)]="distName" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of distList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+          <label style="margin-left: 20px !important;">State: </label>
+          <mat-form-field class="example-full-width ml-2">
+      
+            <mat-label >Select State</mat-label>
+          <mat-select disableRipple [(ngModel)]="statName" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of stateList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <label style="margin-left: 20px !important;">Phone No: </label>
+         
+          <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="PhoneNo">
+       
+          <label style="margin-left: 20px !important;">Search by Name: </label>
+         
+          <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="serchName">
+         </div>
+         <div class="example-container">
+          <label style="margin-left: 20px !important;">D.O.B: </label>
+          <mat-form-field>
+      <input matInput [matDatepicker]="picker3"  placeholder="Choose a date" [(ngModel)]="dobDate">
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+    <label style="margin-left: 20px !important;">Anniversary: </label>
+          <mat-form-field>
+      <input matInput [matDatepicker]="picker4"  placeholder="Choose a date" [(ngModel)]="anvrsryDate">
+      <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+      <mat-datepicker #picker4></mat-datepicker>
+    </mat-form-field>
+      
+      <button mat-raised-button color="warn"  class="m-4" >Show</button>
+      
+      
+    </div>
+
+  
+</div>
+
+<div class="mat-elevation-z8 align">
+    <table mat-table  [dataSource]="dataSource">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> S.No. </th>
+      <td mat-cell *matCellDef="let element; let i = index" > {{ i+1 }} </td>
+      <td mat-footer-cell *matFooterCellDef >Total</td>  
+  </ng-container>
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef>Category</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billDate}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="city">
+  <th mat-header-cell *matHeaderCellDef>City </th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.jewelType}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="name">
+<th mat-header-cell *matHeaderCellDef>Name</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billNo}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="cardNo">
+<th mat-header-cell *matHeaderCellDef>Card No</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="adrs">
+    <th mat-header-cell *matHeaderCellDef>Address</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totPieces}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="state">
+  <th mat-header-cell *matHeaderCellDef>State</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totGwt}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="distrct">
+<th mat-header-cell *matHeaderCellDef>District</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totNwt}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="moblNo1">
+<th mat-header-cell *matHeaderCellDef>Mobile No.1</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totAmt}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="moblNo2">
+    <th mat-header-cell *matHeaderCellDef>Mobile No.2</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.disAmt}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="edctn">
+  <th mat-header-cell *matHeaderCellDef>Education</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.grsAmt}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="email">
+<th mat-header-cell *matHeaderCellDef>Email</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cgst}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="fax">
+<th mat-header-cell *matHeaderCellDef>Fax</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.sgst}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container><ng-container matColumnDef="wbst">
+    <th mat-header-cell *matHeaderCellDef>Website</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.igst}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="dob">
+  <th mat-header-cell *matHeaderCellDef>D.O.B</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.netAmt}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="anvrsry">
+    <th mat-header-cell *matHeaderCellDef>Anniversary</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.netAmt}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+  <!-- </mat-table> -->
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+</div>

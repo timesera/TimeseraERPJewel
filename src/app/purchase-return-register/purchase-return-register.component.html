@@ -1,0 +1,141 @@
+<div class="example-container">    
+      <label style="margin-left: 20px !important;">From: </label>
+          <mat-form-field>
+      <input matInput [matDatepicker]="picker1"  placeholder="Choose a date" [(ngModel)]="prchseStartDate">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>   
+    
+    <label style="margin-left: 20px !important;">To: </label>
+          <mat-form-field>
+      <input matInput [matDatepicker]="picker2"  placeholder="Choose a date" [(ngModel)]="prchseEndDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    </div>
+    
+      <div class="example-container">
+          <label style="margin-left: 20px !important;">Party Name: </label>
+          <mat-form-field class="example-full-width ml-2">
+            <mat-label >Select Party</mat-label>
+          <mat-select disableRipple [(ngModel)]="partyName" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of prtyList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+          
+         
+          <label style="margin-left: 20px !important;">Main Product: </label>
+          <mat-form-field class="example-full-width ml-2">
+      
+            <mat-label >Select Product</mat-label>
+          <mat-select disableRipple [(ngModel)]="prodName" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of prodList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+          <label style="margin-left: 20px !important;">Purity: </label>
+          <mat-form-field class="example-full-width ml-2">
+      
+            <mat-label >Select Purity</mat-label>
+          <mat-select disableRipple [(ngModel)]="purtyName" >
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let item of purtyList" value={{item}}>{{item}}</mat-option>
+           
+          </mat-select>
+          </mat-form-field>
+          <!-- <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="mobileNo">
+         -->
+       
+      
+      <button mat-raised-button color="warn"  class="m-4" >Show</button>
+      
+      
+    </div>
+
+  
+
+<div class="mat-elevation-z8 align">
+    <table mat-table  [dataSource]="dataSource">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> S.No. </th>
+      <td mat-cell *matCellDef="let element; let i = index" > {{ i+1 }} </td>
+      <td mat-footer-cell *matFooterCellDef >Total</td>  
+  </ng-container>
+  <ng-container matColumnDef="voucherNO">
+    <th mat-header-cell *matHeaderCellDef>Voucher NO</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billDate}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="date">
+  <th mat-header-cell *matHeaderCellDef> Date </th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.jewelType}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="mainPrdt">
+<th mat-header-cell *matHeaderCellDef> Main Product </th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billNo}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="prtyName">
+<th mat-header-cell *matHeaderCellDef>Party Name</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="gwt">
+    <th mat-header-cell *matHeaderCellDef>Gwt</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totPieces}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="less">
+  <th mat-header-cell *matHeaderCellDef>Less</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totGwt}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="nwt">
+<th mat-header-cell *matHeaderCellDef>Nwt</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totNwt}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="totalAmt">
+<th mat-header-cell *matHeaderCellDef>Total Amt</th>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totAmt}} </td>
+<td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="cgst">
+    <th mat-header-cell *matHeaderCellDef>CGST</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.disAmt}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="sgst">
+  <th mat-header-cell *matHeaderCellDef>SGST</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.grsAmt}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="igst">
+    <th mat-header-cell *matHeaderCellDef>IGST</th>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.igst}} </td>
+    <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+<ng-container matColumnDef="grsAmt">
+  <th mat-header-cell *matHeaderCellDef>Gross Amount</th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.netAmt}} </td>
+  <td mat-footer-cell *matFooterCellDef ></td>  
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+  <!-- </mat-table> -->
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+</div>
+

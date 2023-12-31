@@ -46,6 +46,18 @@ import { JobWorkIssueRegisterComponent } from './job-work-issue-register/job-wor
 import { JobWorkReceivalRegisterComponent } from './job-work-receival-register/job-work-receival-register.component';
 import { CustomerreceiptregisterComponent } from './customerreceiptregister/customerreceiptregister.component';
 import { DiamondsalesComponent } from './diamondsales/diamondsales.component';
+import { OrnamentPurchaseRegisterComponent } from './ornament-purchase-register/ornament-purchase-register.component';
+import { PurchaseReturnRegisterComponent } from './purchase-return-register/purchase-return-register.component';
+import { BullionPurchaseRegisterComponent } from './bullion-purchase-register/bullion-purchase-register.component';
+import { SilverRegisterComponent } from './oldGold/silver-register/silver-register.component';
+import { StonePurchaseRegisterComponent } from './stone-purchase-register/stone-purchase-register.component';
+import { MeltingRegisterComponent } from './melting-register/melting-register.component';
+import { DealorWiseStockSummaryComponent } from './dealor-wise-stock-summary/dealor-wise-stock-summary.component';
+import { CounterWiseSalesComponent } from './counter-wise-sales/counter-wise-sales.component';
+import { EmployeeWiseSalesComponent } from './employee-wise-sales/employee-wise-sales.component';
+import { PurityWiseSalesComponent } from './purity-wise-sales/purity-wise-sales.component';
+import { DealerPaymentRegisterComponent } from './dealer-payment-register/dealer-payment-register.component';
+import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 const routes: Routes = [
   {
     path: '', component: TimeseraloginComponent
@@ -205,6 +217,42 @@ const routes: Routes = [
       },
       {
         path: 'DiamonsSales', component: DiamondsalesComponent
+      },
+      {
+        path: 'OrnamentPurchaseRegister', component: OrnamentPurchaseRegisterComponent
+      },
+      {
+        path: 'PurchaseReturnRegister', component: PurchaseReturnRegisterComponent
+      },
+      {
+        path: 'BullionPurchaseRegister', component: BullionPurchaseRegisterComponent
+      },
+      {
+        path: 'OGSRegister', component: SilverRegisterComponent
+      },
+      {
+        path: 'StonePurchaseRegister', component: StonePurchaseRegisterComponent
+      },
+      {
+        path: 'MeltingRegister', component: MeltingRegisterComponent
+      },
+      {
+        path: 'DealorWiseStockSumary', component: DealorWiseStockSummaryComponent
+      },
+      {
+        path: 'CounterWiseSales', component: CounterWiseSalesComponent
+      },
+      {
+        path: 'EmplyeWiseSales', component: EmployeeWiseSalesComponent
+      },
+      {
+        path: 'PurtyWiseSales', component: PurityWiseSalesComponent
+      },
+      {
+        path: 'DealerPymntRgstr', component: DealerPaymentRegisterComponent
+      },
+      {
+        path: 'DealrLdgr', component: DealerLedgerComponent
       },
       {
         path: '**', component: DashboardComponent
