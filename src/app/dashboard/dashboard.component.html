@@ -1,200 +1,338 @@
-<div class="container">
-    <div class="row">
-        <mat-grid-list cols="4" rowHeight="2:1" gutterSize="10px" style="margin: 5px; padding: 10px;">
-            <mat-grid-tile rowspan="3" style="width: calc(32% - 7.5px) !important;
-            left: 0px;
-            margin-top: 0px;
-            padding-top: calc(37.5% - 2.5px) !important;">
-
-
-                <mat-card class="mat-elevation-z8 card-prop" style="background-color: #fff;">
-
-                    <!-- Content for CARD 1 -->
-                    <div style="background-color: #50be91; margin-top: -159px;">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+<!-- <div class="col-xl-8 mb-5 mb-xl-10">
+    <div class="row g-5 g-xl-10">
+        <div class="zoom col-xl-6 mb-5 mb-xl-10">
+            <div id="kt_sliders_widget_2_slider"
+                class="card card-flush carousel carousel-custom carousel-stretch slide h-xl-100" data-bs-ride="carousel"
+                data-bs-interval="1000">
+                <div class="card-header pt-5">
+                    <h4 class="card-title d-flex align-items-start flex-column"><span
+                            class="card-label fw-bolder text-gray-800">Configuration</span><span
+                            class="text-gray-400 mt-1 fw-bolder fs-7">view your account Configuration</span></h4>
+                    <div class="card-toolbar">
+                        <ol
+                            class="p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-success">
+                            <li data-bs-target="#kt_sliders_widget_2_slider" data-bs-slide-to="0" class="ms-1"></li>
+                            <li data-bs-target="#kt_sliders_widget_2_slider" data-bs-slide-to="1" class="ms-1"></li>
+                            <li data-bs-target="#kt_sliders_widget_2_slider" data-bs-slide-to="2" class="ms-1 active"
+                                aria-current="true"></li>
+                        </ol>
                     </div>
-                    <div style="background-color: white; padding: 10px;">
-                        <div style="display: flex;
-                            justify-content: space-between;
-                            gap: 20px ;    padding-left: 32px;
-                padding-right: 32px ;
-                            height: 100px; margin-bottom: 20px; margin-top: -38px;">
-                            <div style="width: 38%; background: #f0f0f0; padding: 8px;">
-                                <p>Box 1</p>
-                            </div>
-                            <div style="width: 38%; background: #f0f0f0; padding: 8px;">
-                                <p>Box 2</p>
+                </div>
+                <div class="card-body pt-6">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <div class="d-flex align-items-center mb-9">
+                                <div class="symbol symbol-70px symbol-circle me-5"><span
+                                        class="symbol-label bg-light-success"><span
+                                            class="svg-icon svg-icon-3x svg-icon-success"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M16.925 3.90078V8.00077L12.025 10.8008V5.10078L15.525 3.10078C16.125 2.80078 16.925 3.20078 16.925 3.90078ZM2.525 13.5008L6.025 15.5008L10.925 12.7008L6.025 9.90078L2.525 11.9008C1.825 12.3008 1.825 13.2008 2.525 13.5008ZM18.025 19.7008V15.6008L13.125 12.8008V18.5008L16.625 20.5008C17.225 20.8008 18.025 20.4008 18.025 19.7008Z"
+                                                    fill="black"></path>
+                                                <path opacity="0.3"
+                                                    d="M8.52499 3.10078L12.025 5.10078V10.8008L7.125 8.00077V3.90078C7.125 3.20078 7.92499 2.80078 8.52499 3.10078ZM7.42499 20.5008L10.925 18.5008V12.8008L6.02499 15.6008V19.7008C6.02499 20.4008 6.82499 20.8008 7.42499 20.5008ZM21.525 11.9008L18.025 9.90078L13.125 12.7008L18.025 15.5008L21.525 13.5008C22.225 13.2008 22.225 12.3008 21.525 11.9008Z"
+                                                    fill="black"></path>
+                                            </svg></span></span></div>
+                                <div class="m-0">
+                                    <h4 class="fw-bolder text-gray-800 mb-3">Kubernetes Limit</h4>
+                                    <div class="d-flex d-grid gap-5">
+                                        <div class="d-flex flex-column flex-shrink-0 me-4"><span
+                                                class="d-flex align-items-center fs-7 fw-bolder text-gray-400 mb-2"><span
+                                                    class="svg-icon svg-icon-6 svg-icon-gray-600 me-2"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                            fill="black"></rect>
+                                                        <path
+                                                            d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z"
+                                                            fill="black"></path>
+                                                    </svg></span>Total Kubernetes: <span
+                                                    id="total-kubernetes-limit">2</span></span><span
+                                                class="d-flex align-items-center text-gray-400 fw-bolder fs-7"><span
+                                                    class="svg-icon svg-icon-6 svg-icon-gray-600 me-2"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                            fill="black"></rect>
+                                                        <path
+                                                            d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z"
+                                                            fill="black"></path>
+                                                    </svg></span>Used Kubernetes: <span
+                                                    id="kubernetes_worker_used_count">0</span></span></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div style="display: flex;
-                                                justify-content: space-between;
-                                                gap: 20px;
-                                                height: 100px;     padding-left: 32px;
-                                    padding-right: 32px; ">
-                            <div style="width: 38%; background: #f0f0f0; padding: 8px;">
-                                <p>Box 3</p>
+                        <div class="carousel-item">
+                            <div class="d-flex align-items-center mb-9">
+                                <div class="symbol symbol-70px symbol-circle me-5"><span
+                                        class="symbol-label bg-light-danger"><span
+                                            class="svg-icon svg-icon-3x svg-icon-danger"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path opacity="0.3"
+                                                    d="M7 20.5L2 17.6V11.8L7 8.90002L12 11.8V17.6L7 20.5ZM21 20.8V18.5L19 17.3L17 18.5V20.8L19 22L21 20.8Z"
+                                                    fill="black"></path>
+                                                <path d="M22 14.1V6L15 2L8 6V14.1L15 18.2L22 14.1Z" fill="black"></path>
+                                            </svg></span></span></div>
+                                <div class="m-0">
+                                    <h4 class="fw-bolder text-gray-800 mb-3">Cloud Servers Limit</h4>
+                                    <div class="d-flex d-grid gap-5">
+                                        <div class="d-flex flex-column flex-shrink-0 me-4"><span
+                                                class="d-flex align-items-center fs-7 fw-bolder text-gray-400 mb-2"><span
+                                                    class="svg-icon svg-icon-6 svg-icon-gray-600 me-2"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                            fill="black"></rect>
+                                                        <path
+                                                            d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z"
+                                                            fill="black"></path>
+                                                    </svg></span>Total Servers: <span
+                                                    id="total-cloud-limit">10</span></span><span
+                                                class="d-flex align-items-center text-gray-400 fw-bolder fs-7"><span
+                                                    class="svg-icon svg-icon-6 svg-icon-gray-600 me-2"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                            fill="black"></rect>
+                                                        <path
+                                                            d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z"
+                                                            fill="black"></path>
+                                                    </svg></span>Used Servers: <span
+                                                    id="cloud_used_count">1</span></span></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div style="width: 38%; background: #f0f0f0; padding: 8px;">
-                                <p>Box 4</p>
+                            <div class="mb-1 d-none"><a class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#serverlimit-modal">Increse Limit</a></div>
+                        </div>
+                        <div class="carousel-item active">
+                            <div class="d-flex align-items-center mb-9">
+                                <div class="symbol symbol-70px symbol-circle me-5"><span
+                                        class="symbol-label bg-light-primary"><span
+                                            class="svg-icon svg-icon-3x svg-icon-primary"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M12.0444 17.9444V12.1444L17.0444 15.0444C18.6444 15.9444 19.1445 18.0444 18.2445 19.6444C17.3445 21.2444 15.2445 21.7444 13.6445 20.8444C12.6445 20.2444 12.0444 19.1444 12.0444 17.9444ZM7.04445 15.0444L12.0444 12.1444L7.04445 9.24445C5.44445 8.34445 3.44444 8.84445 2.44444 10.4444C1.54444 12.0444 2.04445 14.0444 3.64445 15.0444C4.74445 15.6444 6.04445 15.6444 7.04445 15.0444ZM12.0444 6.34444V12.1444L17.0444 9.24445C18.6444 8.34445 19.1445 6.24444 18.2445 4.64444C17.3445 3.04444 15.2445 2.54445 13.6445 3.44445C12.6445 4.04445 12.0444 5.14444 12.0444 6.34444Z"
+                                                    fill="black"></path>
+                                                <path opacity="0.3"
+                                                    d="M7.04443 9.24445C6.04443 8.64445 5.34442 7.54444 5.34442 6.34444C5.34442 4.54444 6.84444 3.04443 8.64444 3.04443C10.4444 3.04443 11.9444 4.54444 11.9444 6.34444V12.1444L7.04443 9.24445ZM17.0444 15.0444C18.0444 15.6444 19.3444 15.6444 20.3444 15.0444C21.9444 14.1444 22.4444 12.0444 21.5444 10.4444C20.6444 8.84444 18.5444 8.34445 16.9444 9.24445L11.9444 12.1444L17.0444 15.0444ZM7.04443 15.0444C6.04443 15.6444 5.34442 16.7444 5.34442 17.9444C5.34442 19.7444 6.84444 21.2444 8.64444 21.2444C10.4444 21.2444 11.9444 19.7444 11.9444 17.9444V12.1444L7.04443 15.0444Z"
+                                                    fill="black"></path>
+                                            </svg></span></span></div>
+                                <div class="m-0">
+                                    <h4 class="fw-bolder text-gray-800 mb-3">Credits &amp; Usages</h4>
+                                    <div class="d-flex d-grid gap-5">
+                                        <div class="d-flex flex-column flex-shrink-0 me-4"><span
+                                                class="d-flex align-items-center fs-7 fw-bolder text-gray-400 mb-2"><span
+                                                    class="svg-icon svg-icon-6 svg-icon-gray-600 me-2"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                            fill="black"></rect>
+                                                        <path
+                                                            d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z"
+                                                            fill="black"></path>
+                                                    </svg></span>Available Credits: <span
+                                                    id="available-credits">10421.93</span></span><span
+                                                class="d-flex align-items-center text-gray-400 fw-bolder fs-7"><span
+                                                    class="svg-icon svg-icon-6 svg-icon-gray-600 me-2"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                            fill="black"></rect>
+                                                        <path
+                                                            d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z"
+                                                            fill="black"></path>
+                                                    </svg></span>Current Usages: <span
+                                                    id="current-usages">6607</span></span></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </mat-card>
-            </mat-grid-tile>
-
-            <mat-grid-tile style="background-color: red;left: calc(28% + 2.5px) !important;
-            width: calc(24% - 7.5px ) !important; ">
-
-                <mat-card class="example-card" style="width: calc(195%);">
-                    <mat-card-header>
-                        <mat-card-title style="visibility: hidden;">Wish Box</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <!-- <p>Here you can find the details about users/roles.</p> -->
-                    </mat-card-content>
-                    <mat-card-header>
-                        <h4 style="text-align: center;">Wish Box</h4>
-                        <mat-card-title style="visibility: hidden;">Wish Box</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <div style="display: flex;
-                     justify-content: space-between;
-                     gap: 15px;
-                     height: 90px;
-         padding-right: 85px; width: 104%;
-            text-align: center; padding-left: 85px; margin-bottom: 5px;">
-                            <div style="width: 100%; background: #cebfbf; padding: 8px;text-align: center;">
-                                <h3>B <span style="font-size: 40px;">10</span></h3>
-                            </div>
-                            <div style="width: 100%; background: #f0f0f0; padding: 8px; ">
-                                <h3>A <span style="font-size: 40px !important;">10</span></h3>
-                            </div>
-                        </div>
-                        <p style=" visibility: hidden;">Here you can find the details about all the databases and
-                            tables.</p>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile style="background-color: blue;">
-                <mat-card class="example-card" style="width: calc(195%);">
-                    <mat-card-header>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <!-- <p>Here you can find the details about users/roles.</p> -->
-                    </mat-card-content>
-                    <mat-card-header>
-                        <mat-card-title style="visibility: hidden;">Wish Box</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <div style="display: block;
-                            justify-content: space-between;
-                            gap: 15px;
-                            height: 100px;
-                                width: 50%;
-                            text-align: center;  margin-bottom: 20px;">
-                            <h3>Dues:</h3><br>
-                            <div style="margin-top: -25px;">
-                                <span style="font-size: 17px;">Today's Due: 100</span><br>
-                                <span style="font-size: 17px;">Total Dues: 200</span>
-                            </div>
-                        </div>
-                        <p style=" visibility: hidden;">Here you can find the details about all the databases and
-                            tables.</p>
-                    </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile style="background-color: brown;">4</mat-grid-tile>
-            <mat-grid-tile colspan="3" style="background-color: blueviolet;">
-                <div style="margin-top: -20px;">
-                    <h3>Offering 8 * 6 Support</h3>
-                    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                        <mat-button-toggle value="bold">Support</mat-button-toggle>
-                        <mat-button-toggle value="italic">Ticket</mat-button-toggle>
-                    </mat-button-toggle-group>
                 </div>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="3" style="background-color: aqua;">
-                <div style="margin-top: -20px;">
-                    <h3>Valid Till : 01-JAN-2024</h3>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="example-container mat-elevation-z8" style="width: 100%; margin: 5px; padding: 10px;">
-                <mat-table #table [dataSource]="dataSource">
-                    <ng-container matColumnDef="position">
-                        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-                    </ng-container>
-
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-                    </ng-container>
-
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                        <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-                    </ng-container>
-
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-                    </ng-container>
-
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                </mat-table>
             </div>
         </div>
-        <div class="col-md-8">
-            <div class="example-container mat-elevation-z8">
-                <mat-table #table [dataSource]="dataSource">
-
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="position">
-                        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-                    </ng-container>
-
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-                    </ng-container>
-
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                        <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-                    </ng-container>
-
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-                    </ng-container>
-
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                </mat-table>
-
-                <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
-                </mat-paginator>
+        <div class="zoom col-xl-6 mb-xl-10">
+            <div id="kt_sliders_widget_1_slider"
+                class="card card-flush carousel carousel-custom carousel-stretch slide h-xl-100" data-bs-ride="carousel"
+                data-bs-interval="5000">
+                <div class="card-header pt-5">
+                    <h4 class="card-title d-flex align-items-start flex-column"><span
+                            class="card-label fw-bolder text-gray-800">My Profile</span><span
+                            class="text-gray-400 mt-1 fw-bolder fs-7">View your Profile here</span></h4>
+                    <div class="card-toolbar">
+                        <ol
+                            class="p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-primary">
+                            <li data-bs-target="#kt_sliders_widget_1_slider" data-bs-slide-to="0" class="ms-1 active"
+                                aria-current="true"></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="card-body pt-6">
+                    <div class="carousel-inner mt-n5">
+                        <div class="carousel-item show active">
+                            <div class="d-flex align-items-center mb-5">
+                                <div class="w-80px  me-2"><span class="svg-icon svg-icon-primary svg-icon-2hx"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="200" height="200"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path opacity="0.3"
+                                                d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z"
+                                                fill="black"></path>
+                                            <path
+                                                d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z"
+                                                fill="black"></path>
+                                        </svg></span></div>
+                                <div class="m-0">
+                                    <h4 class="fw-bolder text-gray-800 mb-3" id="fullname">VIJAY KUMAR MAKANI</h4>
+                                    <div class="d-flex d-grid gap-5">
+                                        <div class="d-flex flex-column flex-shrink-0 me-4"><span
+                                                class="d-flex align-items-center fs-7 fw-bolder text-gray-400 mb-2"><span
+                                                    class="svg-icon svg-icon-6 svg-icon-gray-600 me-2"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                            fill="black"></rect>
+                                                        <path
+                                                            d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z"
+                                                            fill="black"></path>
+                                                    </svg></span><span
+                                                    id="demail">timesera9090@gmail.com</span></span><span
+                                                class="d-flex align-items-center text-gray-400 fw-bolder fs-7"><span
+                                                    class="svg-icon svg-icon-6 svg-icon-gray-600 me-2"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none">
+                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
+                                                            fill="black"></rect>
+                                                        <path
+                                                            d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z"
+                                                            fill="black"></path>
+                                                    </svg></span><span id="dmobile">9949713019</span></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-1"><a href="/account"><a class="btn btn-sm btn-primary">View Profile</a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
+    <div class="card" style="background: rgb(28, 50, 94);">
+        <div class="card-body d-flex ps-xl-15">
+            <div class="m-0">
+                <div class="position-relative fs-2x z-index-2 fw-bolder text-white mb-7"><span class="me-2">Offering
+                        24*7 Support,<br><span class="position-relative d-inline-block text-danger"><a id="applink"
+                                href="ticket" class="text-success opacity-75-hover">Click Here</a><span
+                                class="position-absolute opacity-50 bottom-0 start-0 border-4 border-danger border-bottom w-100"></span></span></span>For
+                    Assistance</div>
+                <div class="mb-3"><a id="applink" href="ticket" class="btn btn-success fw-bold me-2">Support</a><a
+                        id="verify-btn" class="btn btn-primary fw-bold me-2">Verify my account</a></div>
+            </div><img src="assets/media/illustrations/sigma-1/17-dark.png"
+                class="position-absolute me-3 bottom-0 end-0 h-200px" alt="">
+        </div>
+    </div>
+</div> -->
+
+<div class="row">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide"style="width: 30% !important;">
+        <div class="row">
+            <h3>Alerts / Dues</h3>
+            <div class="carousel-indicators btn-align">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#f5f5f5"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">First slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#bbb" dy=".3em">Second slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e5e5e5"></rect><text x="50%" y="50%" fill="#999" dy=".3em">Third slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div id="carouselExampleDark" class="carousel carousel-dark slide"style="width: 35% !important;">
+        <div class="carousel-indicators" style="position: relative; float: right;">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#f5f5f5"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">First slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#bbb" dy=".3em">Second slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e5e5e5"></rect><text x="50%" y="50%" fill="#999" dy=".3em">Third slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div id="carouselExampleDark" class="carousel carousel-dark slide"style="width: 35% !important;">
+        <div class="carousel-indicators" style="position: relative; float: right;">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#f5f5f5"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">First slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#bbb" dy=".3em">Second slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e5e5e5"></rect><text x="50%" y="50%" fill="#999" dy=".3em">Third slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
+

@@ -1,0 +1,22 @@
+
+.carousel .carousel-indicators button {
+    width: 10px;
+   height: 10px;
+   border-radius: 100%;
+ }
+
+ /* .carousel.carousel-custom .carousel-indicators {
+    align-items: center;
+    position: static;
+    z-index: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+} */
+
+.btn-align {
+    position: relative;
+    margin-left: 34%;
+    margin-top: -6vh;
+    margin-bottom: -1vh;
+}
