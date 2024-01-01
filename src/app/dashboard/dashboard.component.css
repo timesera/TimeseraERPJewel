@@ -44,14 +44,18 @@
 }
 
 .alertbox-card {
-    width: 68%; 
+    width: 64%; 
     margin-left: 5px; 
     margin-top: 5px;
 }
 
 .rates-slide {
-    width: 50% !important;
+    width: 48% !important;
     height: 30vh;
+    background-color: white;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .profile-name {
@@ -59,7 +63,7 @@
     font-family: fantasy;
 }
 .div-left-profile {
-    width: 30%;
+    width: 35%;
 }
 .table-cash {
     border-radius: 6px;
@@ -67,6 +71,8 @@
 }
 .table-payment{
    margin-left: 2.5vh;
+   background-color: white;
+   margin-top: -3px !important;
 }
 .div-left-inv {
     /* margin-left: 2.5vh; */
