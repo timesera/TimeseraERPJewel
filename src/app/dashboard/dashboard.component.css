@@ -20,3 +20,17 @@
     margin-top: -6vh;
     margin-bottom: -1vh;
 }
+
+.validate-baner {
+    color: #a31a27;
+    text-align: center;
+    margin: .5vh;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.carousel.carousel-custom .carousel-indicators button:active {
+    width: 15px;
+    color: green;
+}
