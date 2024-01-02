@@ -26,6 +26,10 @@ export class ErpService {
   getCounterNetDataURL: string = this.URLHostName + "/api/Erp/GetCounterNetSummary";
   getStockPrefixDataURL: string = this.URLHostName + "/api/Erp/GetPrefixSummary";
   getOrderRegisterDataURL: string = this.URLHostName + "/api/Erp/GetOrderRegister";  
+  getMainBookRegisterDataURL: string = this.URLHostName + "/api/Erp/GetMailBookRegister";
+  getPendingEstimationDataURL: string = this.URLHostName + "/api/Erp/GetPendingEstimation";
+  getTotalEstimationDataURL: string = this.URLHostName + "/api/Erp/GetTotalEstimation";
+  getMeltingBookDataURL: string = this.URLHostName + "/api/Erp/GetMeltingBookRegistry";
 
 
   headers: any;
@@ -110,5 +114,25 @@ export class ErpService {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('orderStartDate', orderStartDate).set('orderEndDate', orderEndDate).set('custName', custName);
     return this.httpClient.get<any>(this.getOrderRegisterDataURL, { 'params': params, 'headers': this.headers });
+  }
+  GetMainBookRegister(filterName: any, dealerName: any, mobileNo: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('filterName', filterName).set('dealerName', dealerName).set('mobileNo', mobileNo);
+    return this.httpClient.get<any>(this.getMainBookRegisterDataURL, { 'params': params, 'headers': this.headers });
+  }
+  GetPendingEstimation(estStartDate: any, estEndDate: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('estStartDate', estStartDate).set('estEndDate', estEndDate);
+    return this.httpClient.get<any>(this.getPendingEstimationDataURL, { 'params': params, 'headers': this.headers });
+  }
+  GetTotalEstimation(estStartDate: any, estEndDate: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('estStartDate', estStartDate).set('estEndDate', estEndDate);
+    return this.httpClient.get<any>(this.getTotalEstimationDataURL, { 'params': params, 'headers': this.headers });
+  }
+  GetMeltingBookRegister(filterName: any, startDate: any,endDate:any,jewelType:any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('filterName', filterName).set('startDate', startDate).set('endDate', endDate).set('jewelType', jewelType);
+    return this.httpClient.get<any>(this.getMeltingBookDataURL, { 'params': params, 'headers': this.headers });
   }
 }
