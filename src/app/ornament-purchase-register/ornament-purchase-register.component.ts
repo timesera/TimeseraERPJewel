@@ -9,12 +9,18 @@ import { ErpService } from '../erp.service';
   styleUrls: ['./ornament-purchase-register.component.css']
 })
 export class OrnamentPurchaseRegisterComponent {
-  displayedColumns: string[] = ['position','estmnt','date','gwt','nwt','grsAmt','gst','netAmt'];
+  displayedColumns: string[] = ['position','invNo','invDate','mainProd','prtyName','gwt','less','nwt','totalAmt','cgst','sgst','igst','grsAmt','tcs','netAmt'];
 
   ornmtRgstrStartDate:Date=new Date();
   ornmtRgstrEndDate:Date=new Date();
   // jewelList:any=[];
   estimation:any;
+  prtyList:any=[];
+  partyName:any;
+  prodList:any=[];
+  prodName:any;
+  purtyList:any=[];
+  purtyName:any;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;

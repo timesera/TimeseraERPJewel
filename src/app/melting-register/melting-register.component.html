@@ -41,57 +41,57 @@
   </ng-container>
   <ng-container matColumnDef="entryNo">
     <th mat-header-cell *matHeaderCellDef>Entry No</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billDate}} </td>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.vno}} </td>
     <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="date">
   <th mat-header-cell *matHeaderCellDef> Date </th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.jewelType}} </td>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.vDate}} </td>
   <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="jewelType">
 <th mat-header-cell *matHeaderCellDef>Jewel Type</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billNo}} </td>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.oldtype}} </td>
 <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="mltngWt">
 <th mat-header-cell *matHeaderCellDef>Melting Wt</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.meltingWt}} </td>
 <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="touch">
     <th mat-header-cell *matHeaderCellDef>Touch(%)</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totPieces}} </td>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.touch}} </td>
     <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="weight">
   <th mat-header-cell *matHeaderCellDef>Weight</th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totGwt}} </td>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.pureGold}} </td>
   <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
-<ng-container matColumnDef="purGld">
+<!-- <ng-container matColumnDef="purGld">
 <th mat-header-cell *matHeaderCellDef>Pure Gold</th>
 <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totNwt}} </td>
 <td mat-footer-cell *matFooterCellDef ></td>  
-</ng-container>
+</ng-container> -->
 <ng-container matColumnDef="oldTuch">
 <th mat-header-cell *matHeaderCellDef>Old Touch</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totAmt}} </td>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.otouch}} </td>
 <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="oldFine">
     <th mat-header-cell *matHeaderCellDef>Old Fine</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.disAmt}} </td>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.ofinegold}} </td>
     <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="profit">
   <th mat-header-cell *matHeaderCellDef>Profit</th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.grsAmt}} </td>
+  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.profit}} </td>
   <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="loss">
 <th mat-header-cell *matHeaderCellDef>Loss</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cgst}} </td>
+<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.loss}} </td>
 <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 

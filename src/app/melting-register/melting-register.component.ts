@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./melting-register.component.css']
 })
 export class MeltingRegisterComponent implements OnInit{
-  displayedColumns: string[] = ['position','entryNo','date','jewelType','mltngWt','touch','weight','purGld','oldTuch','oldFine','profit','loss'];
+  displayedColumns: string[] = ['position','entryNo','date','jewelType','mltngWt','touch','weight','oldTuch','oldFine','profit','loss'];
 
   mltngRgstrStartDate:Date=new Date();
   mltngRgstrEndDate:Date=new Date();
