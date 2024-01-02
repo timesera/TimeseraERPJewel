@@ -30,6 +30,10 @@ export class ErpService {
   getPendingEstimationDataURL: string = this.URLHostName + "/api/Erp/GetPendingEstimation";
   getTotalEstimationDataURL: string = this.URLHostName + "/api/Erp/GetTotalEstimation";
   getMeltingBookDataURL: string = this.URLHostName + "/api/Erp/GetMeltingBookRegistry";
+  getDealorWiseSumryURL: string = this.URLHostName + "/api/Erp/GetDealerSummary";
+  getOrnamntPurchaseURL: string = this.URLHostName + "/api/Erp/GetOrnmentPurchaseRegister";
+  getPurchaseRtrnURL: string = this.URLHostName + "/api/Erp/GetPurchaseReturnRegister";
+  getBullionPurchaseURL: string = this.URLHostName + "/api/Erp/GetBullionPurchaseRegister";
 
 
   headers: any;
@@ -134,5 +138,25 @@ export class ErpService {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('filterName', filterName).set('startDate', startDate).set('endDate', endDate).set('jewelType', jewelType);
     return this.httpClient.get<any>(this.getMeltingBookDataURL, { 'params': params, 'headers': this.headers });
+  }
+  GetDealorWiseSumryRegister(filterName: any, mName: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('filterName', filterName).set('mName', mName);
+    return this.httpClient.get<any>(this.getDealorWiseSumryURL, { 'params': params, 'headers': this.headers });
+  }
+  GetOrnmentPurchaseRegister(filterName: any, entryStartDate: any,entryEndDate:any,partyName:any,pType:any,prefix:any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('filterName', filterName).set('entryStartDate', entryStartDate).set('entryEndDate', entryEndDate).set('partyName', partyName).set('pType', pType).set('prefix', prefix);
+    return this.httpClient.get<any>(this.getOrnamntPurchaseURL, { 'params': params, 'headers': this.headers });
+  }
+  GetPurchaseReturnRegister(filterName: any, invStartDate: any,invEndDate:any,partyName:any,pType:any,prefix:any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('filterName', filterName).set('invStartDate', invStartDate).set('invEndDate', invEndDate).set('partyName', partyName).set('pType', pType).set('prefix', prefix);
+    return this.httpClient.get<any>(this.getPurchaseRtrnURL, { 'params': params, 'headers': this.headers });
+  }
+  GetBullionPurchaseRegister(filterName: any, invStartDate: any,invEndDate:any,dealer:any,pType:any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('filterName', filterName).set('invStartDate', invStartDate).set('invEndDate', invEndDate).set('dealer', dealer).set('pType', pType);
+    return this.httpClient.get<any>(this.getBullionPurchaseURL, { 'params': params, 'headers': this.headers });
   }
 }

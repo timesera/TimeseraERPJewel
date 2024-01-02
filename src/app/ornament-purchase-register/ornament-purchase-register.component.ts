@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-ornament-purchase-register',
@@ -27,5 +28,38 @@ export class OrnamentPurchaseRegisterComponent {
   dataSource = new MatTableDataSource<any>();
 
   constructor(private service: ErpService){
+  }
+  ngOnInit() {
+    this.getOrnamentData("PARTYNAME");
+    this.getOrnamentData("PTYPE");
+    this.getOrnamentData("PREFIX");
+    // this.getOrnamentData("PARTYNAME");
+    // this.getOrnamentData("PARTYNAME");
+  }
+  getOrnamentData(columnName: any =""){
+    const datePipe = new DatePipe('en-US');
+    let saleStartingDate = datePipe.transform(this.ornmtRgstrStartDate, 'yyyy/MM/dd') || '';
+    let saleEndingDate = datePipe.transform(this.ornmtRgstrEndDate, 'yyyy/MM/dd') || '';
+    this.service.GetOrnmentPurchaseRegister(columnName,saleStartingDate,saleEndingDate,this.partyName,this.prodName,this.purtyName).subscribe(data => {
+      if(data.length > 0){
+      if(columnName == "PARTYNAME"){
+        this.prtyList = data;
+      }if(columnName == "PTYPE"){
+        this.prodList = data;
+      }if(columnName == "PREFIX"){
+        this.purtyList = data;
+      }else {
+        this.dataSource.data=data 
+        this.dataSource.paginator = this.paginator;   
+      
+      }  
+    }
+    });
+
+    
+   }
+   getSerialNumber(index: number): number {
+  
+    return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }
 }
