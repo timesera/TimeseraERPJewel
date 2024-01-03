@@ -36,7 +36,7 @@ export class DealorWiseStockSummaryComponent implements OnInit{
   //  }
    getProductData(columnName: any =""){
     console.log("columnName",columnName)
-    this.service.GetDealorWiseSumryRegister(columnName,"").subscribe(data => {
+    this.service.GetDealorWiseSumryRegister(columnName,this.prodName).subscribe(data => {
       console.log("tagDetails",data)
       if(data.length >0 ){
         if(columnName == "MNAME"){

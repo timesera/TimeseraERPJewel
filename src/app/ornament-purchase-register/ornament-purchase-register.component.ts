@@ -33,8 +33,6 @@ export class OrnamentPurchaseRegisterComponent {
     this.getOrnamentData("PARTYNAME");
     this.getOrnamentData("PTYPE");
     this.getOrnamentData("PREFIX");
-    // this.getOrnamentData("PARTYNAME");
-    // this.getOrnamentData("PARTYNAME");
   }
   getOrnamentData(columnName: any =""){
     const datePipe = new DatePipe('en-US');
@@ -50,16 +48,16 @@ export class OrnamentPurchaseRegisterComponent {
         this.purtyList = data;
       }else {
         this.dataSource.data=data 
-        this.dataSource.paginator = this.paginator;   
-      
+        this.dataSource.paginator = this.paginator;  
+        
+        this.dataSource.data.forEach((element:any)=>{
+          element.less=parseInt(element.gwt)-parseInt(element.nwt)
+        })
       }  
     }
-    });
-
-    
+    });    
    }
    getSerialNumber(index: number): number {
-  
     return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }
 }

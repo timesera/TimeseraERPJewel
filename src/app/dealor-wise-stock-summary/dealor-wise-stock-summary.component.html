@@ -14,7 +14,7 @@
       </mat-select>
       </mat-form-field>
       
-      <button mat-raised-button color="warn"  class="m-4" >Show</button>
+      <button mat-raised-button color="warn"  class="m-4" (click)="getProductData()">Show</button>
 
     </div>
 
@@ -29,7 +29,7 @@
   </ng-container>
   <ng-container matColumnDef="dealrName">
     <th mat-header-cell *matHeaderCellDef>Dealor Name</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.prefix}} </td>
+    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.dealername}} </td>
     <td mat-footer-cell *matFooterCellDef ></td>  
 </ng-container>
 <ng-container matColumnDef="pcs">
