@@ -56,7 +56,7 @@
             <mat-option *ngFor="let item of tagList" value={{item}}>{{item}}</mat-option>
         </mat-select>
     </mat-form-field>
-
+    <mat-checkbox class="example-margin" [(ngModel)]="tagDate">Tag Date</mat-checkbox>
     
     <button mat-raised-button color="warn" class="ml-4" style="margin-left: 5px !important;">Show</button>
 

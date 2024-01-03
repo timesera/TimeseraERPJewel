@@ -21,6 +21,7 @@ export class SizeWiseStockComponent {
   cuntrName: any = "";
   tagList: any = [];
   tagName: any;
+  tagDate:boolean=true;
   
   displayedColumns: string[] = ['position', 'prodCat', 'prodName', 'prodSize', 'pcs', 'gwt', 'nwt'];
 
