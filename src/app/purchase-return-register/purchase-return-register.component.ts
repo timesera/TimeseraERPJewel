@@ -54,6 +54,9 @@ export class PurchaseReturnRegisterComponent implements OnInit{
         this.dataSource.data=data 
         this.dataSource.paginator = this.paginator;   
       
+        this.dataSource.data.forEach((element:any)=>{
+          element.less=parseInt(element.gwt)-parseInt(element.nwt)
+        })
       }  
     }
     });

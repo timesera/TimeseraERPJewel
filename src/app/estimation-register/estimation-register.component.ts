@@ -33,7 +33,7 @@ export class EstimationRegisterComponent {
 
     const datePipe = new DatePipe('en-US');
     let saleStartingDate = datePipe.transform(this.estmtnStartDate, 'yyyy/MM/dd') || '';
-    let saleEndingDate = datePipe.transform(this.estmtnStartDate, 'yyyy/MM/dd') || '';
+    let saleEndingDate = datePipe.transform(this.estmtnEndDate, 'yyyy/MM/dd') || '';
    
     
     this.service.GetPendingEstimation(saleStartingDate, saleEndingDate).subscribe(data => {
@@ -48,7 +48,7 @@ export class EstimationRegisterComponent {
 
     const datePipe = new DatePipe('en-US');
     let saleStartingDate = datePipe.transform(this.estmtnStartDate, 'yyyy/MM/dd') || '';
-    let saleEndingDate = datePipe.transform(this.estmtnStartDate, 'yyyy/MM/dd') || '';
+    let saleEndingDate = datePipe.transform(this.estmtnEndDate, 'yyyy/MM/dd') || '';
    
     
     this.service.GetTotalEstimation(saleStartingDate, saleEndingDate).subscribe(data => {
