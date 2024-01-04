@@ -1,6 +1,4 @@
 <div class="example-container">
-
-    <div>
         <label style="margin-left: 5px !important;">From: </label>
         <mat-form-field>
             <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="billStartDate">
@@ -23,62 +21,57 @@
                 <mat-option *ngFor="let item of productList" value={{item}}>{{item}}</mat-option>
             </mat-select>
         </mat-form-field>
-        <!-- <label style="margin-left: 5px !important;">Purity: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Party</mat-label>
-            <mat-select disableRipple [(ngModel)]="particulars">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of purityList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field> -->
+        
         <button mat-raised-button color="warn" class="ml-4" (click)="getBuillonStockDetails()" style="margin-left: 5px !important;">Show</button>
         <label style="margin-left: 5px !important;">Purity: {{openingBalance}}</label>
         
-    </div>
 
 
 </div>
-
+<div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator>
+</div>
 <div class="mat-elevation-z8 align">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash">
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{ getSerialNumber(i) }} </td>
+            <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ getSerialNumber(i) }} </td>
             <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> Date </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.entrydate}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.entrydate}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="partyname">
             <th mat-header-cell *matHeaderCellDef> Party Name </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.partyname}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.partyname}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="hsncode">
             <th mat-header-cell *matHeaderCellDef>HSNCODE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> 7114 </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> 7114 </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="invno">
             <th mat-header-cell *matHeaderCellDef> Inv No </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.vno}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.vno}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="jama">
             <th mat-header-cell *matHeaderCellDef>Gross Wt </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.jama}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.jama|number : '1.3-3'}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="nama">
             <th mat-header-cell *matHeaderCellDef>Gross Wt </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.nama}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.nama|number : '1.3-3'}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="balance">
             <th mat-header-cell *matHeaderCellDef>Balance</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.jama - element.nama}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.jama - element.nama}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -86,6 +79,6 @@
 
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
-    </mat-paginator>
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator> -->
 </div>
