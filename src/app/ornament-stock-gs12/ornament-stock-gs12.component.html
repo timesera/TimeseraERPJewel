@@ -38,7 +38,12 @@
 
 
 </div>
-
+<div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page">
+    </mat-paginator>
+</div>
 <div class="mat-elevation-z8 align">
     <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="position">
@@ -91,6 +96,6 @@
 
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
-    </mat-paginator>
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator> -->
 </div>

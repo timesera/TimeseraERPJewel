@@ -88,6 +88,7 @@ import { EmployeeWiseSalesComponent } from './employee-wise-sales/employee-wise-
 import { PurityWiseSalesComponent } from './purity-wise-sales/purity-wise-sales.component';
 import { DealerPaymentRegisterComponent } from './dealer-payment-register/dealer-payment-register.component';
 import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -184,8 +185,9 @@ import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
     MatInputModule,
 MatTableModule,
 MatCardModule,
+CommonModule 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

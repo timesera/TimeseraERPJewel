@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./estimation-register.component.css']
 })
 export class EstimationRegisterComponent {
-  displayedColumns: string[] = ['position','estmNo','date','cstmrName','gwt','nwt','itmAmnt','totlAmount','gst','discount','netAmt'];
+  displayedColumns: string[] = ['position','estmNo','date','cstmrName','gwt','nwt','itmAmnt','totlAmount','gst','netAmt'];
 
   estmtnStartDate:Date=new Date();
   estmtnEndDate:Date=new Date();
@@ -20,7 +20,7 @@ export class EstimationRegisterComponent {
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
 
-  constructor(private service: ErpService){
+  constructor(private service: ErpService,private datePipe: DatePipe){
   }
   getEstimationData(){
     if(this.pendng==true){
@@ -40,7 +40,11 @@ export class EstimationRegisterComponent {
       console.log("getPendingEstimation",data)
       if(data.length > 0){
           this.dataSource.data=data 
-          this.dataSource.paginator = this.paginator;           
+          this.dataSource.paginator = this.paginator; 
+          
+          this.dataSource.data.forEach((element:any)=>{
+            element.estmtDate = this.datePipe.transform(element.estDate, 'dd-MM-yyyy');
+          })
       }     
     });
   }
@@ -55,7 +59,11 @@ export class EstimationRegisterComponent {
       console.log("GetTotalEstimation",data)
       if(data.length > 0){
           this.dataSource.data=data 
-          this.dataSource.paginator = this.paginator;           
+          this.dataSource.paginator = this.paginator;  
+          
+          this.dataSource.data.forEach((element:any)=>{
+            element.estmtDate = this.datePipe.transform(element.estDate, 'dd-MM-yyyy');
+          })
       }     
     });
   }

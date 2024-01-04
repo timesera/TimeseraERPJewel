@@ -61,7 +61,12 @@
   
 </div>
     
-
+<div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+             showFirstLastButtons
+             aria-label="Select page">
+</mat-paginator>
+</div>
 
 
 <div class="mat-elevation-z8 align">
@@ -150,9 +155,9 @@
 
 <!-- </mat-table> -->
 </table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
              showFirstLastButtons
              aria-label="Select page">
-</mat-paginator>
+</mat-paginator> -->
 </div>
 
