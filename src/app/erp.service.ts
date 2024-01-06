@@ -34,6 +34,17 @@ export class ErpService {
   getOrnamntPurchaseURL: string = this.URLHostName + "/api/Erp/GetOrnmentPurchaseRegister";
   getPurchaseRtrnURL: string = this.URLHostName + "/api/Erp/GetPurchaseReturnRegister";
   getBullionPurchaseURL: string = this.URLHostName + "/api/Erp/GetBullionPurchaseRegister";
+  //DashBoard
+  getDailyRatesURL: string = this.URLHostName + "/api/DashBoard/GetDailyRates";
+  getGenBillNoURL: string = this.URLHostName + "/api/DashBoard/GetGenBillNo";
+  getFirmConfigureURL: string = this.URLHostName + "/api/DashBoard/GetFirmConfigure";
+  getTotalBillsURL: string = this.URLHostName + "/api/DashBoard/GetTotalBills";
+  getAnniversaryWishBoxDetailsURL: string = this.URLHostName + "/api/DashBoard/GetAnniversaryWishBoxDetails";
+  getBirthDayWishBoxDetailsURL: string = this.URLHostName + "/api/DashBoard/GetBirthDayWishBoxDetails";
+  getTodayDuesURL: string = this.URLHostName + "/api/DashBoard/GetTodayDues";
+  getMonthDuesURL: string = this.URLHostName + "/api/DashBoard/GetMonthDues";
+  getTotalDuesURL: string = this.URLHostName + "/api/DashBoard/GetTotalDues";
+  
 
 
   headers: any;
@@ -158,5 +169,49 @@ export class ErpService {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('filterName', filterName).set('invStartDate', invStartDate).set('invEndDate', invEndDate).set('dealer', dealer).set('pType', pType);
     return this.httpClient.get<any>(this.getBullionPurchaseURL, { 'params': params, 'headers': this.headers });
+  }
+
+  GetDailyRates(date: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('date', date);
+    return this.httpClient.get<any>(this.getDailyRatesURL, { 'params': params, 'headers': this.headers });
+  }
+  GetGenBillNo(fYear: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('fYear', fYear);
+    return this.httpClient.get<any>(this.getGenBillNoURL, { 'params': params, 'headers': this.headers });
+  }
+  GetFirmConfigure(): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    return this.httpClient.get<any>(this.getFirmConfigureURL, { 'headers': this.headers });
+  }
+  GetTotalBills(fYear: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('fYear', fYear);
+    return this.httpClient.get<any>(this.getTotalBillsURL, { 'params': params, 'headers': this.headers });
+  }
+  GetAnniversaryWishBoxDetails(date: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('date', date);
+    return this.httpClient.get<any>(this.getAnniversaryWishBoxDetailsURL, { 'params': params, 'headers': this.headers });
+  }
+  GetBirthDayWishBoxDetails(date: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('date', date);
+    return this.httpClient.get<any>(this.getBirthDayWishBoxDetailsURL, { 'params': params, 'headers': this.headers });
+  }
+  GetTodayDues(date: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('date', date);
+    return this.httpClient.get<any>(this.getTodayDuesURL, { 'params': params, 'headers': this.headers });
+  }
+  GetMonthDues(date: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('date', date);
+    return this.httpClient.get<any>(this.getMonthDuesURL, { 'params': params, 'headers': this.headers });
+  }
+  GetTotalDues(): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    return this.httpClient.get<any>(this.getTotalDuesURL, { 'headers': this.headers });
   }
 }
