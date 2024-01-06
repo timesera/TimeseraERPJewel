@@ -74,8 +74,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CustomerreceiptregisterComponent } from './customerreceiptregister/customerreceiptregister.component';
 import { DiamondsalesComponent } from './diamondsales/diamondsales.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
 import { OrnamentPurchaseRegisterComponent } from './ornament-purchase-register/ornament-purchase-register.component';
 import { PurchaseReturnRegisterComponent } from './purchase-return-register/purchase-return-register.component';
 import { BullionPurchaseRegisterComponent } from './bullion-purchase-register/bullion-purchase-register.component';
@@ -89,6 +89,7 @@ import { PurityWiseSalesComponent } from './purity-wise-sales/purity-wise-sales.
 import { DealerPaymentRegisterComponent } from './dealer-payment-register/dealer-payment-register.component';
 import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 import { CommonModule, DatePipe } from '@angular/common';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -183,9 +184,10 @@ import { CommonModule, DatePipe } from '@angular/common';
     MatButtonModule,
     MatExpansionModule,
     MatInputModule,
-MatTableModule,
-MatCardModule,
-CommonModule 
+    MatTableModule,
+    MatCardModule,
+    CommonModule,
+    NgHttpLoaderModule.forRoot(),
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
