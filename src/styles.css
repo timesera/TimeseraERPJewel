@@ -237,6 +237,8 @@ span.mat-expansion-indicator.ng-tns-c36-3.ng-trigger.ng-trigger-indicatorRotate.
   .align{
     margin-left: 10px !important;
     margin-right: 10px !important;
+    overflow-x: scroll;
+    width: 1110px !important;
   }
   
 .mat-mdc-form-field {

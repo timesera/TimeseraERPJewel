@@ -1,0 +1,14 @@
+/* .table .table-striped .table-cash{
+    overflow-x: auto;
+
+} */
+.scroll-table1 {
+    /* height: 40px !important; */
+    /* overflow-y: auto !important; /* Add a vertical scroll bar if content exceeds the height */
+    /* overflow-x: auto !important; */ 
+    /* width: 600px !important; */
+    width: 600px !important;
+    overflow-x: scroll !important;
+    overflow-y: scroll !important;
+
+}

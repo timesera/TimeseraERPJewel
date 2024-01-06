@@ -24,7 +24,7 @@ export class OrnamentStockGS12Component implements OnInit {
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
   
-  constructor(private service: ErpService){
+  constructor(private service: ErpService,private datePipe: DatePipe){
   }
   ngOnInit() {
     this.getOrnamentsStockDetails("PARTICULARS");
@@ -50,8 +50,12 @@ export class OrnamentStockGS12Component implements OnInit {
         this.dataSource.paginator = this.paginator;   
 
         this.dataSource.data.forEach((element:any)=>{
-          element.balance=parseInt(element.debit)-parseInt(element.credit)
+          element.balance=parseInt(element.debit)-parseInt(element.credit);
+          element.entrdate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
         })
+        // this.dataSource.data.forEach((element:any)=>{
+        //   element.entrdate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
+        // })
       }     
     });    
   }
