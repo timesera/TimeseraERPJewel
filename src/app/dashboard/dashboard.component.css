@@ -120,7 +120,7 @@
     border: 1px solid white !important;
     width: 15vh;
     margin-left: 5vh;
-    font-size: 6vh;
+    font-size: 4vh;
     text-align: center;
     margin-right: 5vh;
     background-color: black;
@@ -130,7 +130,7 @@
     border: 1px solid white !important;
     width: 18vh;
     margin-left: 3vh;
-    font-size: 5vh;
+    font-size: 3vh;
     text-align: center;
     margin-right: 3vh;
     background-color: black;
@@ -139,16 +139,18 @@
 
 .wbleft {
     float: left;
+    margin-top: 2vh;
 }
 
 .wbright {
     float: right;
+    margin-top: 2vh;
 }
 
 .wishfont {
-    font-size: 9vh !important;
+    font-size: 8vh !important;
 }
 
 .duefont {
-    font-size: 7vh !important;
+    font-size: 6vh !important;
 }
