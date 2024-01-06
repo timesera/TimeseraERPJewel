@@ -51,7 +51,7 @@
 
 .rates-slide {
     width: 48% !important;
-    height: 30vh;
+    height: 32vh;
     background-color: white;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
@@ -104,13 +104,49 @@
     text-align: center;
 }
 
-.welcome-times {
+.addres-times {
     font-size: 2.5vh;
-    margin-top: 8vh;
 }
 
 .due-table {
     height: 60vh;
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
+}
+
+.wishbox {
+    border: 1px solid white !important;
+    width: 15vh;
+    margin-left: 5vh;
+    font-size: 6vh;
+    text-align: center;
+    margin-right: 5vh;
+    background-color: black;
+    color: white;
+}
+.duebox {
+    border: 1px solid white !important;
+    width: 18vh;
+    margin-left: 3vh;
+    font-size: 5vh;
+    text-align: center;
+    margin-right: 3vh;
+    background-color: black;
+    color: white;
+}
+
+.wbleft {
+    float: left;
+}
+
+.wbright {
+    float: right;
+}
+
+.wishfont {
+    font-size: 9vh !important;
+}
+
+.duefont {
+    font-size: 7vh !important;
 }
