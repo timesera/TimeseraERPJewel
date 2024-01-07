@@ -90,6 +90,7 @@ import { DealerPaymentRegisterComponent } from './dealer-payment-register/dealer
 import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { PopupdialogComponent } from './popupdialog/popupdialog.component';
 
 @NgModule({
   declarations: [
@@ -153,7 +154,8 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     EmployeeWiseSalesComponent,
     PurityWiseSalesComponent,
     DealerPaymentRegisterComponent,
-    DealerLedgerComponent
+    DealerLedgerComponent,
+    PopupdialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+
+.text-capitalize-first {
+    text-transform: lowercase;
+    display: block;
+  }
+  
+  .text-capitalize-first::first-letter {
+    text-transform: uppercase;
+  }
