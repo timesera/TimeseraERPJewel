@@ -20,6 +20,14 @@ export class PopupdialogComponent {
   dataSource = new MatTableDataSource<any>();
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    this.gridList = data;
+    this.gridList = data.list;
+    if(data.tabName=="WISH") {
+      this.isWishBox = true;
+      this.isDueBox = false;
+    }
+    else if(data.tabName=="DUE") {
+      this.isWishBox = false;
+      this.isDueBox = true;
+    }
   }
 }
