@@ -23,11 +23,11 @@
             <div class="mt-1">
                 <div class="card div-left-countone" style="margin-top: -6.5vh;">
                     <span class="font-box">Current Invo.</span>
-                    <div class="inv-box">99999</div>
+                    <div class="inv-box">{{genBillNo}}</div>
                 </div>
                 <div class="card div-left-counttwo" style="margin-top: -6.5vh;">
                     <span class="font-box">Total Bills</span>
-                    <div class="inv-box">99999</div>
+                    <div class="inv-box">{{totalBillsCount}}</div>
                 </div>
             </div>
             <div class="mt-1">
@@ -126,7 +126,15 @@
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
                     <div *ngFor="let item of dailyRates; let i = index">
-                        <div>{{item.mainproduct}}({{item.prefix}}) : {{item.rate}}</div>
+                        <div class="row" *ngIf="showhiderateheader(item.mainproduct)" style="width: 100%;">
+                            <span style="color: crimson;margin-left: 1vh;">{{item.mainproduct}}</span>
+                            <hr style="margin-top: 0vh !important;margin-bottom: 0.5vh;">
+                        </div>
+                        <div class="card-align-st">
+                            {{item.prefix == 'SILVER' ? "" :item.prefix}}
+                            {{item.prefix == 'SILVER'? "": ":" }} 
+                            Rs. {{item.rate}}/-
+                        </div>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">

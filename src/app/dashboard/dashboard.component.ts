@@ -20,9 +20,10 @@ export class DashboardComponent implements OnInit {
   anniversaryWishBox: any = [];
   birthdayWishBox: any = [];
   genBillNo: any;
-  totalBills: any;
+  totalBillsCount: any;
   todayDuesandCount: any = [];
   totalDuesandCount: any = [];
+  hederFlagName: string = "";
 
   wishboxtab: boolean = true;
   duestab: boolean = false;
@@ -48,12 +49,20 @@ export class DashboardComponent implements OnInit {
       if(data[2].length > 0){
         this.userDetails = data[2][0];
       }
-      this.totalBills = data[3];   
+      this.totalBillsCount = data[3];   
       this.anniversaryWishBox = data[4];
       this.birthdayWishBox = data[5];
       this.todayDuesandCount = data[6];
       this.totalDuesandCount = data[7];
     });
+  }
+
+  showhiderateheader(name: any){
+    if(this.hederFlagName != name){
+      this.hederFlagName = name;
+      return true;
+    }
+    return false;   
   }
 
   tabHeaderChange(name: any){
