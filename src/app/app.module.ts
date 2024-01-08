@@ -91,6 +91,7 @@ import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { PopupdialogComponent } from './popupdialog/popupdialog.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -190,6 +191,7 @@ import { PopupdialogComponent } from './popupdialog/popupdialog.component';
     MatCardModule,
     CommonModule,
     NgHttpLoaderModule.forRoot(),
+    ToastrModule.forRoot(),
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
