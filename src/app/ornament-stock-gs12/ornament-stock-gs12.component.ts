@@ -31,7 +31,7 @@ export class OrnamentStockGS12Component implements OnInit {
     this.getOrnamentsStockDetails("PREFIX");
   }
   getOrnamentsStockDetails(name: any = "") {
-    if (this.particulars != null && this.particulars != undefined && this.particulars != "") {
+    if (name != "" ||(this.particulars != null && this.particulars != undefined && this.particulars != "")) {
       const datePipe = new DatePipe('en-US');
       let billStartingDate = datePipe.transform(this.billStartDate, 'yyyy/MM/dd') || '';
       let billEndingDate = datePipe.transform(this.billEndDate, 'yyyy/MM/dd') || '';
@@ -56,7 +56,7 @@ export class OrnamentStockGS12Component implements OnInit {
       });
     }
     else{
-      //this.service.showError("Please fill the required fields");
+      this.service.showError("Please fill the required fields");
     }
   }
   getSerialNumber(index: number): number {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -48,18 +49,18 @@ export class ErpService {
 
 
   headers: any;
-  constructor(private httpClient: HttpClient, private cookieService: CookieService) {
+  constructor(private httpClient: HttpClient, private cookieService: CookieService,private toastr: ToastrService) {
   }
 
-  // showSuccess(message: any) {
-  //   this.toastr.success('Success!', message);
-  // }
-  // showError(message: any){
-  //   this.toastr.error('Error!', message);
-  // }
-  // showWarning(message: any) {
-  //   this.toastr.warning('Warning!', message);
-  // }
+  showSuccess(message: any) {
+    this.toastr.success('Success!', message);
+  }
+  showError(message: any){
+    this.toastr.error('Error!', message);
+  }
+  showWarning(message: any) {
+    this.toastr.warning('Warning!', message);
+  }
 
   GetTagGenerationDetails(filterName: any): Observable<any> {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
