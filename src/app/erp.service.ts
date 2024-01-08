@@ -53,13 +53,13 @@ export class ErpService {
   }
 
   showSuccess(message: any) {
-    this.toastr.success('Success!', message);
+    this.toastr.success(message, 'Success!');
   }
   showError(message: any){
-    this.toastr.error('Error!', message);
+    this.toastr.error(message, 'Error!');
   }
   showWarning(message: any) {
-    this.toastr.warning('Warning!', message);
+    this.toastr.warning(message, 'Warning!');
   }
 
   GetTagGenerationDetails(filterName: any): Observable<any> {
