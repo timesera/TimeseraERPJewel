@@ -9,9 +9,8 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./popupdialog.component.css']
 })
 export class PopupdialogComponent {
-  wishBoxDisplayedColumns: string[] = [];
-  dueBoxDisplayedColumns: string[] = [];
-  gridList: any = []
+  wishBoxDisplayedColumns: string[] = ['custtype', 'dealername', 'address', 'cityname', 'mobilenum',];
+  dueBoxDisplayedColumns: string[] = ['billno', 'jeweltype', 'billdate', 'city', 'custname', 'mobilenum', 'billamt', 'paidamt', 'balanceamt', 'incharger',] ;
   isWishBox: boolean = false;
   isDueBox: boolean = false;
 
@@ -20,12 +19,12 @@ export class PopupdialogComponent {
   dataSource = new MatTableDataSource<any>();
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    this.gridList = data.list;
-    if(data.tabName=="WISH") {
+    this.dataSource = data.list;
+    if(data.title=="WISH") {
       this.isWishBox = true;
       this.isDueBox = false;
     }
-    else if(data.tabName=="DUE") {
+    else if(data.title=="DUE") {
       this.isWishBox = false;
       this.isDueBox = true;
     }

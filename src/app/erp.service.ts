@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { PopupdialogComponent } from './popupdialog/popupdialog.component';
 
 
 @Injectable({
@@ -49,7 +51,8 @@ export class ErpService {
 
 
   headers: any;
-  constructor(private httpClient: HttpClient, private cookieService: CookieService,private toastr: ToastrService) {
+  constructor(private httpClient: HttpClient, private cookieService: CookieService,
+              private toastr: ToastrService, public dialog: MatDialog) {
   }
 
   showSuccess(message: any) {
@@ -60,6 +63,25 @@ export class ErpService {
   }
   showWarning(message: any) {
     this.toastr.warning(message, 'Warning!');
+  }
+
+  openModal(title:string, list:string) {
+    const dialogConfig = new MatDialogConfig();
+
+    // dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+        title: title,
+        list: list
+    };
+    dialogConfig.minWidth = 400;
+
+    const dialogRef = this.dialog.open(PopupdialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+      }
+    });
   }
 
   GetTagGenerationDetails(filterName: any): Observable<any> {

@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
     const datePipe = new DatePipe('en-US');
     let todayDate = datePipe.transform(this.todayDate, 'yyyy/MM/dd') || '';
     forkJoin(
-      this.service.GetDailyRates("2024-01-03"), this.service.GetGenBillNo(this.currentYear), this.service.GetFirmConfigure(),
+      this.service.GetDailyRates(todayDate), this.service.GetGenBillNo(this.currentYear), this.service.GetFirmConfigure(),
       this.service.GetTotalBills(this.currentYear), this.service.GetAnniversaryWishBoxDetails(todayDate),
       this.service.GetBirthDayWishBoxDetails(todayDate), this.service.GetTodayDues(todayDate), this.service.GetTotalDues()
     ).subscribe(data => {
@@ -70,5 +70,15 @@ export class DashboardComponent implements OnInit {
     else if(name == "DUES") {this.wishboxtab = false; this.duestab = true;}
     else if(name == "GOLD") {this.ratesTab = true; this.rateChangeTab = false;}
     else if(name == "EDIT") {this.ratesTab = false; this.rateChangeTab = true;}
+  }
+
+  displayDueBoxDetails(filterName: any){
+    var list = filterName == "TD" ? this.todayDuesandCount.customerLedgers : this.totalDuesandCount.customerLedgers;
+    this.service.openModal("DUE",list);
+  }
+
+  displayWishBoxDetails(filterName: any){
+    var list = filterName == "A" ? this.anniversaryWishBox.customerLedgers : this.birthdayWishBox.customerLedgers;
+    this.service.openModal("WISH",list)
   }
 }

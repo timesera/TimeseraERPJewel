@@ -7,3 +7,14 @@
   .text-capitalize-first::first-letter {
     text-transform: uppercase;
   }
+
+  .div-content {
+    overflow-y: auto;
+    height: 80vh;
+    margin: 5vh;
+  }
+
+  .div-title {
+    text-align: center;
+    margin-top: 1vh;
+  }

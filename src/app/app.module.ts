@@ -156,7 +156,7 @@ import { ToastrModule } from 'ngx-toastr';
     PurityWiseSalesComponent,
     DealerPaymentRegisterComponent,
     DealerLedgerComponent,
-    PopupdialogComponent
+    PopupdialogComponent,
   ],
   imports: [
     BrowserModule,

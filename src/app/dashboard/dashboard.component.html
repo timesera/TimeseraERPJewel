@@ -94,21 +94,21 @@
                 <div class="carousel-item active" data-bs-interval="10000">
                     <div class="wbleft">
                         <div class="card wishbox">B</div>
-                        <div class="card wishbox wishfont">{{anniversaryWishBox.count}}</div>
+                        <div class="card wishbox wishfont" (click)="displayWishBoxDetails('B')">{{anniversaryWishBox.count}}</div>
                     </div>
                     <div class="wbright">
                         <div class="card wishbox">A</div>
-                        <div class="card wishbox wishfont">{{birthdayWishBox.count}}</div>
+                        <div class="card wishbox wishfont" (click)="displayWishBoxDetails('A')">{{birthdayWishBox.count}}</div>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
                     <div class="wbleft">
                         <div class="card duebox">TODAY</div>
-                        <div class="card duebox" [ngClass]="totalDuesandCount.length<=3 ? 'duefont' : 'wishfont'">{{todayDuesandCount.count}}</div>
+                        <div class="card duebox" [ngClass]="totalDuesandCount.length<=3 ? 'duefont' : 'wishfont'" (click)="displayDueBoxDetails('TD')">{{todayDuesandCount.count}}</div>
                     </div>
                     <div class="wbright">
                         <div class="card duebox">TOTAL</div>
-                        <div class="card duebox" [ngClass]="totalDuesandCount.length<=3 ? 'duefont' : 'wishfont'">{{totalDuesandCount.count}}</div>
+                        <div class="card duebox" [ngClass]="totalDuesandCount.length<=3 ? 'duefont' : 'wishfont'" (click)="displayDueBoxDetails('TT')">{{totalDuesandCount.count}}</div>
                     </div>
                 </div>
             </div>
