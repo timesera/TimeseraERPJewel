@@ -1,6 +1,6 @@
 <div class="div-title">
     <h3>Send Wish/Alet Here : <button class="btn btn-primary">WhatsApp</button>
-        <button mat-raised-button color="warn" [mat-dialog-close]="true" style="float: right; margin-right: 1vh;">X</button>
+        <button mat-raised-button color="warn" [mat-dialog-close]="true" style="float: right; margin-right: 1vh;font-size: 7vh;">X</button>
     </h3>
 </div>
 <div *ngIf="isWishBox" class="div-content">
@@ -35,7 +35,7 @@
             <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cityName}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="amount">
+        <ng-container matColumnDef="mobilenum">
             <th mat-header-cell *matHeaderCellDef>MOBILE NO</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobilenum}} </td>
             <td mat-footer-cell *matFooterCellDef></td>

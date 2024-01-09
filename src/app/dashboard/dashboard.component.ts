@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   todayDate:Date=new Date();
   currentYear:string = new Date().getFullYear().toString();
   userDetails: any = [];
-  dailyRates: any;
+  dailyRates: any = [];
   anniversaryWishBox: any = [];
   birthdayWishBox: any = [];
   genBillNo: any;
