@@ -35,7 +35,7 @@ export class CounterNetSummaryComponent {
     
    }
    getCounterNetData(){
-    
+    if(this.prodName != null && this.prodName != undefined && this.prodName != ""){
     this.service.GetCounterNetData(this.prodName).subscribe(data => {
       if(data.length > 0){
         
@@ -44,7 +44,9 @@ export class CounterNetSummaryComponent {
         
         this.dataSource.paginator = this.paginator;
     });
-
+  }else {
+    this.service.showError("Please fill the required fields");
+  }
     
    }
    getSerialNumber(index: number): number {

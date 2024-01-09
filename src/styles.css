@@ -255,3 +255,7 @@ table tr th{
 table tr{
     height: 20px !important;
 }  
+.asterick {
+    font-weight: bold;
+    color: red;
+}

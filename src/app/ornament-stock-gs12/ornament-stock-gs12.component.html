@@ -1,14 +1,14 @@
 <div class="example-container">
 
     <div>
-        <label style="margin-left: 5px !important;">From: </label>
+        <label style="margin-left: 5px !important;">From<span class="asterick">*</span></label>
         <mat-form-field>
             <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="billStartDate">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
 
-        <label style="margin-left: 5px !important;">To: </label>
+        <label style="margin-left: 5px !important;">To<span class="asterick">*</span></label>
         <mat-form-field>
             <input matInput [matDatepicker]="picker2" placeholder="Choose a date" [(ngModel)]="billEndDate">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>

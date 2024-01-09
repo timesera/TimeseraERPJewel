@@ -1,10 +1,10 @@
 <!-- <p>product-summary works!</p> -->
 
 <div class="example-container">
-      <label style="margin-left: 20px !important;">Main Product: </label>
+      <label style="margin-left: 20px !important;">Main Product<span class="asterick">*</span></label>
       <mat-form-field class="example-full-width ml-2">
   
-        <mat-label >Select Product</mat-label>
+        <mat-label >Select Product<span class="asterick">*</span></mat-label>
       <mat-select disableRipple [(ngModel)]="prodName" >
         <mat-option value=""></mat-option>
         <mat-option *ngFor="let item of prodList" value={{item}}>{{item}}</mat-option>
