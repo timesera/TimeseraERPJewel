@@ -74,8 +74,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CustomerreceiptregisterComponent } from './customerreceiptregister/customerreceiptregister.component';
 import { DiamondsalesComponent } from './diamondsales/diamondsales.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
 import { OrnamentPurchaseRegisterComponent } from './ornament-purchase-register/ornament-purchase-register.component';
 import { PurchaseReturnRegisterComponent } from './purchase-return-register/purchase-return-register.component';
 import { BullionPurchaseRegisterComponent } from './bullion-purchase-register/bullion-purchase-register.component';
@@ -88,6 +88,10 @@ import { EmployeeWiseSalesComponent } from './employee-wise-sales/employee-wise-
 import { PurityWiseSalesComponent } from './purity-wise-sales/purity-wise-sales.component';
 import { DealerPaymentRegisterComponent } from './dealer-payment-register/dealer-payment-register.component';
 import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
+import { CommonModule, DatePipe } from '@angular/common';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { PopupdialogComponent } from './popupdialog/popupdialog.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -151,12 +155,14 @@ import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
     EmployeeWiseSalesComponent,
     PurityWiseSalesComponent,
     DealerPaymentRegisterComponent,
-    DealerLedgerComponent
+    DealerLedgerComponent,
+    PopupdialogComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     MatGridListModule,
     MatOptionModule,
@@ -182,10 +188,13 @@ import { DealerLedgerComponent } from './dealer-ledger/dealer-ledger.component';
     MatButtonModule,
     MatExpansionModule,
     MatInputModule,
-MatTableModule,
-MatCardModule,
+    MatTableModule,
+    MatCardModule,
+    CommonModule,
+    
+    NgHttpLoaderModule.forRoot(),
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

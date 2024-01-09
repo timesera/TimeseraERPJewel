@@ -1,0 +1,124 @@
+<div class="div-title">
+    <h3>Send Wish/Alet Here : <button class="btn btn-primary">WhatsApp</button>
+        <button mat-raised-button color="warn" [mat-dialog-close]="true" style="float: right; margin-right: 1vh;">X</button>
+    </h3>
+</div>
+<div *ngIf="isWishBox" class="div-content">
+    <table mat-table [dataSource]="dataSource" class="table-cash">
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> S.No. </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ i+1 }} </td>
+            <td mat-footer-cell *matFooterCellDef>Total</td>
+        </ng-container>
+        <ng-container matColumnDef="custtype">
+            <th mat-header-cell *matHeaderCellDef>CUST TYPE</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custType}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="dealername">
+            <th mat-header-cell *matHeaderCellDef>CUST NAME</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.dealername}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>ADDRESS</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> 
+                <div>{{element.address1}}</div> 
+                <div>{{element.address2}}</div>
+                <div>{{element.address3}}</div>
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="cityname">
+            <th mat-header-cell *matHeaderCellDef>CITY NAME</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cityName}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>MOBILE NO</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobilenum}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="wishBoxDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: wishBoxDisplayedColumns;"></tr>
+
+
+        <tr mat-footer-row *matFooterRowDef="wishBoxDisplayedColumns"></tr>
+
+    </table>
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"  aria-label="Select page">
+    </mat-paginator> -->
+</div>
+
+<div *ngIf="isDueBox" class="div-content">
+    <table mat-table [dataSource]="dataSource" class="table-cash">
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> S.No. </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ i+1 }} </td>
+            <td mat-footer-cell *matFooterCellDef>Total</td>
+        </ng-container>
+        <ng-container matColumnDef="billno">
+            <th mat-header-cell *matHeaderCellDef>BILL NO</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billNo}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="jeweltype">
+            <th mat-header-cell *matHeaderCellDef>JEWEL TYPE</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.jewelType}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="billdate">
+            <th mat-header-cell *matHeaderCellDef>BILL DATE</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billDate}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef>CITY</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cityName}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="custname">
+            <th mat-header-cell *matHeaderCellDef>CUST NAME</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="mobilenum">
+            <th mat-header-cell *matHeaderCellDef>MOBILE NO</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.mobileNum}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="billamt">
+            <th mat-header-cell *matHeaderCellDef>BILL AMT</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billAmt}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="paidamt">
+            <th mat-header-cell *matHeaderCellDef>PAID AMT</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.paidAmt}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="balanceamt">
+            <th mat-header-cell *matHeaderCellDef>BALANCE AMT</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.balanceAmt}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="incharger">
+            <th mat-header-cell *matHeaderCellDef>INCHARGER</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.incharger}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="dueBoxDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: dueBoxDisplayedColumns;"></tr>
+
+
+        <tr mat-footer-row *matFooterRowDef="dueBoxDisplayedColumns"></tr>
+
+        <!-- </mat-table> -->
+    </table>
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator> -->
+</div>

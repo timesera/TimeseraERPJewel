@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
@@ -8,8 +8,8 @@ import { ErpService } from '../erp.service';
   templateUrl: './mail-book.component.html',
   styleUrls: ['./mail-book.component.css']
 })
-export class MailBookComponent {
-  displayedColumns: string[] = ['position','category','city','name','cardNo','adrs','state','distrct','moblNo1','moblNo2','edctn','email','fax','wbst','dob','anvrsry'];
+export class MailBookComponent implements OnInit{
+  displayedColumns: string[] = ['position','category','city','name','adrs','state','distrct','moblNo1','moblNo2','email','dob','anvrsry'];
 
   mailStartDate:Date=new Date();
   mailEndDate:Date=new Date();
@@ -34,6 +34,28 @@ export class MailBookComponent {
   dataSource = new MatTableDataSource<any>();
 
   constructor(private service: ErpService){
+  }
+  ngOnInit() {
+    this.GetCategoryDetails("MASTER");
+  }
+  GetCategoryDetails(columnName: any =""){
+    console.log("columnName",columnName)
+    this.service.GetMainBookRegister(columnName,"","").subscribe(data => {
+      console.log("tagDetails",data)
+      if(data.length >0 ){
+        if(columnName == "MASTER"){
+          this.ctgrList = data;
+        }else {
+          this.dataSource.data=data 
+          this.dataSource.paginator = this.paginator;   
+        
+        }
+      }
+    })
+  }
+  getSerialNumber(index: number): number {
+  
+    return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }
   updateSelectedMonth() {
     // Additional logic to extract and handle the selected month here

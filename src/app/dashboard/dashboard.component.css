@@ -1,0 +1,171 @@
+
+.carousel .carousel-indicators button {
+    width: 10px;
+   height: 10px;
+   border-radius: 100%;
+ }
+
+ /* .carousel.carousel-custom .carousel-indicators {
+    align-items: center;
+    position: static;
+    z-index: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+} */
+
+.btn-align {
+    position: relative;
+    margin-left: 34%;
+    margin-top: -6vh;
+    margin-bottom: -1vh;
+}
+
+.validate-baner {
+    color: #a31a27;
+    text-align: center;
+    margin: .5vh;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.carousel-indicators .active {
+    width: 20px !important;
+    border-radius: 40% !important;
+    background-color: #e10c0c;
+}
+
+.name-card {
+    margin-left: 2.5vh;
+    margin-top: 1vh;
+    background: rgb(140, 166, 218);
+    height: 40vh;
+}
+
+.alertbox-card {
+    width: 64%; 
+    margin-left: 5px; 
+    margin-top: 5px;
+}
+
+.rates-slide {
+    width: 48% !important;
+    height: 32vh;
+    background-color: white;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.profile-name {
+    font-size: 20px;
+    font-family: fantasy;
+}
+.div-left-profile {
+    width: 35%;
+}
+.table-cash {
+    border-radius: 6px;
+    overflow: hidden;
+}
+.table-payment{
+   margin-left: 2.5vh;
+   margin-top: 3vh !important;
+}
+.div-left-inv {
+    background-color: white;
+    height: 24.5vh;
+    margin-left: 15px;
+    margin-top: -3px;
+}
+
+.div-left-countone{
+    width: 34%; 
+    margin-left: 7vh;
+    float: left;
+    height: 70px;
+}
+
+.div-left-counttwo{
+    width: 34%; 
+    margin-right: 5vh;
+    float: right;
+    height: 70px;
+}
+
+.font-box {
+    font-size: 12px;
+    margin: 5px;
+    color: #dc3545;
+    font-family: monospace;
+}
+
+.inv-box {
+    font-size: 3.5vh;
+    text-align: center;
+}
+
+.addres-times {
+    font-size: 2.5vh;
+}
+
+.due-table {
+    height: 60vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+
+.wishbox {
+    border: 1px solid white !important;
+    width: 15vh;
+    margin-left: 5vh;
+    font-size: 4vh;
+    text-align: center;
+    margin-right: 5vh;
+    background-color: black;
+    color: white;
+}
+.duebox {
+    border: 1px solid white !important;
+    width: 18vh;
+    margin-left: 3vh;
+    font-size: 3vh;
+    text-align: center;
+    margin-right: 3vh;
+    background-color: black;
+    color: white;
+}
+
+.wbleft {
+    float: left;
+    margin-top: 2vh;
+}
+
+.wbright {
+    float: right;
+    margin-top: 2vh;
+}
+
+.wishfont {
+    font-size: 8vh !important;
+}
+
+.duefont {
+    font-size: 6vh !important;
+}
+
+.carousel-item {
+    height: 23vh;
+    overflow-y: auto;
+}
+
+.card-align-st {
+    width: 20vh;
+    float: left;
+    padding: 1vh;
+    border: 1px solid #0d6efd;
+    text-align: center;
+    border-radius: 1vh;
+    margin: 0.5vh;
+}

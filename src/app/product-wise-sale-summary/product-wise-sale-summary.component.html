@@ -69,16 +69,16 @@
 </div>
 
 <div class="mat-elevation-z8 align">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash">
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{ getSerialNumber(i) }} </td>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ i+1 }} </td>
             <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
         <ng-container matColumnDef="billdate">
             <th mat-header-cell *matHeaderCellDef> Bill Date </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{ element.billDate }} </td>
-            <td mat-footer-cell *matFooterCellDef>Total</td>
+            <td mat-cell *matCellDef="let element"> {{ element.billDate }} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="jeweltype">
             <th mat-header-cell *matHeaderCellDef> Jewel Type </th>

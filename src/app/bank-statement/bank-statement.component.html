@@ -43,57 +43,60 @@
 
 
 </div>
-
+<div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator>
+</div>
 <div class="mat-elevation-z8 align">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash">
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{ getSerialNumber(i) }} </td>
+            <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ getSerialNumber(i) }} </td>
             <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
         <ng-container matColumnDef="vno">
             <th mat-header-cell *matHeaderCellDef> VNO </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{ element.recNo }} </td>
+            <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ element.recNo }} </td>
             <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> DATE </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.depdate}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"  style="text-align: center;"> {{element.depdate}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="transtype">
             <th mat-header-cell *matHeaderCellDef> TRANS TYPE </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.transtype}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.transtype}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="paymode">
             <th mat-header-cell *matHeaderCellDef>PAYMODE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position">  {{element.mode}}  </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;">  {{element.mode}}  </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="particulars">
             <th mat-header-cell *matHeaderCellDef> PARTICULARS </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.ptype}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.ptype}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="partyname">
             <th mat-header-cell *matHeaderCellDef>PARTY NAME</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.custName}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="debit">
             <th mat-header-cell *matHeaderCellDef>DEBIT</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.debit}} </td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.debit}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="closebalance">
             <th mat-header-cell *matHeaderCellDef>CLOSEING BALANCE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> 0 </td>
+            <td mat-cell *matCellDef="let element" style="text-align: right;" class="mat-column-position"> 0 </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="credit">
             <th mat-header-cell *matHeaderCellDef>CREDIT</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.credit}} </td>
+            <td mat-cell *matCellDef="let element" style="text-align: right;" class="mat-column-position"> {{element.credit}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -101,6 +104,6 @@
 
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
-    </mat-paginator>
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator> -->
 </div>
