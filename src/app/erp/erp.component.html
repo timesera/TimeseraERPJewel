@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" style="background: linear-gradient(to right, #081658 0%, #000000 100%) !important;">
-    <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu" opened="true" style="margin-left: 275px !important; background-color: red; border-radius: 5px !important; border: 1px solid #000;">
+    <button mat-icon-button (click)="toggleSidenav()" matTooltip="Menu" opened="true" [ngClass]="isShowing ? 'margintoggle' : ''" style="background-color: red; border-radius: 5px !important; border: 1px solid #000;">
         <mat-icon>menu</mat-icon>
       </button>&nbsp;
       

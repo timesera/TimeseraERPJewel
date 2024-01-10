@@ -10,6 +10,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class ErpComponent {
 panelStates: any;
 isSidenavOpen: any;
+isShowing: boolean = true;
 togglePanel(arg0: string) {
 throw new Error('Method not implemented.');
 }
@@ -19,15 +20,16 @@ throw new Error('Method not implemented.');
 editProfile() {
 throw new Error('Method not implemented.');
 }
+
 viewProfile() {
 throw new Error('Method not implemented.');
 }
   title = 'sidenav';
   
   @ViewChild('sidenav') sidenav!: MatSidenav;
-isExpanded: boolean =false;
   toggleSidenav() {
     this.sidenav.toggle();
+    this.isShowing = !this.isShowing;
 }
 }
 export class YourComponent {
