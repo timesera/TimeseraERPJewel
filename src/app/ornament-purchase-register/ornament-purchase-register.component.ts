@@ -46,10 +46,9 @@ export class OrnamentPurchaseRegisterComponent {
         this.prodList = data;
       }if(columnName == "PREFIX"){
         this.purtyList = data;
-      }else {
+      }else if(columnName==""){
         this.dataSource.data=data 
         this.dataSource.paginator = this.paginator;  
-        
         this.dataSource.data.forEach((element:any)=>{
           element.less=parseInt(element.gwt)-parseInt(element.nwt)
         })

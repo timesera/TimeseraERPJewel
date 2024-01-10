@@ -45,7 +45,7 @@ export class BullionPurchaseRegisterComponent implements OnInit{
         this.prtyList = data;
       }if(columnName == "PTYPE"){
         this.prodList = data;
-      }else {
+      }else if(columnName == ""){
         this.dataSource.data=data 
         this.dataSource.paginator = this.paginator;   
       

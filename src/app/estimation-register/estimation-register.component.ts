@@ -15,7 +15,7 @@ export class EstimationRegisterComponent {
   estmtnStartDate:Date=new Date();
   estmtnEndDate:Date=new Date();
   estmtnNo:any;
-  pendng:boolean=true
+  pendng:boolean=false
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();

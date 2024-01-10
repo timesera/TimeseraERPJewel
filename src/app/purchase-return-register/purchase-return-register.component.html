@@ -16,9 +16,9 @@
     
       <div class="example-container">
           <label style="margin-left: 20px !important;">Party Name: </label>
-          <mat-form-field class="example-full-width ml-2">
+          <mat-form-field class="example-full-width ml-2 droWidth">
             <mat-label >Select Party</mat-label>
-          <mat-select disableRipple [(ngModel)]="partyName" >
+          <mat-select disableRipple [(ngModel)]="partyName">
             <mat-option value=""></mat-option>
             <mat-option *ngFor="let item of prtyList" value={{item}}>{{item}}</mat-option>
            
@@ -53,13 +53,13 @@
       <button mat-raised-button color="warn"  class="m-4" (click)="getPurchaseReturnData()">Show</button>
       
       
-    </div>
-
-
-    
-
-  
-
+    </div>  
+<div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+               showFirstLastButtons
+               aria-label="Select page">
+</mat-paginator>
+</div>
 <div class="mat-elevation-z8 align">
     <table mat-table  [dataSource]="dataSource" class="table table-striped table-cash">
     <ng-container matColumnDef="position">
@@ -136,9 +136,9 @@
 
   <!-- </mat-table> -->
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                showFirstLastButtons
                aria-label="Select page">
-</mat-paginator>
+</mat-paginator> -->
 </div>
 

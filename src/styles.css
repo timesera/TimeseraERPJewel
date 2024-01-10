@@ -248,7 +248,7 @@ flex-direction: column;
 width: 150px !important;
 text-align: left;
 }
-table tr th{
+.table tr th{
     background-color: #36ac8f !important;
     text-align: center !important;
 }
@@ -258,4 +258,7 @@ table tr{
 .asterick {
     font-weight: bold;
     color: red;
+}
+.droWidth{
+    width: 250px !important;
 }
