@@ -13,6 +13,8 @@ export class DealorWiseStockSummaryComponent implements OnInit{
   name: any = "MNAME";
   prodList:any=[];
   prodName:any;
+  gwt:number=0
+  nwt:number=0
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
@@ -44,7 +46,10 @@ export class DealorWiseStockSummaryComponent implements OnInit{
         }else {
           this.dataSource.data=data 
           this.dataSource.paginator = this.paginator;   
-        
+          this.dataSource.data.forEach((element:any)=>{
+            this.gwt += element.gwt
+            this.nwt += element.nwt
+          })
         }
       }
     })

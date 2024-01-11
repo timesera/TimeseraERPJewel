@@ -15,6 +15,8 @@ export class ProductSummaryComponent implements OnInit{
   balaceAmt:number=0
   name: any = "MNAME";
   prodList:any=[];
+  gwt:number=0
+  nwt:number=0
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
@@ -46,6 +48,11 @@ export class ProductSummaryComponent implements OnInit{
         }
         
         this.dataSource.paginator = this.paginator;
+        this.dataSource.data.forEach((element: any) => {
+          
+          this.gwt += element.gwt
+          this.nwt +=element.nwt
+        })
     });    
 
     

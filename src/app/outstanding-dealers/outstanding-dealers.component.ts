@@ -37,9 +37,11 @@ export class OutstandingDealersComponent implements OnInit {
 
         if (isMaster == true) {
           this.tempList = data;
-        } else {
-          this.dataSource.data = data
-        }
+        } 
+        // else {
+        //   this.dataSource.data = data
+        // }
+        else if(isMaster == false){
         this.dataSource.data = data
         this.dataSource.paginator = this.paginator;
 
@@ -47,6 +49,7 @@ export class OutstandingDealersComponent implements OnInit {
           element.balance = parseInt(element.jama) - parseInt(element.nama)
           this.balaceAmt += element.balance
         })
+      }
       }
     });
   }

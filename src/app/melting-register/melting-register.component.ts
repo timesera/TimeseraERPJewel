@@ -19,9 +19,16 @@ export class MeltingRegisterComponent implements OnInit{
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+
+  melWgt:number=0
+  weight:number=0
+  oldFine:number=0
+  profit:number=0
+  loss:number=0
+
   dataSource = new MatTableDataSource<any>();
 
-  constructor(private service: ErpService){
+  constructor(private service: ErpService,private datePipe: DatePipe){
   }
   ngOnInit() {
     // this.getSaleRegisterData("JEWELTYPE");
@@ -47,7 +54,14 @@ export class MeltingRegisterComponent implements OnInit{
           this.dataSource.data=data 
           this.dataSource.paginator = this.paginator;   
   
-         
+          this.dataSource.data.forEach((element:any)=>{
+            element.meltingDate = this.datePipe.transform(element.vDate, 'dd-MM-yyyy');
+            this.weight += element.pureGold
+            this.melWgt +=element.meltingWt
+            this.oldFine += element.ofinegold
+            this.profit += element.profit
+            this.loss += element.loss
+          })
         }
       }     
     });

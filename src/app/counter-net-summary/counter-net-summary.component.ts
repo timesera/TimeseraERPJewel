@@ -15,6 +15,8 @@ export class CounterNetSummaryComponent {
   prodName:any;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+  gwt:number=0
+  nwt:number=0
   dataSource = new MatTableDataSource<any>();
   constructor(private service: ErpService){
   }
@@ -43,6 +45,11 @@ export class CounterNetSummaryComponent {
         }
         
         this.dataSource.paginator = this.paginator;
+        this.dataSource.data.forEach((element: any) => {
+          
+          this.gwt += element.gwt
+          this.nwt +=element.nwt
+        })
     });
   }else {
     this.service.showError("Please fill the required fields");

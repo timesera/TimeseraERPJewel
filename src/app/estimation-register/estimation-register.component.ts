@@ -15,6 +15,11 @@ export class EstimationRegisterComponent {
   estmtnStartDate:Date=new Date();
   estmtnEndDate:Date=new Date();
   estmtnNo:any;
+  grossWt:number=0
+  netWt:number=0
+  totalAmt:number=0
+  gstAmt:number=0
+  netAmt:number=0
   pendng:boolean=false
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -44,6 +49,11 @@ export class EstimationRegisterComponent {
           
           this.dataSource.data.forEach((element:any)=>{
             element.estmtDate = this.datePipe.transform(element.estDate, 'dd-MM-yyyy');
+            this.grossWt += element.gwt
+            this.netWt +=element.nwt
+            this.totalAmt += element.totAmount
+            this.gstAmt += element.vatAmt
+            this.netAmt += element.netAmt
           })
       }     
     });
@@ -63,6 +73,11 @@ export class EstimationRegisterComponent {
           
           this.dataSource.data.forEach((element:any)=>{
             element.estmtDate = this.datePipe.transform(element.estDate, 'dd-MM-yyyy');
+            this.grossWt += element.gwt
+            this.netWt += element.nwt
+            this.totalAmt += element.totAmount
+            this.gstAmt += element.vatAmt
+            this.netAmt += element.netAmt
           })
       }     
     });

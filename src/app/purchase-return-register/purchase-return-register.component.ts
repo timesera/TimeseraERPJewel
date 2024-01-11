@@ -22,9 +22,18 @@ export class PurchaseReturnRegisterComponent implements OnInit{
   purtyName:any;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+
+  gwt:number=0
+  less:number=0
+  nwt:number=0
+  totalAmt:number=0
+  cgst:number=0
+  sgst:number=0
+  igst:number=0
+  grsAmt:number=0
   dataSource = new MatTableDataSource<any>();
 
-  constructor(private service: ErpService){
+  constructor(private service: ErpService,private datePipe: DatePipe){
   }
   ngOnInit() {
     this.getPurchaseReturnData("PARTYNAME");
@@ -55,7 +64,16 @@ export class PurchaseReturnRegisterComponent implements OnInit{
         this.dataSource.data=data 
         this.dataSource.paginator = this.paginator;   
         this.dataSource.data.forEach((element:any)=>{
+          element.invtDate = this.datePipe.transform(element.invDate, 'dd-MM-yyyy');
           element.less=parseInt(element.gwt)-parseInt(element.nwt)
+          this.gwt += element.gwt
+            this.less +=element.less
+            this.nwt += element.nwt
+            this.totalAmt += element.value
+            this.cgst += element.cgstamt
+            this.sgst += element.sgstamt
+            this.igst += element.igstamt
+            this.grsAmt += element.totValue
         })
       }  
     }

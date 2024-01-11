@@ -21,9 +21,18 @@ export class BullionPurchaseRegisterComponent implements OnInit{
   invoice:any;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+
+  weight:number=0
+  grsAmt:number=0
+  cgst:number=0
+  sgst:number=0
+  igst:number=0
+  totalAmt:number=0
+  tcs:number=0
+  netAmt:number=0
   dataSource = new MatTableDataSource<any>();
 
-  constructor(private service: ErpService){
+  constructor(private service: ErpService,private datePipe: DatePipe){
   }
   ngOnInit() {
     this.getBullionPurchaseData("DEALER");
@@ -49,6 +58,17 @@ export class BullionPurchaseRegisterComponent implements OnInit{
         this.dataSource.data=data 
         this.dataSource.paginator = this.paginator;   
       
+        this.dataSource.data.forEach((element:any)=>{
+          element.bullionDate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
+          this.weight += element.totQty
+          this.grsAmt +=element.totAmount
+          this.cgst += element.cgst
+          this.sgst += element.sgst
+          this.igst += element.igst
+          this.totalAmt += element.finalamount
+          this.tcs += element.tcsamt
+          this.netAmt += element.netAmount
+        })
       }  
     }
     });

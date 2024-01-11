@@ -22,6 +22,10 @@ export class OrnamentStockGS12Component implements OnInit {
   displayedColumns: string[] = ['date', 'partyname', 'hsncode', 'invno', 'jama', 'nama', 'balance', 'purity'];
   openingBalance: number = 0;
 
+  grsWt1:number=0
+  grsWt2:number=0
+  balanceAmt:number=0
+
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
@@ -53,6 +57,13 @@ export class OrnamentStockGS12Component implements OnInit {
           this.dataSource.data.forEach((element: any) => {
             element.balance = parseInt(element.debit) - parseInt(element.credit);
             element.entrdate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
+          
+            this.grsWt1 += element.jama
+            this.grsWt2 +=element.nama
+            this.balanceAmt += element.balance
+
+
+            console.log("Balance Amount",this.balanceAmt)
           })
         }
       });

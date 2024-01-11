@@ -34,7 +34,7 @@ export class ProductWiseSaleSummaryComponent implements OnInit {
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
 
-  constructor(private service: ErpService) {
+  constructor(private service: ErpService,private datePipe: DatePipe) {
   }
 
   ngOnInit() {
@@ -66,6 +66,7 @@ export class ProductWiseSaleSummaryComponent implements OnInit {
           this.dataSource.paginator = this.paginator;   
   
           this.dataSource.data.forEach((element:any)=>{
+            element.productDate = this.datePipe.transform(element.billDate, 'dd-MM-yyyy');
             element.balance=parseInt(element.debit)-parseInt(element.credit)
           })
         }
