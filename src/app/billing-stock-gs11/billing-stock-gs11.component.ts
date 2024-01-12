@@ -19,6 +19,8 @@ export class BillingStockGS11Component implements OnInit {
   displayedColumns: string[] = ['date','partyname','hsncode','invno','jama', 'nama','balance'];
   openingBalance:number = 0;
   grossWt1:number=0
+  balance: number = 0;
+
   grossWt2:number=0
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -44,12 +46,14 @@ export class BillingStockGS11Component implements OnInit {
         this.dataSource.data=data[0] 
         this.dataSource.paginator = this.paginator;   
 
-        this.dataSource.data.forEach((element:any)=>{
+        this.dataSource.data.forEach((element: any) => {
           element.bilStockDate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
-          element.balance=parseInt(element.debit)-parseInt(element.credit)
-          this.grossWt1 += element.jama
-          this.grossWt2 += element.nama
-        })
+          element.balance = parseInt(element.debit) - parseInt(element.credit);
+          this.grossWt1 += element.jama;
+          this.grossWt2 += element.nama;
+          this.balance += element.jama - element.nama;
+        });
+        
 
       }     
     });

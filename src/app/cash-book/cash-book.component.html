@@ -29,42 +29,42 @@
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef> S.No. </th>
     <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ getSerialNumber(i) }} </td>
-    <td mat-footer-cell *matFooterCellDef >Total</td>  
+    <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;">Total</td>  
 </ng-container>
 <ng-container matColumnDef="date">
   <th mat-header-cell *matHeaderCellDef> Date </th>
   <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.billdate}} </td>
-  <td mat-footer-cell *matFooterCellDef ></td>  
+  <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="type">
 <th mat-header-cell *matHeaderCellDef> Type </th>
 <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.type}} </td>
-<td mat-footer-cell *matFooterCellDef ></td>  
+<td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="particular">
 <th mat-header-cell *matHeaderCellDef>Particulars </th>
 <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.particulars}} </td>
-<td mat-footer-cell *matFooterCellDef ></td>  
+<td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="voucherNo">
   <th mat-header-cell *matHeaderCellDef> Voucher/R.No </th>
   <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.sno}} </td>
-  <td mat-footer-cell *matFooterCellDef ></td>  
+  <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
   </ng-container>
   <ng-container matColumnDef="debit">
     <th mat-header-cell *matHeaderCellDef>Debit </th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.debit}} </td>
-    <td mat-footer-cell *matFooterCellDef ></td>  
+    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.debit}} </td>
+    <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
     </ng-container>
     <ng-container matColumnDef="credit">
       <th mat-header-cell *matHeaderCellDef> Credit </th>
-      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.credit}} </td>
-      <td mat-footer-cell *matFooterCellDef ></td>  
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.credit}} </td>
+      <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
       </ng-container>
 <ng-container matColumnDef="balance">
 <th mat-header-cell *matHeaderCellDef>Balance</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.balanceperAmount}} </td>
-<td mat-footer-cell *matFooterCellDef >{{balaceAmt}}</td>  
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.balanceperAmount}} </td>
+<td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;">{{balaceAmt}}</td>  
 </ng-container>
 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -13,6 +13,7 @@ import { forkJoin } from 'rxjs';
 
 })
 export class OrnamentStockGS12Component implements OnInit {
+  
   billStartDate: any = new Date();
   billEndDate: any = new Date();
   particulars: any = "";
@@ -60,7 +61,7 @@ export class OrnamentStockGS12Component implements OnInit {
           
             this.grsWt1 += element.jama
             this.grsWt2 +=element.nama
-            this.balanceAmt += element.balance
+            this.balanceAmt += Number(element.balance);
 
 
             console.log("Balance Amount",this.balanceAmt)

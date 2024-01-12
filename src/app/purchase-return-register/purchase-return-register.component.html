@@ -18,7 +18,6 @@
           <label style="margin-left: 20px !important;">Party Name</label>
           <mat-form-field class="example-full-width ml-2 droWidth">
             <mat-label >Select Party</mat-label>
-            
           <mat-select disableRipple [(ngModel)]="partyName">
             <mat-option value=""></mat-option>
             <mat-option *ngFor="let item of prtyList" value={{item}}>{{item}}</mat-option>

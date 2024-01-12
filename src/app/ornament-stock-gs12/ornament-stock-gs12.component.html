@@ -1,3 +1,7 @@
+
+
+
+
 <div class="example-container">
 
     <div>
@@ -32,20 +36,27 @@
             </mat-select>
         </mat-form-field>
         <button mat-raised-button color="warn" class="ml-4" (click)="getOrnamentsStockDetails()" style="margin-left: 5px !important;">Show</button>
-        <label style="margin-left: 5px !important;">Purity {{openingBalance}}</label>
         
     </div>
 
 
 </div>
 <div>
+<div style="width: 24%;
+margin-bottom: -38px;
+margin-left: 90px;">
+    <label >Opening {{openingBalance}}</label>
+
+</div>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                    showFirstLastButtons
                    aria-label="Select page">
+                   
     </mat-paginator>
+
 </div>
 <div class="mat-elevation-z8 align table-container">
-    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash scroll-table1">
+    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash scroll-table1" >
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
             <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{i+1}} </td>
@@ -54,42 +65,42 @@
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> Date </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.entrdate}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;">Total</td>  
         </ng-container>
         <ng-container matColumnDef="partyname">
             <th mat-header-cell *matHeaderCellDef> Party Name </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.partyname}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: left;"> {{element.partyname}} </td>
+            <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;text-align: left;"></td>  
         </ng-container>
         <ng-container matColumnDef="hsncode">
             <th mat-header-cell *matHeaderCellDef>HSNCODE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> 7113 </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> 7113 </td>
+            <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
         </ng-container>
         <ng-container matColumnDef="invno">
             <th mat-header-cell *matHeaderCellDef> Inv No </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.vno}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.vno}} </td>
+            <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
         </ng-container>
         <ng-container matColumnDef="jama">
             <th mat-header-cell *matHeaderCellDef>Gross Wt </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.jama|number : '1.3-3'}} </td>
-            <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{grsWt1|number : '1.3-3'}}</td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right; background-color: #c5efe4; ">{{grsWt1|number : '1.3-3'}}</td>
         </ng-container>
         <ng-container matColumnDef="nama">
             <th mat-header-cell *matHeaderCellDef>Gross Wt </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.nama|number : '1.3-3'}} </td>
-            <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{grsWt2|number : '1.3-3'}}</td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right; background-color: #c5efe4;">{{grsWt2|number : '1.3-3'}}</td>
         </ng-container>
         <ng-container matColumnDef="balance">
             <th mat-header-cell *matHeaderCellDef>Balance</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.jama - element.nama |number : '1.2-2'}} </td>
-            <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{balanceAmt|number : '1.3-3'}}</td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right; background-color: #c5efe4;">{{balanceAmt|number : '1.3-3'}}</td>
         </ng-container>
         <ng-container matColumnDef="purity">
             <th mat-header-cell *matHeaderCellDef> Purity </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.purity}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

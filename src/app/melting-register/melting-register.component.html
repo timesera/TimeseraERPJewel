@@ -43,37 +43,37 @@
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> S.No. </th>
       <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{getSerialNumber(i) }} </td>
-      <td mat-footer-cell *matFooterCellDef >Total</td>  
+      <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;">Total</td>  
   </ng-container>
   <ng-container matColumnDef="entryNo">
     <th mat-header-cell *matHeaderCellDef>Entry No</th>
     <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.vno}} </td>
-    <td mat-footer-cell *matFooterCellDef ></td>  
+    <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="date">
   <th mat-header-cell *matHeaderCellDef> Date </th>
   <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.meltingDate}} </td>
-  <td mat-footer-cell *matFooterCellDef ></td>  
+  <td mat-footer-cell *matFooterCellDef   style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="jewelType">
 <th mat-header-cell *matHeaderCellDef>Jewel Type</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.oldtype}} </td>
-<td mat-footer-cell *matFooterCellDef ></td>  
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: left;"> {{element.oldtype}} </td>
+<td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="mltngWt">
 <th mat-header-cell *matHeaderCellDef>Melting Wt</th>
 <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.meltingWt|number : '1.3-3'}} </td>
-<td mat-footer-cell *matFooterCellDef style="text-align: right;">{{melWgt|number : '1.3-3'}}</td>  
+<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{melWgt|number : '1.3-3'}}</td>  
 </ng-container>
 <ng-container matColumnDef="touch">
     <th mat-header-cell *matHeaderCellDef>Touch(%)</th>
     <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.touch}} </td>
-    <td mat-footer-cell *matFooterCellDef style="text-align: right;"></td>  
+    <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="weight">
   <th mat-header-cell *matHeaderCellDef>Weight</th>
   <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.pureGold|number : '1.3-3'}} </td>
-  <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{weight|number : '1.3-3'}}</td>  
+  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{weight|number : '1.3-3'}}</td>  
 </ng-container>
 <!-- <ng-container matColumnDef="purGld">
 <th mat-header-cell *matHeaderCellDef>Pure Gold</th>
@@ -83,22 +83,22 @@
 <ng-container matColumnDef="oldTuch">
 <th mat-header-cell *matHeaderCellDef>Old Touch</th>
 <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.otouch}} </td>
-<td mat-footer-cell *matFooterCellDef style="text-align: right;"></td>  
+<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="oldFine">
     <th mat-header-cell *matHeaderCellDef>Old Fine</th>
     <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.ofinegold|number : '1.2-2'}} </td>
-    <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{oldFine|number : '1.2-2'}}</td>  
+    <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{oldFine|number : '1.2-2'}}</td>  
 </ng-container>
 <ng-container matColumnDef="profit">
   <th mat-header-cell *matHeaderCellDef>Profit</th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.profit|number : '1.2-2'}} </td>
-  <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{profit|number : '1.2-2'}}</td>  
+  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.profit |number : '1.3-3'}} </td>
+  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{profit |number : '1.3-3'}}</td>  
 </ng-container>
 <ng-container matColumnDef="loss">
 <th mat-header-cell *matHeaderCellDef>Loss</th>
 <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.loss|number : '1.3-3'}} </td>
-<td mat-footer-cell *matFooterCellDef style="text-align: right;">{{loss|number : '1.3-3'}}</td>  
+<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{loss|number : '1.3-3'}}</td>  
 </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -9,6 +9,13 @@ import { ErpService } from '../erp.service';
   styleUrls: ['./purity-summary.component.css']
 })
 export class PuritySummaryComponent {
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   displayedColumns: string[] = ['position','prefix','pcs','gwt','nwt'];
   name: any = "MNAME";
   prodList:any=[];

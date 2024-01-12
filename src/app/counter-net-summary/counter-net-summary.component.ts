@@ -9,6 +9,13 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./counter-net-summary.component.css']
 })
 export class CounterNetSummaryComponent {
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   displayedColumns: string[] = ['position','cuntName','pcs','gwt','nwt'];
   name: any = "MNAME";
   prodList:any=[];
@@ -18,6 +25,8 @@ export class CounterNetSummaryComponent {
   gwt:number=0
   nwt:number=0
   dataSource = new MatTableDataSource<any>();
+pcs: string | number | undefined;
+pieces: string | number | undefined;
   constructor(private service: ErpService){
   }
   ngOnInit() {

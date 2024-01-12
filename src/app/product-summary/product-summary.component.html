@@ -29,27 +29,27 @@
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> S.No. </th>
       <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ getSerialNumber(i) }} </td>
-      <td mat-footer-cell *matFooterCellDef >Total</td>  
+      <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;">Total</td>  
   </ng-container>
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef> Product Category </th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.productcategory}} </td>
-    <td mat-footer-cell *matFooterCellDef ></td>  
+    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: left;"> {{element.productcategory}} </td>
+    <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="pcs">
-  <th mat-header-cell *matHeaderCellDef> Pcs </th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.pieces|number : '1.2-2'}} </td>
-  <td mat-footer-cell *matFooterCellDef ></td>  
+  <th mat-header-cell *matHeaderCellDef style="width: 35%; text-align: right !important;"> Pieces </th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.pieces}} </td>
+  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('pieces')  }}</td>
 </ng-container>
 <ng-container matColumnDef="gwt">
-<th mat-header-cell *matHeaderCellDef> GWT </th>
+<th mat-header-cell *matHeaderCellDef style="text-align: right  !important;"> Gross Wt. </th>
 <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.gwt|number : '1.3-3'}} </td>
-<td mat-footer-cell *matFooterCellDef style="text-align: right;">{{gwt|number : '1.3-3'}}</td>  
+<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('gwt') | number : '1.3-3' }}</td>
 </ng-container>
 <ng-container matColumnDef="nwt">
-    <th mat-header-cell *matHeaderCellDef> Nwt </th>
+    <th mat-header-cell *matHeaderCellDef style="text-align: right  !important;"> Net wt. </th>
     <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.nwt|number : '1.3-3'}} </td>
-    <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{nwt|number : '1.3-3'}}</td>  
+    <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('nwt') | number : '1.3-3' }}</td>
     </ng-container>
     
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -37,43 +37,44 @@
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
             <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ i+1 }} </td>
-            <td mat-footer-cell *matFooterCellDef>Total</td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;">Total</td>
         </ng-container>
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> Date </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.bilStockDate}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;">Total</td>
         </ng-container>
         <ng-container matColumnDef="partyname">
             <th mat-header-cell *matHeaderCellDef> Party Name </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.partyname}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: left;"> {{element.partyname}} </td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="hsncode">
             <th mat-header-cell *matHeaderCellDef>HSNCODE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> 7114 </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> 7114 </td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="invno">
             <th mat-header-cell *matHeaderCellDef> Inv No </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.vno}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.vno}} </td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="jama">
             <th mat-header-cell *matHeaderCellDef>Gross Wt </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.jama|number : '1.3-3'}} </td>
-            <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{grossWt1|number : '1.3-3'}}</td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{grossWt1|number : '1.3-3'}}</td>
         </ng-container>
         <ng-container matColumnDef="nama">
             <th mat-header-cell *matHeaderCellDef>Gross Wt </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.nama|number : '1.3-3'}} </td>
-            <td mat-footer-cell *matFooterCellDef style="text-align: right;">{{grossWt2|number : '1.3-3'}}</td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{grossWt2|number : '1.3-3'}}</td>
         </ng-container>
         <ng-container matColumnDef="balance">
             <th mat-header-cell *matHeaderCellDef>Balance</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.jama - element.nama}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.jama - element.nama |number : '1.3-3'}} </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right; background-color: #c5efe4;">{{balance | number : '1.3-3'}}</td>
         </ng-container>
+        
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 

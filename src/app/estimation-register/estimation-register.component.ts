@@ -24,7 +24,13 @@ export class EstimationRegisterComponent {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
 
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   constructor(private service: ErpService,private datePipe: DatePipe){
   }
   getEstimationData(){
