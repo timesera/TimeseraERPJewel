@@ -27,10 +27,12 @@
           </mat-select>
           </mat-form-field>
           <button mat-raised-button color="warn"  class="m-4" (click)="getMeltingRegisterData()">Show</button>
+          <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()">Export</button>
 
       </div>
       
 <div>
+
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                showFirstLastButtons
                aria-label="Select page">
@@ -39,7 +41,7 @@
   
 
 <div class="mat-elevation-z8 align">
-    <table mat-table  [dataSource]="dataSource" class="table table-striped table-cash">
+    <table mat-table  [dataSource]="dataSource" class="table table-striped table-cash" id="meltingregister">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> S.No. </th>
       <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{getSerialNumber(i) }} </td>
@@ -63,7 +65,7 @@
 <ng-container matColumnDef="mltngWt">
 <th mat-header-cell *matHeaderCellDef>Melting Wt</th>
 <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.meltingWt|number : '1.3-3'}} </td>
-<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{melWgt|number : '1.3-3'}}</td>  
+<td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('meltingWt') | number : '1.3-3' }}</td>
 </ng-container>
 <ng-container matColumnDef="touch">
     <th mat-header-cell *matHeaderCellDef>Touch(%)</th>
@@ -73,7 +75,7 @@
 <ng-container matColumnDef="weight">
   <th mat-header-cell *matHeaderCellDef>Weight</th>
   <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.pureGold|number : '1.3-3'}} </td>
-  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{weight|number : '1.3-3'}}</td>  
+  <td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('pureGold') | number : '1.3-3' }}</td>
 </ng-container>
 <!-- <ng-container matColumnDef="purGld">
 <th mat-header-cell *matHeaderCellDef>Pure Gold</th>
@@ -88,17 +90,17 @@
 <ng-container matColumnDef="oldFine">
     <th mat-header-cell *matHeaderCellDef>Old Fine</th>
     <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.ofinegold|number : '1.2-2'}} </td>
-    <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{oldFine|number : '1.2-2'}}</td>  
-</ng-container>
+    <td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('ofinegold') | number : '1.3-3' }}</td>
+  </ng-container>
 <ng-container matColumnDef="profit">
   <th mat-header-cell *matHeaderCellDef>Profit</th>
   <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.profit |number : '1.3-3'}} </td>
-  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{profit |number : '1.3-3'}}</td>  
+  <td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('profit') | number : '1.3-3' }}</td>
 </ng-container>
 <ng-container matColumnDef="loss">
 <th mat-header-cell *matHeaderCellDef>Loss</th>
 <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.loss|number : '1.3-3'}} </td>
-<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;">{{loss|number : '1.3-3'}}</td>  
+<td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('loss') | number : '1.3-3' }}</td>
 </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

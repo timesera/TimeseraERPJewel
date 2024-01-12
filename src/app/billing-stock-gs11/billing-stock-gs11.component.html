@@ -1,3 +1,12 @@
+
+<style>
+    .labeling1{
+        width: 24%;
+margin-bottom: -38px;
+margin-left: 90px;
+    }
+</style>
+
 <div class="example-container">
         <label style="margin-left: 5px !important;">From: </label>
         <mat-form-field>
@@ -23,17 +32,21 @@
         </mat-form-field>
         
         <button mat-raised-button color="warn" class="ml-4" (click)="getBuillonStockDetails()" style="margin-left: 5px !important;">Show</button>
-        <label style="margin-left: 5px !important;">Purity: {{openingBalance}}</label>
-        
+        <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()">Export</button>
+
 
 
 </div>
 <div>
+    <div class="labeling1">
+        <label >Opening {{openingBalance}}</label>
+    
+    </div>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
     </mat-paginator>
 </div>
 <div class="mat-elevation-z8 align">
-    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash">
+    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash" id="billingstock">
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
             <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ i+1 }} </td>

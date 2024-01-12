@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
 import { DatePipe } from '@angular/common';
 import { forkJoin } from 'rxjs';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-ornament-stock-gs12',
@@ -72,6 +73,9 @@ export class OrnamentStockGS12Component implements OnInit {
     else{
       this.service.showError("Please fill the required fields");
     }
+  }
+  exportDataSource(){
+    TableUtil.exportArrayToExcel(this.dataSource,"ornamentstockReport");
   }
   getSerialNumber(index: number): number {
     return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;

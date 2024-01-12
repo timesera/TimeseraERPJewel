@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ErpService } from '../erp.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-counter-net-summary',
@@ -15,6 +16,9 @@ export class CounterNetSummaryComponent {
 
   getTotal(_t12: any): string | number {
     throw new Error('Method not implemented.');
+  }
+  exportDataSource(){
+    TableUtil.exportArrayToExcel(this.dataSource,"counternetsummaryReport");
   }
   displayedColumns: string[] = ['position','cuntName','pcs','gwt','nwt'];
   name: any = "MNAME";

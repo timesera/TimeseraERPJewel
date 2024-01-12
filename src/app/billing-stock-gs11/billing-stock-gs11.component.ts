@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
 import { DatePipe } from '@angular/common';
 import { forkJoin } from 'rxjs';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-billing-stock-gs11',
@@ -57,6 +58,9 @@ export class BillingStockGS11Component implements OnInit {
 
       }     
     });
+  }
+  exportDataSource(){
+    TableUtil.exportArrayToExcel(this.dataSource,"billingstockReport");
   }
   getSerialNumber(index: number): number {
     return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;

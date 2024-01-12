@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-purity-summary',
@@ -63,6 +64,9 @@ export class PuritySummaryComponent {
 
     
    }
+   exportDataSource(){
+    TableUtil.exportArrayToExcel(this.dataSource,"puritysummaryReport");
+  }
    getSerialNumber(index: number): number {
   
     return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;

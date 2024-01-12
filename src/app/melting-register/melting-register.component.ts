@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
 import { DatePipe } from '@angular/common';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-melting-register',
@@ -65,6 +66,16 @@ export class MeltingRegisterComponent implements OnInit{
         }
       }     
     });
+  }
+  exportDataSource(){
+    TableUtil.exportArrayToExcel(this.dataSource,"meltingregisterReport");
+  }
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
   }
   getSerialNumber(index: number): number {
   

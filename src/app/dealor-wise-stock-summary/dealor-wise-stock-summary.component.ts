@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-dealor-wise-stock-summary',
@@ -56,7 +57,9 @@ export class DealorWiseStockSummaryComponent implements OnInit {
       }
     });
   }
-
+  exportDataSource(){
+    TableUtil.exportArrayToExcel(this.dataSource,"dealerwiseReport");
+  }
   getSerialNumber(index: number): number {
     return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }

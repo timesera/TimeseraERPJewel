@@ -51,17 +51,19 @@
        
       
       <button mat-raised-button color="warn"  class="m-4" (click)="getPurchaseReturnData()">Show</button>
-      
+
       
     </div>  
 <div>
+  <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()">Export</button>
+
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                showFirstLastButtons
                aria-label="Select page">
 </mat-paginator>
 </div>
 <div class="mat-elevation-z8 align">
-    <table mat-table  [dataSource]="dataSource" class="table table-striped table-cash">
+    <table mat-table  [dataSource]="dataSource" class="table table-striped table-cash" id="purchasereturn">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> S.No. </th>
       <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{getSerialNumber(i)}} </td>
