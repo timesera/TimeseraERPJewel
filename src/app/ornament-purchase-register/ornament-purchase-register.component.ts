@@ -17,11 +17,11 @@ export class OrnamentPurchaseRegisterComponent {
   // jewelList:any=[];
   estimation:any;
   prtyList:any=[];
-  partyName:any;
+  partyName:any = "";
   prodList:any=[];
-  prodName:any;
+  prodName:any = "";
   purtyList:any=[];
-  purtyName:any;
+  purtyName:any = "";
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;

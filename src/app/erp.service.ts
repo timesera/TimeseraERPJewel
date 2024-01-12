@@ -14,6 +14,7 @@ export class ErpService {
 
   private URLHostName = "http://www.service.timeseraerp.in";
   getTagGenerationDetails:string = this.URLHostName + "/api/Erp/GetTagGenerationDetails";
+  getTagGenerationDetailsByFilterURL:string = this.URLHostName + "/api/Erp/GetTagGenerationDetailsByFilter";
   getOutStandingCustomerURL: string = this.URLHostName + "/api/Erp/GetOutStandingCustomer";
   getOutStandingDealorURL: string = this.URLHostName + "/api/Erp/GetOutStandingDealers";
   getCashBookURL: string = this.URLHostName + "/api/Erp/GetCashBook";
@@ -88,6 +89,10 @@ export class ErpService {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('filterName', filterName);
     return this.httpClient.get<any>(this.getTagGenerationDetails, { 'params': params, 'headers': this.headers });
+  }
+  GetTagGenerationDetailsByFilter(tagFilter: any): Observable<any>{
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    return this.httpClient.post<any>(this.getTagGenerationDetailsByFilterURL, tagFilter, { 'headers': this.headers });
   }
   GetOutStandingCustomer(filterName: any, cityName: any, custName: any, mobileNum: any): Observable<any> {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());

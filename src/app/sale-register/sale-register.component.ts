@@ -16,9 +16,9 @@ export class SaleRegisterComponent implements OnInit{
   saleStartDate:Date=new Date();
   saleEndDate:Date=new Date();
   jewelList:any=[];
-  jewelType:any;
+  jewelType:any = "";
   custList:any=[];
-  cstName:any;
+  cstName:any = "";
   billNo:any;
   mobileNo:any;
   @ViewChild(MatPaginator)

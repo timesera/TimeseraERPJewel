@@ -25,7 +25,9 @@ export class TagDetailsComponent implements OnInit {
   categoryName: any = "";
   categoryNameList: any = [];
 
-  displayedColumns: string[] = ['vno', 'date', 'transtype', 'paymode', 'particulars', 'partyname', 'debit', 'credit', 'closebalance'];
+  displayedColumns: string[] = ['tagno', 'mname', 'productname', 'pieces', 'gwt', 'less', 'nwt', 'prefix', 
+                                'countername', 'dealername', 'diacts', 'diamond_Amount', 'iteM_TOTAMT', 'tagsize',
+                                'cattotwast', 'huid', 'brandname', 'brandamt'];
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -78,5 +80,26 @@ export class TagDetailsComponent implements OnInit {
         }
       }
     })
+  }
+
+  GetTagGenerationDetailsByFilter() {
+    var tagFilter = {
+      filterName: null,
+      mName: this.mName,
+      productName: this.productName,
+      productCategory: this.productCategory,
+      dealerName: this.dealerName,
+      prefix: this.prefix,
+      counterName: this.counterName,
+      categoryName: this.categoryName
+    }
+    if(this.mName != null && this.mName != undefined && this.mName != ""){
+      this.service.GetTagGenerationDetailsByFilter(tagFilter).subscribe(data => {
+        this.dataSource = data;
+      });
+    }
+    else{
+      this.service.showError("Please select Main Product");
+    }
   }
 }
