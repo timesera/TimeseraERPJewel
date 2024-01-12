@@ -19,11 +19,11 @@ export class TableUtil {
     XLSX.writeFile(wb, `${fileName}.xlsx`);
   }
 
-  static exportArrayToExcel(arr: any[], name?: string) {
+  static exportArrayToExcel(arr: any, name?: string) {
     let { sheetName, fileName } = getFileName(name!);
 
     var wb = XLSX.utils.book_new();
-    var ws = XLSX.utils.json_to_sheet(arr);
+    var ws = XLSX.utils.json_to_sheet(arr._data.value);
     XLSX.utils.book_append_sheet(wb, ws, sheetName);
     XLSX.writeFile(wb, `${fileName}.xlsx`);
   }

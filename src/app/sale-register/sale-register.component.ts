@@ -63,7 +63,7 @@ export class SaleRegisterComponent implements OnInit{
   }
 
   exportDataSource(){
-    TableUtil.exportTableToExcel("sale-register","saleRegisterReport");
+    TableUtil.exportArrayToExcel(this.dataSource,"saleRegisterReport");
   }
   getSerialNumber(index: number): number {
   
