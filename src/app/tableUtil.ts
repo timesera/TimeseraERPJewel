@@ -32,10 +32,10 @@ export class TableUtil {
     let { sheetName, fileName } = getFileName(name!);
     let headerNames = heading != undefined ? [heading] :[[]];
     var wb = XLSX.utils.book_new();
-    var ws = XLSX.utils.json_to_sheet(arr._data.value,{skipHeader:true});
-    XLSX.utils.sheet_add_json(ws,arr._data.value,{skipHeader:true , origin: 'A2'});
-    XLSX.utils.sheet_add_aoa(ws, headerNames)
+    var ws = XLSX.utils.json_to_sheet(arr,{skipHeader:true});
+    XLSX.utils.sheet_add_json(ws,arr,{skipHeader:true , origin: 'A2'});
     XLSX.utils.book_append_sheet(wb, ws, sheetName);
+    XLSX.utils.sheet_add_aoa(ws, headerNames)
     XLSX.writeFile(wb, `${fileName}.xlsx`);
   }
 }

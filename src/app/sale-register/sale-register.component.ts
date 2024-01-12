@@ -70,7 +70,31 @@ export class SaleRegisterComponent implements OnInit{
   }
 
   exportDataSource(){
-    TableUtil.exportArrayToExcel(this.dataSource,"saleRegisterReport");
+    let headers = ['S.NO','Bill Date','Jewel Type','Bill No','Customer Name','PCS','GWT','NWT',
+    'Total Amount','Discount','Gross Amt','CGST','SGST','IGST','Net Amount']
+    
+    let list: any[] = new Array<any>();
+    var i=1;
+    this.dataSource.data.forEach(x => {
+      list.push({
+        sno: i++,
+        billDate: x.billDate,
+        jewelType: x.jewelType,
+        billNo: x.billNo,
+        custName: x.custName,
+        totPieces: x.totPieces,
+        totGwt: x.totGwt,
+        totNwt: x.totNwt,
+        totAmt: x.totAmt,
+        disAmt: x.disAmt,
+        grsAmt:x.grsAmt,
+        cgst: x.cgst,
+        sgst: x.sgst,
+        igst: x.igst,
+        netAmt: x.netAmt
+      })
+    });
+    TableUtil.exportArrayToExcelWithCustomHeaders(list,"saleRegisterReport",headers)
   }
   getSerialNumber(index: number): number {
   
