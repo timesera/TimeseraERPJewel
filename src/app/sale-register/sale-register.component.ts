@@ -12,6 +12,13 @@ import { TableUtil } from '../tableUtil';
   styleUrls: ['./sale-register.component.css']
 })
 export class SaleRegisterComponent implements OnInit{
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   displayedColumns: string[] = ['position','billDate','jewelType','billNo','custName','pcs','gwt','nwt','totalAmt','discount','grsAmt','cgst','sgst','igst','netAmount'];
 
   saleStartDate:Date=new Date();

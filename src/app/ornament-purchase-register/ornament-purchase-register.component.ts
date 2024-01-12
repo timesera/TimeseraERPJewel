@@ -10,7 +10,14 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./ornament-purchase-register.component.css']
 })
 export class OrnamentPurchaseRegisterComponent {
-  displayedColumns: string[] = ['position','invNo','invDate','mainProd','prtyName','gwt','less','nwt','totalAmt','cgst','sgst','igst','grsAmt','tcs','netAmt'];
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
+  displayedColumns: string[] = ['position','invNo','invDate','prtyName','gwt','less','nwt','totalAmt','cgst','sgst','igst','grsAmt','tcs','netAmt'];
 
   ornmtRgstrStartDate:Date=new Date();
   ornmtRgstrEndDate:Date=new Date();
@@ -34,7 +41,7 @@ export class OrnamentPurchaseRegisterComponent {
     this.getOrnamentData("PTYPE");
     this.getOrnamentData("PREFIX");
   }
-  getOrnamentData(columnName: any =""){
+  getOrnamentData(columnName: any = ""){
     const datePipe = new DatePipe('en-US');
     let saleStartingDate = datePipe.transform(this.ornmtRgstrStartDate, 'yyyy/MM/dd') || '';
     let saleEndingDate = datePipe.transform(this.ornmtRgstrEndDate, 'yyyy/MM/dd') || '';
