@@ -12,6 +12,15 @@ import { TableUtil } from '../tableUtil';
   styleUrls: ['./billing-stock-gs11.component.css']
 })
 export class BillingStockGS11Component implements OnInit {
+nama: any;
+jama: any;
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   billStartDate: any = new Date();
   billEndDate:any = new Date();
   particulars: any;
@@ -29,6 +38,7 @@ export class BillingStockGS11Component implements OnInit {
   
   constructor(private service: ErpService,private datePipe: DatePipe){
   }
+  
   ngOnInit() {
     this.getBuillonStockDetails("PARTICULARS");
     
@@ -59,6 +69,7 @@ export class BillingStockGS11Component implements OnInit {
       }     
     });
   }
+  
   exportDataSource(){
     TableUtil.exportArrayToExcel(this.dataSource,"billingstockReport");
   }

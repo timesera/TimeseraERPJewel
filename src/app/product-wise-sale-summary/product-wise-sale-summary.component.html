@@ -29,7 +29,8 @@
                 <mat-option *ngFor="let item of productNameList" value={{item}}>{{item}}</mat-option>
             </mat-select>
         </mat-form-field>
-        <label style="margin-left: 5px !important;">Counter: </label>
+       <div class="example-container">
+        <label >Counter: </label>
         <mat-form-field class="example-full-width ml-2">
             <mat-label>Select Counter</mat-label>
             <mat-select disableRipple [(ngModel)]="counter">
@@ -56,127 +57,122 @@
 
         <label style="margin-left: 5px !important;">Emp. Code: </label>
         <input matInput style="margin-right: 10px !important;" [(ngModel)]="empCode">
-        <label style="margin-left: 5px !important;">Tag No: </label>
-        <input matInput style="margin-right: 10px !important;" [(ngModel)]="tagNo">
-        <label style="margin-left: 5px !important;">Bill No: </label>
-        <input matInput style="margin-right: 10px !important;" [(ngModel)]="billNO">
+        <div class="example-container">
+            <label style="margin-left: 5px !important;">Tag No: </label>
+            <input matInput style="margin-right: 10px !important;" [(ngModel)]="tagNo">
+            <label style="margin-left: 5px !important;">Bill No: </label>
+            <input matInput style="margin-right: 10px !important;" [(ngModel)]="billNO">
+    
+            <button mat-raised-button color="warn" class="ml-4" (click)="GetProduceWiseSalesDetails()"
+                style="margin-left: 5px !important;">Show</button>
+                <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()">Export</button>
 
-        <button mat-raised-button color="warn" class="ml-4" (click)="GetProduceWiseSalesDetails()"
-            style="margin-left: 5px !important;">Show</button>
+        </div>
+    
+    
     </div>
-
-
-</div>
-<div>
+           </div>
+    
+        </div>
+       <div>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
     </mat-paginator>
 </div>
 <div class="mat-elevation-z8 align">
-    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash">
+    <table mat-table [dataSource]="dataSource" class="table table-striped table-cash" id="productwise" style="white-space: nowrap;">
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
             <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ i+1 }} </td>
-            <td mat-footer-cell *matFooterCellDef>Total</td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;">Total</td>
         </ng-container>
         <ng-container matColumnDef="billdate">
             <th mat-header-cell *matHeaderCellDef> Bill Date </th>
             <td mat-cell *matCellDef="let element" style="text-align: center;"> {{ element.productDate }} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;">Total</td>
         </ng-container>
         <ng-container matColumnDef="jeweltype">
             <th mat-header-cell *matHeaderCellDef> Jewel Type </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.jewelType}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="billno">
             <th mat-header-cell *matHeaderCellDef> Bill No </th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.billNo}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="tagno">
             <th mat-header-cell *matHeaderCellDef>Tag No</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;">  {{element.tagNo}}  </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="mainproduct">
             <th mat-header-cell *matHeaderCellDef>Main Product</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.mname}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="productname">
             <th mat-header-cell *matHeaderCellDef>Product Name</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.productName}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="prefix">
             <th mat-header-cell *matHeaderCellDef>Prefix</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.prefix}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="pcs">
             <th mat-header-cell *matHeaderCellDef>Pcs</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.pieces}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('pieces')  }}</td>
         </ng-container>
         <ng-container matColumnDef="gwt">
             <th mat-header-cell *matHeaderCellDef>Gwt</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.gwt}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.gwt  | number : '1.3-3'}} </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('gwt') | number : '1.3-3' }}</td>
         </ng-container>
         <ng-container matColumnDef="less">
             <th mat-header-cell *matHeaderCellDef>Less</th>
-            <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;"> {{ element.gwt - element.nwt }} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;"> {{ element.gwt - element.nwt  | number : '1.3-3' }} </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('less') | number : '1.3-3' }}</td>
         </ng-container>
         <ng-container matColumnDef="nwt">
             <th mat-header-cell *matHeaderCellDef>Nwt</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.nwt}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.nwt  | number : '1.3-3'}} </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('nwt') | number : '1.3-3' }}</td>
         </ng-container>
-        <ng-container matColumnDef="cts">
-            <th mat-header-cell *matHeaderCellDef>Cts</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.item_Cts}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
+       
         <ng-container matColumnDef="diacts">
             <th mat-header-cell *matHeaderCellDef>Dia Cts</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">  {{element.item_Diamonds}}  </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">  {{element.item_Diamonds  | number : '1.3-3'}}  </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('item_Diamonds') | number : '1.3-3' }}</td>
         </ng-container>
-        <ng-container matColumnDef="uncuts">
-            <th mat-header-cell *matHeaderCellDef>Uncuts</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.item_Uncuts}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
+       
         <ng-container matColumnDef="amount">
             <th mat-header-cell *matHeaderCellDef>Amount</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.amount}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.amount | number : '1.2-2'}} </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('amount') | number : '1.2-2' }}</td>
         </ng-container>
         <ng-container matColumnDef="stoneamount">
             <th mat-header-cell *matHeaderCellDef>Stone Amount</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.itemamt}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.itemamt  | number : '1.2-2'}} </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('stoneamount') | number : '1.2-2' }}</td>
         </ng-container>
         <ng-container matColumnDef="totamount">
-            <th mat-header-cell *matHeaderCellDef>TOT Amount</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.totamt}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.totamt | number : '1.2-2'}} </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('totamt') | number : '1.2-2' }}</td>
         </ng-container>
-        <ng-container matColumnDef="tagdate">
-            <th mat-header-cell *matHeaderCellDef>Tag Date</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position">{{element.tagDate}}</td>
-            <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
+       
         <ng-container matColumnDef="huid">
             <th mat-header-cell *matHeaderCellDef>HUID</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">{{element.huid}}</td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
         </ng-container>
         <ng-container matColumnDef="hsncode">
             <th mat-header-cell *matHeaderCellDef>HSN Code</th>
             <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">{{element.hsncode}}</td>
-            <td mat-footer-cell *matFooterCellDef></td>
+            <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;" ></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -25,6 +25,8 @@
            
           </mat-select>
           </mat-form-field>
+          <label style="margin-left: 20px !important;">Bill No: </label>
+        <input matInput placeholder="" style="margin-right: 50px !important; width: 10%;" [(ngModel)]="billNo">
       </div>
       <div class="example-container">
         <label style="margin-left: 20px !important;">Customer: </label>
@@ -35,15 +37,15 @@
             <mat-option *ngFor="let item of custList" value={{item}}>{{item}}</mat-option>
           </mat-select>
         </mat-form-field>
-        <label style="margin-left: 20px !important;">Bill No: </label>
-        <input matInput placeholder="" style="margin-right: 50px !important; width: 10%;" [(ngModel)]="billNo">
+        
         <label style="margin-left: 20px !important;">Mobile No: </label>
         <input matInput placeholder="" style="margin-right: 20px !important;" [(ngModel)]="mobileNo">
         <button mat-raised-button color="warn" class="m-4" (click)="getSaleRegisterData()">Show</button>
+        <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()">Export</button>
+
       </div>
     </div>
 <div>
-  <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()">Export</button>
   
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                showFirstLastButtons
@@ -94,7 +96,7 @@
 </ng-container>
 <ng-container matColumnDef="totalAmt">
 <th mat-header-cell *matHeaderCellDef>Total Amount</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.totAmt | number : '1.2-2' }} </td>
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.totAmt | number : '1.2-2' }} </td>
 <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4; font-size: 14px;font-weight:500;">{{ calculateTotal('totAmt') | number : '1.2-2'  }}</td>
 </ng-container>
 <ng-container matColumnDef="discount">

@@ -24,8 +24,8 @@ export class OrnamentStockGS12Component implements OnInit {
   displayedColumns: string[] = ['date', 'partyname', 'hsncode', 'invno', 'jama', 'nama', 'balance', 'purity'];
   openingBalance: number = 0;
 
-  grsWt1:number=0
-  grsWt2:number=0
+  jama:number=0
+  nama:number=0
   balanceAmt:number=0
 
   @ViewChild(MatPaginator)
@@ -60,8 +60,8 @@ export class OrnamentStockGS12Component implements OnInit {
             element.balance = parseInt(element.debit) - parseInt(element.credit);
             element.entrdate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
           
-            this.grsWt1 += element.jama
-            this.grsWt2 +=element.nama
+            this.jama += element.jama
+            this.nama +=element.nama
             this.balanceAmt += Number(element.balance);
 
 
@@ -73,6 +73,13 @@ export class OrnamentStockGS12Component implements OnInit {
     else{
       this.service.showError("Please fill the required fields");
     }
+  }
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
   }
   exportDataSource(){
     TableUtil.exportArrayToExcel(this.dataSource,"ornamentstockReport");

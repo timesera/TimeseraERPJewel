@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
 import { DatePipe } from '@angular/common';
 import { forkJoin } from 'rxjs';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-product-wise-sale-summary',
@@ -11,7 +12,13 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./product-wise-sale-summary.component.css']
 })
 export class ProductWiseSaleSummaryComponent implements OnInit {
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
 
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   billStartDate: any = new Date();
   billEndDate: any = new Date();
   jewelType: any = "";
@@ -28,7 +35,7 @@ export class ProductWiseSaleSummaryComponent implements OnInit {
   tagNo: any;
   empCode: any;
   
-  displayedColumns: string[] = ['billdate', 'jeweltype', 'billno', 'tagno', 'mainproduct', 'productname', 'prefix', 'pcs', 'gwt', 'less', 'nwt', 'cts', 'diacts', 'uncuts', 'amount', 'stoneamount', 'totamount', 'tagdate', 'huid', 'hsncode'];
+  displayedColumns: string[] = ['billdate', 'jeweltype', 'billno', 'tagno', 'mainproduct', 'productname', 'prefix', 'pcs', 'gwt', 'less', 'nwt',  'diacts',  'amount', 'stoneamount', 'totamount',  'huid', 'hsncode'];
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -73,7 +80,9 @@ export class ProductWiseSaleSummaryComponent implements OnInit {
       }     
     });
   }
-
+  exportDataSource(){
+    TableUtil.exportArrayToExcel(this.dataSource,"productwiseReport");
+  }
   getSerialNumber(index: number): number {
     return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }

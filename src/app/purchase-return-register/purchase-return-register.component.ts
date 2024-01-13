@@ -11,8 +11,14 @@ import { TableUtil } from '../tableUtil';
   styleUrls: ['./purchase-return-register.component.css']
 })
 export class PurchaseReturnRegisterComponent implements OnInit{
-  displayedColumns: string[] = ['position','voucherNO','date','mainPrdt','prtyName','gwt','less','nwt','totalAmt','cgst','sgst','igst','grsAmt'];
+  displayedColumns: string[] = ['position','voucherNO','date','prtyName','gwt','less','nwt','totalAmt','cgst','sgst','igst','grsAmt'];
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
 
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   prchseStartDate:Date=new Date();
   prchseEndDate:Date=new Date();
   prtyList:any=[];

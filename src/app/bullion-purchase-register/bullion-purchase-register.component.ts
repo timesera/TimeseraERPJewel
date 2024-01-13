@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./bullion-purchase-register.component.css']
 })
 export class BullionPurchaseRegisterComponent implements OnInit{
+  
   displayedColumns: string[] = ['position','invNO','invDt','mainPrdt','prtyName','weight','grsAmt','cgst','sgst','igst','totalAmt','tcs','netAmt'];
 
   bulPrhsStartDate:Date=new Date();
