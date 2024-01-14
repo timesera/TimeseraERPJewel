@@ -56,14 +56,14 @@ export class ErpService {
               private toastr: ToastrService, public dialog: MatDialog) {
   }
 
-  showSuccess(message: any) {
-    this.toastr.success(message, 'Success!');
+  showSuccess(message: any,title: any) {
+    this.toastr.success(message, title);
   }
-  showError(message: any){
-    this.toastr.error(message, 'Error!');
+  showError(message: any, title: any){
+    this.toastr.error(message, title);
   }
-  showWarning(message: any) {
-    this.toastr.warning(message, 'Warning!');
+  showWarning(message: any, title: any) {
+    this.toastr.warning(message, title);
   }
 
   openModal(title:string, list:string) {

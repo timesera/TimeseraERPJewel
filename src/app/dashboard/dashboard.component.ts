@@ -74,11 +74,21 @@ export class DashboardComponent implements OnInit {
 
   displayDueBoxDetails(filterName: any){
     var list = filterName == "TD" ? this.todayDuesandCount.customerLedgers : this.totalDuesandCount.customerLedgers;
-    this.service.openModal("DUE",list);
+    if(list.length>0){
+      this.service.openModal("DUE",list);
+    }
+    else {
+      this.service.showWarning("No records found!","")
+    }
   }
 
   displayWishBoxDetails(filterName: any){
-    var list = filterName == "A" ? this.anniversaryWishBox.customerLedgers : this.birthdayWishBox.customerLedgers;
-    this.service.openModal("WISH",list)
+    var list = filterName == "A" ? this.anniversaryWishBox.dealerMasters : this.birthdayWishBox.dealerMasters;
+    if(list.length>0){
+      this.service.openModal("WISH",list)
+    }
+    else {
+      this.service.showWarning("No records found!","")
+    }
   }
 }

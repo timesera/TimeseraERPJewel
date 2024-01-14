@@ -1,20 +1,24 @@
-
 .text-capitalize-first {
-    text-transform: lowercase;
-    display: block;
-  }
-  
-  .text-capitalize-first::first-letter {
-    text-transform: uppercase;
-  }
+  text-transform: lowercase;
+  display: block;
+}
 
-  .div-content {
-    overflow-y: auto;
-    height: 80vh;
-    margin: 5vh;
-  }
+.text-capitalize-first::first-letter {
+  text-transform: uppercase;
+}
 
-  .div-title {
-    text-align: center;
-    margin-top: 1vh;
-  }
+.div-content {
+  overflow-y: auto;
+  height: 80vh;
+  margin: 5vh;
+}
+
+.div-title {
+  text-align: center;
+  margin-top: 1vh;
+}
+
+.td-wishbox-addres {
+  font-size: 8px !important;
+  line-height: 2.3vh;
+}

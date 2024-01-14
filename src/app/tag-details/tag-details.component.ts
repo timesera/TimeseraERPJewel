@@ -99,7 +99,7 @@ export class TagDetailsComponent implements OnInit {
       });
     }
     else{
-      this.service.showError("Please select Main Product");
+      this.service.showError("Please select Main Product","");
     }
   }
 }
