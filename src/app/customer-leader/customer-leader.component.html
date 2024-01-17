@@ -1,5 +1,12 @@
 
+<style>
+  .labeling{
+    width: 24%;
+    margin-bottom: -38px;
+    margin-left: 90px;
 
+  }
+</style>
 <div class="example-container">
      
     <div>
@@ -26,43 +33,40 @@
            
           </mat-select>
           </mat-form-field>
-        </div>
-        <div class="example-container">
           <label style="margin-left: 20px !important;">City: </label>
           <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="cityName">
 
+        </div>
+        <div class="example-container">
+        
           <label style="margin-left: 20px !important;">Search By Mobile: </label>
          
           <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="phoneNo">
        
-          <label style="margin-left: 20px !important;">Opening Amt: </label><span></span>
-          <label style="margin-left: 20px !important;">Ledger Balance: </label><span></span>
       <!-- </div> -->
       
-          
+      <label style="margin-left: 20px !important;">Address: </label>
+         
+      <mat-form-field class="example-full-width">
+
+        <textarea matInput  cols="200" rows="3"></textarea>
+        <!-- <textarea matInput
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="50"></textarea> -->
+
+       
+        <!-- <textarea matInput rows="1" cols="250" placeholder="" [(ngModel)]="address"></textarea> -->
+      </mat-form-field>  
+      <label style="margin-left: 20px !important;">Mobile No: </label>
+         
+      <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="mobileNo">
+   
         </div>
-        <div class="example-container">
-          <label style="margin-left: 20px !important;">Address: </label>
-         
-          <mat-form-field class="example-full-width">
-
-            <textarea matInput  cols="200" rows="3"></textarea>
-            <!-- <textarea matInput
-            cdkTextareaAutosize
-            #autosize="cdkTextareaAutosize"
-            cdkAutosizeMinRows="1"
-            cdkAutosizeMaxRows="50"></textarea> -->
-
-           
-            <!-- <textarea matInput rows="1" cols="250" placeholder="" [(ngModel)]="address"></textarea> -->
-          </mat-form-field>       
-          
-         </div>
+       
          <div class="example-container">
-            <label style="margin-left: 20px !important;">Mobile No: </label>
-         
-            <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="mobileNo">
-         
+           
             <label style="margin-left: 20px !important;">GSTIN: </label>
          
             <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="gstIn">
@@ -79,6 +83,11 @@
   
 </div>
 <div>
+  <div class="labeling">
+    
+    <label style="margin-left: 20px !important;">Opening Amt: </label><span></span>
+    <label style="margin-left: 20px !important;">Ledger Balance: </label><span></span>
+  </div>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
              showFirstLastButtons
              aria-label="Select page">
