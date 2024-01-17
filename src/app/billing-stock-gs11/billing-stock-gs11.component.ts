@@ -57,13 +57,24 @@ jama: any;
         this.dataSource.data=data[0] 
         this.dataSource.paginator = this.paginator;   
 
-        this.dataSource.data.forEach((element: any) => {
-          element.bilStockDate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
-          element.balance = parseInt(element.debit) - parseInt(element.credit);
-          this.grossWt1 += element.jama;
-          this.grossWt2 += element.nama;
-          this.balance += element.jama - element.nama;
-        });
+     // ...
+this.dataSource.data.forEach((element: any) => {
+  element.bilStockDate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
+  
+  // Ensure 'jama' and 'nama' properties exist and convert them to numbers
+  const jama = parseInt(element.jama) || 0;
+  const nama = parseInt(element.nama) || 0;
+  
+  // Update 'balance' property based on the formula
+  element.balance = jama - nama;
+
+  // Update other calculated properties if needed
+  this.grossWt1 += jama;
+  this.grossWt2 += nama;
+  this.balance += element.balance;
+});
+// ...
+
         
 
       }     

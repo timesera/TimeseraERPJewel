@@ -9,6 +9,13 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./outstanding-dealers.component.css']
 })
 export class OutstandingDealersComponent implements OnInit {
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+  
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   displayedColumns: string[] = ['position', 'partyName', 'mobileNO', 'add1', 'add2', 'balance'];
 
 

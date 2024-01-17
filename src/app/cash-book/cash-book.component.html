@@ -1,40 +1,49 @@
-
+<style>
+  .labels{
+    width: 23%;
+    margin-bottom: -30px;
+    margin-left: 20px;
+  }
+</style>
 <div class="example-container">
-      <label style="margin-left: 20px !important;">From: </label>
-          <mat-form-field>
-      <input matInput [matDatepicker]="picker1"  placeholder="Choose a date" [(ngModel)]="billStartDate">
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>   
-    
-    <label style="margin-left: 20px !important;">To: </label>
-          <mat-form-field>
-      <input matInput [matDatepicker]="picker2"  placeholder="Choose a date" [(ngModel)]="billEndDate">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-      
-    <button mat-raised-button color="warn"  class="m-4" (click)="getCashBookDetails()">Show</button>
-    <label class="ml-2">Opening Cash: </label>
-    <label class="ml-2">{{balaceAmt}} </label>
+  <label style="margin-left: 20px !important;">From: </label>
+      <mat-form-field>
+  <input matInput [matDatepicker]="picker1"  placeholder="Choose a date" [(ngModel)]="billStartDate">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>   
+
+<label style="margin-left: 20px !important;">To: </label>
+      <mat-form-field>
+  <input matInput [matDatepicker]="picker2"  placeholder="Choose a date" [(ngModel)]="billEndDate">
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+  
+<button mat-raised-button color="warn"  class="m-4" (click)="getCashBookDetails()">Show</button>
+
 </div>
 <div>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-             showFirstLastButtons
-             aria-label="Select page">
+  <div class="labels">
+    <label class="ml-2">Opening Cash: </label>
+<label class="ml-2">{{balaceAmt}} </label>
+  </div>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+         showFirstLastButtons
+         aria-label="Select page">
 </mat-paginator>
 </div>
 <div class="mat-elevation-z8 align">
-  <table mat-table  [dataSource]="dataSource" class="table table-striped table-cash">
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> S.No. </th>
-    <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ getSerialNumber(i) }} </td>
-    <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;">Total</td>  
+<table mat-table  [dataSource]="dataSource" class="table table-striped table-cash">
+<ng-container matColumnDef="position">
+<th mat-header-cell *matHeaderCellDef> S.No. </th>
+<td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{ getSerialNumber(i) }} </td>
+<td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;">Total</td>  
 </ng-container>
 <ng-container matColumnDef="date">
-  <th mat-header-cell *matHeaderCellDef> Date </th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.billdate}} </td>
-  <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
+<th mat-header-cell *matHeaderCellDef> Date </th>
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.billdate}} </td>
+<td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="type">
 <th mat-header-cell *matHeaderCellDef> Type </th>
@@ -47,24 +56,24 @@
 <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="voucherNo">
-  <th mat-header-cell *matHeaderCellDef> Voucher/R.No </th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.sno}} </td>
-  <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
-  </ng-container>
-  <ng-container matColumnDef="debit">
-    <th mat-header-cell *matHeaderCellDef>Debit </th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.debit}} </td>
-    <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
-    </ng-container>
-    <ng-container matColumnDef="credit">
-      <th mat-header-cell *matHeaderCellDef> Credit </th>
-      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.credit}} </td>
-      <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
-      </ng-container>
+<th mat-header-cell *matHeaderCellDef> Voucher/R.No </th>
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.sno}} </td>
+<td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
+</ng-container>
+<ng-container matColumnDef="debit">
+<th mat-header-cell *matHeaderCellDef>Debit </th>
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.debit | number : '1.3-3'}} </td>
+<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4; font-size: 14px;font-weight:500;">{{ calculateTotal('debit') | number : '1.3-3'  }}</td>
+</ng-container>
+<ng-container matColumnDef="credit">
+  <th mat-header-cell *matHeaderCellDef> Credit </th>
+  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.credit | number : '1.3-3'}} </td>
+  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4; font-size: 14px;font-weight:500;">{{ calculateTotal('credit') | number : '1.3-3'  }}</td>
+</ng-container>
 <ng-container matColumnDef="balance">
 <th mat-header-cell *matHeaderCellDef>Balance</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.balanceperAmount}} </td>
-<td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;">{{balaceAmt}}</td>  
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.balanceperAmount | number : '1.3-3'}} </td>
+<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4; font-size: 14px;font-weight:500;">{{ calculateTotal('balanceperAmount') | number : '1.3-3'  }}</td>
 </ng-container>
 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -75,7 +84,7 @@
 <!-- </mat-table> -->
 </table>
 <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-             showFirstLastButtons
-             aria-label="Select page">
+         showFirstLastButtons
+         aria-label="Select page">
 </mat-paginator> -->
 </div>

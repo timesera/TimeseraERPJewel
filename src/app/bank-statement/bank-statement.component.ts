@@ -11,6 +11,13 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./bank-statement.component.css']
 })
 export class BankStatementComponent implements OnInit {
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+  
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   billStartDate: any = new Date();
   billEndDate: any = new Date();
   accountNo: number = 0;

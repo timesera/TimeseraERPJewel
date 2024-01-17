@@ -12,8 +12,18 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./cash-book.component.css']
 })
 export class CashBookComponent {
-  billStartDate: any;
-  billEndDate: any;
+  billStartDate:Date=new Date();
+  billEndDate:Date=new Date();
+
+date: any;
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
+ 
 
   displayedColumns: string[] = ['position', 'date', 'type', 'particular', 'voucherNo', 'debit', 'credit', 'balance'];
   tempList: any;
@@ -27,24 +37,30 @@ export class CashBookComponent {
   ngOnInit() {
   }
   getCashBookDetails() {
-
-    console.log("billStartDate", this.billStartDate)
-    console.log("billEndDate", this.billEndDate)
+    console.log("billStartDate", this.billStartDate);
+    console.log("billEndDate", this.billEndDate);
+  
     const datePipe = new DatePipe('en-US');
     let billStartingDate = datePipe.transform(this.billStartDate, 'yyyy/MM/dd') || '';
     let billEndingDate = datePipe.transform(this.billEndDate, 'yyyy/MM/dd') || '';
-
-    forkJoin(this.service.GetCashBookData(billStartingDate, ""), this.service.GetCashBookData(billStartingDate, billEndingDate)).subscribe(data => {
-      this.tempList = data
+  
+    forkJoin(
+      this.service.GetCashBookData(billStartingDate, ""),
+      this.service.GetCashBookData(billStartingDate, billEndingDate)
+    ).subscribe(data => {
+      this.tempList = data;
       this.dataSource.data = data;
+  
+      // Calculate balance and update balance amount here
+      this.balaceAmt = 0; // Reset balance amount before recalculating
+      this.dataSource.data.forEach((element) => {
+        element.balanceperAmount = parseInt(element.debit) - parseInt(element.credit);
+        console.log("element.balanceperAmount", element.balanceperAmount);
+        this.balaceAmt += element.balanceperAmount;
+      });
     });
-    this.dataSource.data.forEach((element) => {
-      element.balanceperAmount = parseInt(element.debit) - parseInt(element.credit)
-      console.log("element.balanceperAmount", element.balanceperAmount)
-      this.balaceAmt += element.balanceperAmount
-    })
-
   }
+  
   getSerialNumber(index: number): number {
     return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }

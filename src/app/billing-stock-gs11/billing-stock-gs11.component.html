@@ -84,9 +84,14 @@ margin-left: 90px;
         </ng-container>
         <ng-container matColumnDef="balance">
             <th mat-header-cell *matHeaderCellDef>Balance</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right !important;"> {{element.jama - element.nama |number : '1.3-3'}} </td>
-            <td mat-footer-cell *matFooterCellDef style="text-align: right !important; background-color: #c5efe4;"></td>
-        </ng-container>
+            <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right !important;">
+              {{ (element.jama - element.nama) | number : '1.3-3' }}
+            </td>
+            <td mat-footer-cell *matFooterCellDef style="text-align: right !important; background-color: #c5efe4;">
+              {{ calculateTotal('balance') | number : '1.3-3' }}
+            </td>
+          </ng-container>
+          
         
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

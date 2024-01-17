@@ -10,7 +10,13 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./bullion-purchase-register.component.css']
 })
 export class BullionPurchaseRegisterComponent implements OnInit{
-  
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
   displayedColumns: string[] = ['position','invNO','invDt','mainPrdt','prtyName','weight','grsAmt','cgst','sgst','igst','totalAmt','tcs','netAmt'];
 
   bulPrhsStartDate:Date=new Date();

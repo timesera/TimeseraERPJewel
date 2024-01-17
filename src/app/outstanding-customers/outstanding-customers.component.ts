@@ -17,11 +17,19 @@ export class OutstandingCustomersComponent implements OnInit {
   mobileNum: any = "";
   filterName: any = "MASTER";
   tempList: any;
-  balaceAmt:number=0
+  balaceAmt:number=0;
+  
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
+balance: number=0;
+calculateTotal(column: string): number {
+  return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+}
 
+getTotal(_t12: any): string | number {
+  throw new Error('Method not implemented.');
+}
   constructor(private service: ErpService){
   }
   ngOnInit() {
@@ -36,6 +44,9 @@ export class OutstandingCustomersComponent implements OnInit {
     console.log("this.cityName",this.cityName)
     console.log("this.custName",this.custName)
     console.log("this.mobileNum",this.mobileNum)
+    console.log("this.balance",this.balance)
+    
+
 
     this.service.GetOutStandingCustomer(this.filterName, this.cityName, this.custName, this.mobileNum).subscribe(data => {
       if(data.length > 0){
