@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ErpService } from '../erp.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-tag-details',
@@ -10,9 +9,6 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./tag-details.component.css']
 })
 export class TagDetailsComponent implements OnInit {
-getSerialNumber(_t129: any) {
-throw new Error('Method not implemented.');
-}
   mName: any = "";
   mNameList: any = [];
   productName: any = "";
@@ -24,66 +20,58 @@ throw new Error('Method not implemented.');
   prefix: any = "";
   prefixList: any = [];
   counterName: any = "";
-  counterNameList = [];
-  
+  counterNameList: any = [];
   categoryName: any = "";
   categoryNameList: any = [];
 
-  displayedColumns: string[] = ['tagno', 'mname', 'productname', 'pieces', 'gwt', 'less', 'nwt', 'prefix', 
-                                'countername', 'dealername', 'diacts', 'diamond_Amount', 'iteM_TOTAMT', 'tagsize',
-                                'cattotwast', 'huid', 'brandname', 'brandamt'];
-
+  displayedColumns: string[] = ['position', 'Tagno', 'mname', 'productname', 'pieces', 'gwt', 'less', 'nwt', 'prefix',
+    'countername', 'dealername', 'diacts', 'diamond_Amount', 'iteM_TOTAMT', 'tagsize',
+     'huid', 'brandname', 'brandamt'];
+    calculateTotal(column: string): number {
+      return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+    }
+  
+    getTotal(_t12: any): string | number {
+      throw new Error('Method not implemented.');
+    }
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+
   dataSource = new MatTableDataSource<any>();
 
-  constructor(private service: ErpService) {
-  }
+  constructor(private service: ErpService) { }
 
   ngOnInit() {
-    this.GetTagDetails("MNAME"); 
+    this.GetTagDetails("MNAME");
     this.GetTagDetails("PRODUCTNAME");
     this.GetTagDetails("PRODUCTCATEGORY");
     this.GetTagDetails("DEALERNAME");
     this.GetTagDetails("PREFIX");
     this.GetTagDetails("COUNTERNAME");
     this.GetTagDetails("CATEGORYNAME");
+    this.GetTagGenerationDetailsByFilter();
   }
 
-  GetTagDetails(columnName: any =""){
+  GetTagDetails(columnName: any = "") {
     this.service.GetTagGenerationDetails(columnName).subscribe(data => {
-      if(data.length >0 ){
-        if(columnName == "MNAME"){
+      if (data.length > 0) {
+        if (columnName == "MNAME") {
           this.mNameList = data;
-        }
-        else if(columnName == "PRODUCTNAME"){
+        } else if (columnName == "PRODUCTNAME") {
           this.productNameList = data;
-        }
-        else if(columnName == "PRODUCTCATEGORY"){
+        } else if (columnName == "PRODUCTCATEGORY") {
           this.productCategoryList = data;
-        }
-        else if(columnName == "DEALERNAME"){
+        } else if (columnName == "DEALERNAME") {
           this.delearNameList = data;
-        }
-        else if(columnName == "PREFIX"){
+        } else if (columnName == "PREFIX") {
           this.prefixList = data;
-        }
-        else if(columnName == "COUNTERNAME"){
+        } else if (columnName == "COUNTERNAME") {
           this.counterNameList = data;
-        }
-        else if(columnName == "CATEGORYNAME"){
+        } else if (columnName == "CATEGORYNAME") {
           this.categoryNameList = data;
         }
-        else {
-          this.dataSource.data=data 
-          this.dataSource.paginator = this.paginator;   
-  
-          this.dataSource.data.forEach((element:any)=>{
-            element.balance=parseInt(element.debit)-parseInt(element.credit)
-          })
-        }
       }
-    })
+    });
   }
 
   GetTagGenerationDetailsByFilter() {
@@ -96,14 +84,19 @@ throw new Error('Method not implemented.');
       prefix: this.prefix,
       counterName: this.counterName,
       categoryName: this.categoryName
-    }
-    if(this.mName != null && this.mName != undefined && this.mName != ""){
+    };
+
+    if (this.mName != null && this.mName != undefined && this.mName != "") {
       this.service.GetTagGenerationDetailsByFilter(tagFilter).subscribe(data => {
-        this.dataSource = data;
+        this.dataSource = new MatTableDataSource<any>(data);
+        this.dataSource.paginator = this.paginator;
       });
+    } else {
+      this.service.showError("Please select Main Product", "");
     }
-    else{
-      this.service.showError("Please select Main Product","");
-    }
+  }
+
+  getSerialNumber(index: number): number {
+    return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }
 }

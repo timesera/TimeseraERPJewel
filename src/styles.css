@@ -3,7 +3,7 @@
 
 html, body { height: 100%; }
 body { margin: 0;
-     font-family: 'Times New Roman', Times, serif;
+     font-family:math;
     overflow: hidden;
 }
 
@@ -289,4 +289,13 @@ table tr{
 
 .mat-mdc-form-field {
     width: 25vh !important;
+}
+.mat-mdc-paginator-page-size-select {
+    width: 80px !important;
+}
+.mat-mdc-select-trigger {
+    top: 2px !important;
+}
+.mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell{
+    font-size: small !important;
 }
