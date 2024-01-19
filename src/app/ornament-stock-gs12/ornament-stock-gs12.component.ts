@@ -5,16 +5,13 @@ import { ErpService } from '../erp.service';
 import { DatePipe } from '@angular/common';
 import { forkJoin } from 'rxjs';
 import { TableUtil } from '../tableUtil';
-
 @Component({
   selector: 'app-ornament-stock-gs12',
   templateUrl: './ornament-stock-gs12.component.html',
   styleUrls: ['./ornament-stock-gs12.component.css'],
   encapsulation: ViewEncapsulation.None  // Use with caution
-
 })
 export class OrnamentStockGS12Component implements OnInit {
-  
   billStartDate: any = new Date();
   billEndDate: any = new Date();
   particulars: any = "";
@@ -23,15 +20,12 @@ export class OrnamentStockGS12Component implements OnInit {
   purityList: any = [];
   displayedColumns: string[] = ['date', 'partyname', 'hsncode', 'invno', 'jama', 'nama', 'balance', 'purity'];
   openingBalance: number = 0;
-
   jama:number=0
   nama:number=0
   balanceAmt:number=0
-
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>();
-
   constructor(private service: ErpService, private datePipe: DatePipe) {
   }
   ngOnInit() {
@@ -55,16 +49,12 @@ export class OrnamentStockGS12Component implements OnInit {
           this.openingBalance = data[1].nama - data[1].jama;
           this.dataSource.data = data[0]
           this.dataSource.paginator = this.paginator;
-
           this.dataSource.data.forEach((element: any) => {
             element.balance = parseInt(element.debit) - parseInt(element.credit);
             element.entrdate = this.datePipe.transform(element.entrydate, 'dd-MM-yyyy');
-          
             this.jama += element.jama
             this.nama +=element.nama
             this.balanceAmt += Number(element.balance);
-
-
             console.log("Balance Amount",this.balanceAmt)
           })
         }
@@ -77,7 +67,6 @@ export class OrnamentStockGS12Component implements OnInit {
   calculateTotal(column: string): number {
     return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
   }
-
   getTotal(_t12: any): string | number {
     throw new Error('Method not implemented.');
   }

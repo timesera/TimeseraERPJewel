@@ -2,34 +2,33 @@
   <table mat-table [dataSource]="dataSource" class="table table-striped table-cash">
     <!-- Columns definition -->
     <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef >S.No.</th>
-      <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;">{{ getSerialNumber(i) }}</td>
-      <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4 !important;font-size: 14px;font-weight:500; ">Total</td>
-      <td mat-footer-cell *matFooterCellDef ></td>
-    </ng-container>
+      <th mat-header-cell *matHeaderCellDef  style="text-align: left !important;"> S.No. </th>
+      <td mat-cell *matCellDef="let element; let i = index" > {{ i+1 }} </td>
+      <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4; ">Total</td>  
+  </ng-container>
 
     <ng-container matColumnDef="prefix">
       <th mat-header-cell *matHeaderCellDef>Main product</th>
-      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;">{{ element.prefix }}</td>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: left;">{{ element.mname }}</td>
       <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;font-size: 14px;font-weight:500; "></td>
     </ng-container>
 
     <ng-container matColumnDef="pcs">
       <th mat-header-cell *matHeaderCellDef>Pcs</th>
-      <td mat-cell *matCellDef="let element" style="text-align: center;">{{ element.pcs }}</td>
-      <td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4; font-size: 14px;font-weight:500;">{{ calculateTotal('pcs') }}</td>
+      <td mat-cell *matCellDef="let element" style="text-align: right;">{{ element.pieces }}</td>
+      <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4; font-size: 14px;font-weight:500;">{{ calculateTotal('pieces') }}</td>
     </ng-container>
 
     <ng-container matColumnDef="gwt">
       <th mat-header-cell *matHeaderCellDef>GWT</th>
-      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;">{{ element.gwt | number : '1.3-3' }}</td>
-      <td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('gwt') | number : '1.3-3' }}</td>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">{{ element.gwt | number : '1.3-3' }}</td>
+      <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('gwt') | number : '1.3-3' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="nwt">
       <th mat-header-cell *matHeaderCellDef>Nwt</th>
-      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;">{{ element.nwt | number : '1.3-3' }}</td>
-      <td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('nwt') | number : '1.3-3' }}</td>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">{{ element.nwt | number : '1.3-3' }}</td>
+      <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('nwt') | number : '1.3-3' }}</td>
     </ng-container>
 
     <!-- Header row -->
@@ -43,8 +42,6 @@
   </table>
 
   <!-- Paginator -->
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"
-                 [length]="dataSource.data.length" [pageSize]="dataSource.paginator?.pageSize"
-                 [pageIndex]="dataSource.paginator?.pageIndex">
-  </mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
 </div>

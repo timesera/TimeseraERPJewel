@@ -10,6 +10,9 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./tag-details.component.css']
 })
 export class TagDetailsComponent implements OnInit {
+getSerialNumber(_t129: any) {
+throw new Error('Method not implemented.');
+}
   mName: any = "";
   mNameList: any = [];
   productName: any = "";
@@ -22,6 +25,7 @@ export class TagDetailsComponent implements OnInit {
   prefixList: any = [];
   counterName: any = "";
   counterNameList = [];
+  
   categoryName: any = "";
   categoryNameList: any = [];
 

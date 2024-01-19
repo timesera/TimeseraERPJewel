@@ -32,7 +32,7 @@
         
 
     
-    <button mat-raised-button color="warn"  class="m-4" >Show</button>
+    <button mat-raised-button color="warn"  class="m-4" (click)="getGoldSmithReceiptRegister()">Show</button>
     
     
   </div>
@@ -47,30 +47,30 @@
 <div class="mat-elevation-z8 align">
   <table mat-table  [dataSource]="dataSource" class="table table-striped table-cash">
   <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> S.No. </th>
+    <th mat-header-cell *matHeaderCellDef  style="text-align: left !important;"> S.No. </th>
     <td mat-cell *matCellDef="let element; let i = index" > {{ i+1 }} </td>
-    <td mat-footer-cell *matFooterCellDef >Total</td>  
+    <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4; ">Total</td>  
 </ng-container>
 <ng-container matColumnDef="recNo">
   <th mat-header-cell *matHeaderCellDef>Rec No</th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.billDate}} </td>
-  <td mat-footer-cell *matFooterCellDef ></td>  
+  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.recNo}} </td>
+  <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="recDt">
 <th mat-header-cell *matHeaderCellDef>Rec Date </th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.jewelType}} </td>
-<td mat-footer-cell *matFooterCellDef ></td>  
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: center;"> {{element.recDate | date:'dd/MM/yyyy'}} </td>
+<td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
 </ng-container>
 
 <ng-container matColumnDef="smthName">
 <th mat-header-cell *matHeaderCellDef>Smith Name</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
-<td mat-footer-cell *matFooterCellDef ></td>  
+<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: left;"> {{element.dealerName}} </td>
+<td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
 </ng-container>
 <ng-container matColumnDef="totalWt">
     <th mat-header-cell *matHeaderCellDef>Total Wt</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
-    <td mat-footer-cell *matFooterCellDef ></td>  
+    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.totNetWt  | number : '1.3-3'}} </td>
+    <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4; font-size: 14px;font-weight:500;">{{ calculateTotal('totNetWt') | number : '1.3-3'  }}</td>
     </ng-container>
 
 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

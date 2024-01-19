@@ -66,56 +66,97 @@
 
 <div class="mat-elevation-z8 align">
     <!-- <table mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="position">
+       <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{ getSerialNumber(i) }} </td>
+            <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{i+1}} </td>
             <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
-        <ng-container matColumnDef="vno">
-            <th mat-header-cell *matHeaderCellDef> VNO </th>
-            <td mat-cell *matCellDef="let element; let i = index"> {{ element.recNo }} </td>
+        <ng-container matColumnDef="Tagno">
+            <th mat-header-cell *matHeaderCellDef> Tag no </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ element.Tagno }} </td>
             <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
-        <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef> DATE </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.depdate}} </td>
+        <ng-container matColumnDef="mname">
+            <th mat-header-cell *matHeaderCellDef> mname </th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.MNAME}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="transtype">
-            <th mat-header-cell *matHeaderCellDef> TRANS TYPE </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.transtype}} </td>
+        <ng-container matColumnDef="productname">
+            <th mat-header-cell *matHeaderCellDef> productname </th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.PRODUCTNAME}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="paymode">
-            <th mat-header-cell *matHeaderCellDef>PAYMODE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position">  {{element.mode}}  </td>
+        <ng-container matColumnDef="pieces">
+            <th mat-header-cell *matHeaderCellDef>pieces</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position">  {{element.pieces}}  </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="particulars">
-            <th mat-header-cell *matHeaderCellDef> PARTICULARS </th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.ptype}} </td>
+        <ng-container matColumnDef="gwt">
+            <th mat-header-cell *matHeaderCellDef> gwt </th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.gwt}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="partyname">
-            <th mat-header-cell *matHeaderCellDef>PARTY NAME</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.custName}} </td>
+        <ng-container matColumnDef="less">
+            <th mat-header-cell *matHeaderCellDef>less</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.less}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="debit">
-            <th mat-header-cell *matHeaderCellDef>DEBIT</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.debit}} </td>
+        <ng-container matColumnDef="nwt">
+            <th mat-header-cell *matHeaderCellDef>nwt</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.nwt}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="closebalance">
-            <th mat-header-cell *matHeaderCellDef>CLOSEING BALANCE</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> 0 </td>
+        <ng-container matColumnDef="prefix">
+            <th mat-header-cell *matHeaderCellDef>prefix</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.prefix}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-        <ng-container matColumnDef="credit">
-            <th mat-header-cell *matHeaderCellDef>CREDIT</th>
-            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.credit}} </td>
+        <ng-container matColumnDef="countername">
+            <th mat-header-cell *matHeaderCellDef>countername</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.countername}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
+         <ng-container matColumnDef="dealername">
+            <th mat-header-cell *matHeaderCellDef>dealername</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.dealername}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+         <ng-container matColumnDef="diacts">
+            <th mat-header-cell *matHeaderCellDef>diacts</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.diacts}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+         <ng-container matColumnDef="diamond_Amount">
+            <th mat-header-cell *matHeaderCellDef>diamond_Amount</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.diamond_Amount}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+         <ng-container matColumnDef="iteM_TOTAMT">
+            <th mat-header-cell *matHeaderCellDef>iteM_TOTAMT</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.iteM_TOTAMT}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+         <ng-container matColumnDef="tagsize">
+            <th mat-header-cell *matHeaderCellDef>tagsize</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.tagsize}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+         <ng-container matColumnDef="cattotwast">
+            <th mat-header-cell *matHeaderCellDef>cattotwast</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.cattotwast}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="huid">
+            <th mat-header-cell *matHeaderCellDef>huid</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.huid}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="brandname">
+            <th mat-header-cell *matHeaderCellDef>brandname</th>
+            <td mat-cell *matCellDef="let element" class="mat-column-position"> {{element.brandname}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
