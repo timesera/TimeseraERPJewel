@@ -1,0 +1,10 @@
+.show-btn {
+    width: 14vh;
+    height: 22vh;
+    margin-top: 1vh;
+    float: inline-end;
+} 
+.lable-wid {
+    margin-left: 5px !important;
+    width: 40%;
+}

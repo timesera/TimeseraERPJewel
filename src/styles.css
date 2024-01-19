@@ -273,3 +273,20 @@ table tr{
     color: red;
 }
 
+.mat-mdc-form-field-infix {
+    min-height: 30px !important;
+    padding-top: 3px !important;
+    max-height: 30px !important;
+}
+
+.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mdc-floating-label--float-above {
+    top: 20px !important;
+}
+
+.mat-mdc-select-trigger {
+    top: 7px !important;
+}
+
+.mat-mdc-form-field {
+    width: 25vh !important;
+}

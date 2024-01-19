@@ -1,70 +1,84 @@
-<div class="example-container">
-    <div>
-        <label style="margin-left: 5px !important;">Main Product: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Product</mat-label>
-            <mat-select disableRipple [(ngModel)]="mName">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of mNameList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <label style="margin-left: 5px !important;">Product Name: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Product</mat-label>
-            <mat-select disableRipple [(ngModel)]="productName">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of productNameList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <label style="margin-left: 5px !important;">Product Category: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Category</mat-label>
-            <mat-select disableRipple [(ngModel)]="productCategory">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of productCategoryList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <label style="margin-left: 5px !important;">Counter Name: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Customer</mat-label>
-            <mat-select disableRipple [(ngModel)]="counterName">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of counterNameList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <label style="margin-left: 5px !important;">Category Name: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Customer</mat-label>
-            <mat-select disableRipple [(ngModel)]="categoryName">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of categoryNameList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <label style="margin-left: 5px !important;">Dealer Name: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Customer</mat-label>
-            <mat-select disableRipple [(ngModel)]="dealerName">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of delearNameList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <label style="margin-left: 5px !important;">Prefix: </label>
-        <mat-form-field class="example-full-width ml-2">
-            <mat-label>Select Prefix</mat-label>
-            <mat-select disableRipple [(ngModel)]="prefix">
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let item of prefixList" value={{item}}>{{item}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <button mat-raised-button color="warn" class="ml-4" (click)="GetTagGenerationDetailsByFilter()"
-            style="margin-left: 5px !important;">Show</button>
+<div class="example-container row">
+    <div class="row row-cols-3" style="float: left; width: 91%;">
+        <div class="col">
+            <label class="lable-wid">Main Product: </label>
+            <mat-form-field class="example-full-width ml-2">
+                <mat-label>Select Product</mat-label>
+                <mat-select disableRipple [(ngModel)]="mName">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let item of mNameList" value={{item}}>{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <label class="lable-wid">Product Name: </label>
+            <mat-form-field class="example-full-width ml-2">
+                <mat-label>Select Product</mat-label>
+                <mat-select disableRipple [(ngModel)]="productName">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let item of productNameList" value={{item}}>{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <label class="lable-wid">Product Category: </label>
+            <mat-form-field class="example-full-width ml-2">
+                <mat-label>Select Category</mat-label>
+                <mat-select disableRipple [(ngModel)]="productCategory">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let item of productCategoryList" value={{item}}>{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <label class="lable-wid">Counter Name: </label>
+            <mat-form-field class="example-full-width ml-2">
+                <mat-label>Select Customer</mat-label>
+                <mat-select disableRipple [(ngModel)]="counterName">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let item of counterNameList" value={{item}}>{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <label class="lable-wid">Category Name: </label>
+            <mat-form-field class="example-full-width ml-2">
+                <mat-label>Select Customer</mat-label>
+                <mat-select disableRipple [(ngModel)]="categoryName">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let item of categoryNameList" value={{item}}>{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <label class="lable-wid">Dealer Name: </label>
+            <mat-form-field class="example-full-width ml-2">
+                <mat-label>Select Customer</mat-label>
+                <mat-select disableRipple [(ngModel)]="dealerName">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let item of delearNameList" value={{item}}>{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <label class="lable-wid">Prefix: </label>
+            <mat-form-field class="example-full-width ml-2">
+                <mat-label>Select Prefix</mat-label>
+                <mat-select disableRipple [(ngModel)]="prefix">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let item of prefixList" value={{item}}>{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </div>
-
+    <div style="float: right; width: 10%;">
+        <button mat-raised-button color="warn" class="ml-4 show-btn" (click)="GetTagGenerationDetailsByFilter()">Show</button>
+    </div>
+    
 
 </div>
 
-<div class="mat-elevation-z8 align">
+<div class=" row mat-elevation-z8 align">
     <!-- <table mat-table [dataSource]="dataSource">
        <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> S.No. </th>
