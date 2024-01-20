@@ -276,20 +276,20 @@ export class ErpService {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     return this.httpClient.get<any>(this.getStockBalanceURL, { 'headers': this.headers });
   }
-  GetDayTranscations(startDate: any){
+  GetDayTranscations(startDate: any): Observable<any> {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('startDate', startDate)
     return this.httpClient.get<any>(this.getDayTranscationsURL, { 'params': params, 'headers': this.headers });
   }
-  GetOldGoldBookMainType(){
+  GetOldGoldBookMainType(): Observable<any> {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     return this.httpClient.get<any>(this.getOldGoldBookMainTypeURL, { 'headers': this.headers });
   }
 
-  GetOldGoldBookDetails(startDate: any, endDate: any, mainType: any){
+  GetOldGoldBookDetails(startDate: any, endDate: any, mainType: any): Observable<any> {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
-    const params = new HttpParams().set('startDate', startDate).set('endDate', endDate).set('mainType', mainType).set('recNo', recNo);
-    return this.httpClient.get<any>(this.getOldGoldBookMainTypeURL, { 'params': params, 'headers': this.headers });
+    const params = new HttpParams().set('startDate', startDate).set('endDate', endDate).set('mainType', mainType);
+    return this.httpClient.get<any>(this.getOldGoldBookDetailsURL, { 'params': params, 'headers': this.headers });
   }
 }
 
