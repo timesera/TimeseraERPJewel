@@ -11,3 +11,17 @@
 .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label{
     top: 1vh !important;
 }
+.export-btn {
+    text-align: end;
+    line-height: 8vh;
+}
+.thead-dt {
+    text-align: center;
+}
+
+table { border-collapse: collapse; }
+tr { border: none; }
+td {
+  border-right: solid 1px #98adbf; 
+  border-left: solid 1px #98adbf;
+}
