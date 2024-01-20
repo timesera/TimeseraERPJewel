@@ -1,3 +1,13 @@
-/* .droWidth{
-    width: 250px !important;
-} */
+.show-btn {
+    width: 14vh;
+    min-height: 16vh;
+    margin-top: 1vh;
+    float: inline-end;
+} 
+.lable-wid {
+    margin-left: 5px !important;
+    width: 40%;
+}
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label{
+    top: 1vh !important;
+}

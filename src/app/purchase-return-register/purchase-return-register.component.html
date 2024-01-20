@@ -1,143 +1,173 @@
-<div class="example-container">    
-      <label style="margin-left: 20px !important;">From</label>
-          <mat-form-field>
-      <input matInput [matDatepicker]="picker1"  placeholder="Choose a date" [(ngModel)]="prchseStartDate">
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>   
-    
-    <label style="margin-left: 20px !important;">To</label>
-          <mat-form-field>
-      <input matInput [matDatepicker]="picker2"  placeholder="Choose a date" [(ngModel)]="prchseEndDate">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-    <label style="margin-left: 20px !important;">Main Product</label>
-          <mat-form-field class="example-full-width ml-2">
-      
-            <mat-label >Select Product</mat-label>
-          <mat-select disableRipple [(ngModel)]="prodName" >
-            <mat-option value=""></mat-option>
-            <mat-option *ngFor="let item of prodList" value={{item}}>{{item}}</mat-option>
-           
-          </mat-select>
-          </mat-form-field>
+<div class="example-container row">
+  <div class="row row-cols-3" style="float: left; width: 91%;">
+    <div class="col">
+      <label class="lable-wid">From</label>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="prchseStartDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
     </div>
-    
-      <div class="example-container">
-          <label style="margin-left: 20px !important;">Party Name</label>
-          <mat-form-field class="example-full-width ml-2 droWidth">
-            <mat-label >Select Party</mat-label>
-          <mat-select disableRipple [(ngModel)]="partyName">
-            <mat-option value=""></mat-option>
-            <mat-option *ngFor="let item of prtyList" value={{item}}>{{item}}</mat-option>
-           
-          </mat-select>
-          </mat-form-field>
-          
-         
-          
-          <label style="margin-left: 20px !important;">Purity</label>
-          <mat-form-field class="example-full-width ml-2">
-      
-            <mat-label >Select Purity</mat-label>
-          <mat-select disableRipple [(ngModel)]="purtyName" >
-            <mat-option value=""></mat-option>
-            <mat-option *ngFor="let item of purtyList" value={{item}}>{{item}}</mat-option>
-           
-          </mat-select>
-          </mat-form-field>
-          <!-- <input matInput  placeholder="" style="margin-right: 20px !important;" [(ngModel)]="mobileNo">
-         -->
-       
-      
-      <button mat-raised-button color="warn"  class="m-4" (click)="getPurchaseReturnData()">Show</button>
-      <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()">Export</button>
+    <div class="col">
+      <label class="lable-wid">To</label>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker2" placeholder="Choose a date" [(ngModel)]="prchseEndDate">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <label class="lable-wid">Main Product</label>
+      <mat-form-field class="example-full-width ml-2">
 
-      
-    </div>  
-<div>
+        <mat-label>Select Product</mat-label>
+        <mat-select disableRipple [(ngModel)]="prodName">
+          <mat-option value=""></mat-option>
+          <mat-option *ngFor="let item of prodList" value={{item}}>{{item}}</mat-option>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-               showFirstLastButtons
-               aria-label="Select page">
-</mat-paginator>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <label class="lable-wid">Party Name</label>
+      <mat-form-field class="example-full-width ml-2 droWidth">
+        <mat-label>Select Party</mat-label>
+        <mat-select disableRipple [(ngModel)]="partyName">
+          <mat-option value=""></mat-option>
+          <mat-option *ngFor="let item of prtyList" value={{item}}>{{item}}</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <label class="lable-wid">Purity</label>
+      <mat-form-field class="example-full-width ml-2">
+
+        <mat-label>Select Purity</mat-label>
+        <mat-select disableRipple [(ngModel)]="purtyName">
+          <mat-option value=""></mat-option>
+          <mat-option *ngFor="let item of purtyList" value={{item}}>{{item}}</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div style="float: right; width: 10%;">
+    <button mat-raised-button color="warn" class="ml-4 show-btn" (click)="getPurchaseReturnData()">Show</button>
+  </div>
 </div>
-<div class="mat-elevation-z8 align">
-    <table mat-table  [dataSource]="dataSource" class="table table-striped table-cash" id="purchasereturn">
+
+
+
+<div class="row">
+  <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()"
+    style="width: 15%;">Export</button>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page" style="width: 80%;">
+    <button mat-raised-button color="primary" class="m-4" (click)="exportDataSource()">Export</button>
+  </mat-paginator>
+</div>
+<div class="mat-elevation-z8 align row">
+  <table mat-table [dataSource]="dataSource" class="table table-striped table-cash" id="purchasereturn">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> S.No. </th>
       <td mat-cell *matCellDef="let element; let i = index" style="text-align: center;"> {{getSerialNumber(i)}} </td>
-      <td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;">Total</td>  
-  </ng-container>
-  <ng-container matColumnDef="voucherNO">
-    <th mat-header-cell *matHeaderCellDef>V.NO</th>
-    <td mat-cell *matCellDef="let element" style="text-align: center;" class="mat-column-position"> {{element.invNo}} </td>
-    <td mat-footer-cell *matFooterCellDef  style="background-color: #c5efe4;"></td>  
-</ng-container>
-<ng-container matColumnDef="date">
-  <th mat-header-cell *matHeaderCellDef> Date </th>
-  <td mat-cell *matCellDef="let element" style="text-align: center;" class="mat-column-position"> {{element.invtDate}} </td>
-  <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
-</ng-container>
+      <td mat-footer-cell *matFooterCellDef style="text-align: center;background-color: #c5efe4;">Total</td>
+    </ng-container>
+    <ng-container matColumnDef="voucherNO">
+      <th mat-header-cell *matHeaderCellDef>V.NO</th>
+      <td mat-cell *matCellDef="let element" style="text-align: center;" class="mat-column-position"> {{element.invNo}}
+      </td>
+      <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element" style="text-align: center;" class="mat-column-position">
+        {{element.invtDate}} </td>
+      <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
+    </ng-container>
 
-<ng-container matColumnDef="prtyName">
-<th mat-header-cell *matHeaderCellDef>Party Name</th>
-<td mat-cell *matCellDef="let element" style="text-align: left;" class="mat-column-position"> {{element.partyName}} </td>
-<td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>  
-</ng-container>
-<ng-container matColumnDef="gwt">
-    <th mat-header-cell *matHeaderCellDef>Gwt</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.gwt|number : '1.3-3'}} </td>
-    <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('gwt') | number : '1.3-3' }}</td>
-  </ng-container>
-<ng-container matColumnDef="less">
-  <th mat-header-cell *matHeaderCellDef>Less</th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.less|number : '1.3-3'}} </td>
-  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('less') | number : '1.3-3' }}</td>
-</ng-container>
-<ng-container matColumnDef="nwt">
-<th mat-header-cell *matHeaderCellDef>Nwt</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.nwt|number : '1.3-3'}} </td>
-<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('nwt') | number : '1.3-3' }}</td>
-</ng-container>
-<ng-container matColumnDef="totalAmt">
-<th mat-header-cell *matHeaderCellDef>Total Amt</th>
-<td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.value|number : '1.2-2'}} </td>
-<td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('value') | number : '1.2-2' }}</td>
-</ng-container>
-<ng-container matColumnDef="cgst">
-    <th mat-header-cell *matHeaderCellDef>CGST</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.cgstamt|number : '1.2-2'}} </td>
-    <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('cgstamt') | number : '1.2-2' }}</td>
-  </ng-container>
-<ng-container matColumnDef="sgst">
-  <th mat-header-cell *matHeaderCellDef>SGST</th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.sgstamt|number : '1.2-2'}} </td>
-  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('sgstamt') | number : '1.2-2' }}</td>
-</ng-container>
-<ng-container matColumnDef="igst">
-    <th mat-header-cell *matHeaderCellDef>IGST</th>
-    <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.igstamt|number : '1.2-2'}} </td>
-    <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('igstamt') | number : '1.2-2' }}</td>
-</ng-container>
-<ng-container matColumnDef="grsAmt">
-  <th mat-header-cell *matHeaderCellDef>Gross Amount</th>
-  <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;"> {{element.totValue|number : '1.3-3'}} </td>
-  <td mat-footer-cell *matFooterCellDef style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('totValue') | number : '1.3-3' }}</td>
-</ng-container>
+    <ng-container matColumnDef="prtyName">
+      <th mat-header-cell *matHeaderCellDef>Party Name</th>
+      <td mat-cell *matCellDef="let element" style="text-align: left;" class="mat-column-position">
+        {{element.partyName}} </td>
+      <td mat-footer-cell *matFooterCellDef style="background-color: #c5efe4;"></td>
+    </ng-container>
+    <ng-container matColumnDef="gwt">
+      <th mat-header-cell *matHeaderCellDef>Gwt</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">
+        {{element.gwt|number : '1.3-3'}} </td>
+      <td mat-footer-cell *matFooterCellDef
+        style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('gwt') |
+        number : '1.3-3' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="less">
+      <th mat-header-cell *matHeaderCellDef>Less</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">
+        {{element.less|number : '1.3-3'}} </td>
+      <td mat-footer-cell *matFooterCellDef
+        style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('less') |
+        number : '1.3-3' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="nwt">
+      <th mat-header-cell *matHeaderCellDef>Nwt</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">
+        {{element.nwt|number : '1.3-3'}} </td>
+      <td mat-footer-cell *matFooterCellDef
+        style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('nwt') |
+        number : '1.3-3' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="totalAmt">
+      <th mat-header-cell *matHeaderCellDef>Total Amt</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">
+        {{element.value|number : '1.2-2'}} </td>
+      <td mat-footer-cell *matFooterCellDef
+        style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{ calculateTotal('value')
+        | number : '1.2-2' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="cgst">
+      <th mat-header-cell *matHeaderCellDef>CGST</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">
+        {{element.cgstamt|number : '1.2-2'}} </td>
+      <td mat-footer-cell *matFooterCellDef
+        style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{
+        calculateTotal('cgstamt') | number : '1.2-2' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="sgst">
+      <th mat-header-cell *matHeaderCellDef>SGST</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">
+        {{element.sgstamt|number : '1.2-2'}} </td>
+      <td mat-footer-cell *matFooterCellDef
+        style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{
+        calculateTotal('sgstamt') | number : '1.2-2' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="igst">
+      <th mat-header-cell *matHeaderCellDef>IGST</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">
+        {{element.igstamt|number : '1.2-2'}} </td>
+      <td mat-footer-cell *matFooterCellDef
+        style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{
+        calculateTotal('igstamt') | number : '1.2-2' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="grsAmt">
+      <th mat-header-cell *matHeaderCellDef>Gross Amount</th>
+      <td mat-cell *matCellDef="let element" class="mat-column-position" style="text-align: right;">
+        {{element.totValue|number : '1.3-3'}} </td>
+      <td mat-footer-cell *matFooterCellDef
+        style="text-align: right;background-color: #c5efe4;font-size: 14px;font-weight:500;">{{
+        calculateTotal('totValue') | number : '1.3-3' }}</td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 
-  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
-  <!-- </mat-table> -->
+    <!-- </mat-table> -->
   </table>
   <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                showFirstLastButtons
                aria-label="Select page">
 </mat-paginator> -->
 </div>
-
