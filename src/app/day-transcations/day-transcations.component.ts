@@ -12,11 +12,13 @@ import { TableUtil } from '../tableUtil';
 })
 export class DayTranscationsComponent implements OnInit {
   startDate: Date = new Date();
-  totalCash: number = 0;
+  totalCashReceipt: number = 0;
+  totalCashPayment: number = 0;
+  cashinHand: number = 0;
   dayOpening: number = 0;
   mainHeader: any = "";
-  totalHeader: number = 1;
-  totalHeaderName: any = "";
+  tableTotalHeader: number = 1;
+  tableTotalHeaderName: any = "";
   dayTranscationList: any = Array<any>();
   constructor(private service: ErpService, private datePipe: DatePipe) {
   }
@@ -31,6 +33,9 @@ export class DayTranscationsComponent implements OnInit {
         this.dayOpening = Number(data.dayOpening.sumCredit) - Number(data.dayOpening.sumDebit);
       }
       this.dayTranscationList = data.dayTransactionsList;
+      this.totalCashReceipt = this.dayTranscationList.reduce((a: any, b: { crediT_RECEIPT: any; }) => a + b.crediT_RECEIPT, 0);
+      this.totalCashPayment = this.dayTranscationList.reduce((a: any, b: { debiT_PAYMENT: any; }) => a + b.debiT_PAYMENT, 0);
+      this.cashinHand = ((this.dayOpening + this.totalCashReceipt) - this.totalCashPayment);
     });
 
   }
@@ -43,12 +48,12 @@ export class DayTranscationsComponent implements OnInit {
   }
   showTotal(name: any){
     let count = this.dayTranscationList.filter((re: any) => re.mainhead == name).length;
-    if(count == this.totalHeader && this.totalHeaderName != name){
-      this.totalHeader = 1;
-      this.totalHeaderName = name;
+    if(count == this.tableTotalHeader && this.tableTotalHeaderName != name){
+      this.tableTotalHeader = 1;
+      this.tableTotalHeaderName = name;
       return true;
     }
-    this.totalHeader += 1;
+    this.tableTotalHeader += 1;
     return false;
   }
   getTotal(title: any, columnName: any){

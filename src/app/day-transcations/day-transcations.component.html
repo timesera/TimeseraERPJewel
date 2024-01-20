@@ -23,18 +23,18 @@
       <div class="col">
         <label class="lable-wid">Total</label>
         <mat-form-field>
-            <input matInput [(ngModel)]="totalCash" disabled>
+            <input matInput [(ngModel)]="totalCashReceipt" disabled>
         </mat-form-field>
       </div>
       <div class="col">
         <mat-form-field>
-            <input matInput [(ngModel)]="totalCash" disabled>
+            <input matInput [(ngModel)]="totalCashPayment" disabled>
         </mat-form-field>
       </div>
       <div class="col">
         <label class="lable-wid">Cash in Hand</label>
         <mat-form-field>
-            <input matInput [(ngModel)]="totalCash" disabled>
+            <input matInput [(ngModel)]="cashinHand" disabled>
         </mat-form-field>
       </div>
     </div>
@@ -73,25 +73,25 @@
         <tr>
             <td>{{item.subhead}}</td>
             <td>{{item.particulars}}</td>
-            <td>{{item.vno}}</td>
-            <td>{{item.isS_GWT | number : '1.3-3'}}</td>
-            <td>{{item.isS_NWT | number : '1.3-3'}}</td>
-            <td>{{item.reC_GWT | number : '1.3-3'}}</td>
-            <td>{{item.reC_NWT | number : '1.3-3'}}</td>
-            <td>{{item.crediT_RECEIPT | number : '1.2-2'}}</td>
-            <td>{{item.debiT_PAYMENT | number : '1.2-2'}}</td>
-            <td style="text-align: center;">{{item.description}}</td>
+            <td class="refno-align">{{item.vno}}</td>
+            <td class="metal-align">{{item.isS_GWT | number : '1.3-3'}}</td>
+            <td class="metal-align">{{item.isS_NWT | number : '1.3-3'}}</td>
+            <td class="metal-align">{{item.reC_GWT | number : '1.3-3'}}</td>
+            <td class="metal-align">{{item.reC_NWT | number : '1.3-3'}}</td>
+            <td class="metal-align">{{item.crediT_RECEIPT | number : '1.2-2'}}</td>
+            <td class="metal-align">{{item.debiT_PAYMENT | number : '1.2-2'}}</td>
+            <td class="refno-align">{{item.description}}</td>
         </tr>
         <tr *ngIf="showTotal(item.mainhead)" style="background-color: gray; color: white;">
             <td></td>
             <td></td>
             <td></td>
-            <td>{{getTotal(item.mainhead,'MIGWT') | number : '1.3-3'}}</td>
-            <td>{{getTotal(item.mainhead,'MINWT') | number : '1.3-3'}}</td>
-            <td>{{getTotal(item.mainhead,'MRGWT') | number : '1.3-3'}}</td>
-            <td>{{getTotal(item.mainhead,'MRNWT') | number : '1.3-3'}}</td>
-            <td>{{getTotal(item.mainhead,'CGWT') | number : '1.2-2'}}</td>
-            <td>{{getTotal(item.mainhead,'CNWT') | number : '1.2-2'}}</td>
+            <td class="metal-align">{{getTotal(item.mainhead,'MIGWT') | number : '1.3-3'}}</td>
+            <td class="metal-align">{{getTotal(item.mainhead,'MINWT') | number : '1.3-3'}}</td>
+            <td class="metal-align">{{getTotal(item.mainhead,'MRGWT') | number : '1.3-3'}}</td>
+            <td class="metal-align">{{getTotal(item.mainhead,'MRNWT') | number : '1.3-3'}}</td>
+            <td class="metal-align">{{getTotal(item.mainhead,'CGWT') | number : '1.2-2'}}</td>
+            <td class="metal-align">{{getTotal(item.mainhead,'CNWT') | number : '1.2-2'}}</td>
             <td></td>
         </tr>
     </tbody>

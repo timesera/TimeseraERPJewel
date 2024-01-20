@@ -8,6 +8,10 @@
     margin-left: 5px !important;
     width: 40%;
 }
+
+.mat-elevation-z8 {
+    font-size: 2vh;
+}
 .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label{
     top: 1vh !important;
 }
@@ -19,9 +23,20 @@
     text-align: center;
 }
 
-table { border-collapse: collapse; }
+table { 
+    border-collapse: collapse; 
+    margin: 2vh;
+    width: 97%;
+}
 tr { border: none; }
 td {
   border-right: solid 1px #98adbf; 
   border-left: solid 1px #98adbf;
+}
+
+.metal-align {
+    text-align: end;
+}
+.refno-align {
+    text-align: center;
 }
