@@ -280,7 +280,7 @@ table tr{
 }
 
 .mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mdc-floating-label--float-above {
-    top: 20px !important;
+    top: 25px !important;
 }
 
 .mat-mdc-select-trigger {
@@ -293,9 +293,10 @@ table tr{
 .mat-mdc-paginator-page-size-select {
     width: 80px !important;
 }
-.mat-mdc-select-trigger {
-    top: 2px !important;
-}
+
 .mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell{
     font-size: small !important;
+}
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label{
+    top: 20px !important;
 }
