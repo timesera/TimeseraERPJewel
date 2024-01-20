@@ -56,6 +56,8 @@ export class ErpService {
   getMonthDuesURL: string = this.URLHostName + "/api/DashBoard/GetMonthDues";
   getTotalDuesURL: string = this.URLHostName + "/api/DashBoard/GetTotalDues";
   getDayTranscationsURL: string = this.URLHostName + "/api/Erp/GetDayTransactionDetails";
+  getOldGoldBookMainTypeURL: string = this.URLHostName + "/api/Erp/GetOldGoldBookMainType";
+  getOldGoldBookDetailsURL: string = this.URLHostName + "/api/Erp/GetOldGoldBookDetails";
 
 
   headers: any;
@@ -278,6 +280,16 @@ export class ErpService {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('startDate', startDate)
     return this.httpClient.get<any>(this.getDayTranscationsURL, { 'params': params, 'headers': this.headers });
+  }
+  GetOldGoldBookMainType(){
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    return this.httpClient.get<any>(this.getOldGoldBookMainTypeURL, { 'headers': this.headers });
+  }
+
+  GetOldGoldBookDetails(startDate: any, endDate: any, mainType: any){
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('startDate', startDate).set('endDate', endDate).set('mainType', mainType).set('recNo', recNo);
+    return this.httpClient.get<any>(this.getOldGoldBookMainTypeURL, { 'params': params, 'headers': this.headers });
   }
 }
 
