@@ -49,7 +49,6 @@ export class TagDetailsComponent implements OnInit {
     this.GetTagDetails("PREFIX");
     this.GetTagDetails("COUNTERNAME");
     this.GetTagDetails("CATEGORYNAME");
-    this.GetTagGenerationDetailsByFilter();
   }
 
   GetTagDetails(columnName: any = "") {
@@ -91,8 +90,9 @@ export class TagDetailsComponent implements OnInit {
         this.dataSource = new MatTableDataSource<any>(data);
         this.dataSource.paginator = this.paginator;
       });
-    } else {
-      this.service.showError("Please select Main Product", "");
+    }
+     else {
+      this.service.showError("Please select Main Product","");
     }
   }
 

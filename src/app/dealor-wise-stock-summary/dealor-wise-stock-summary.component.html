@@ -7,7 +7,7 @@
       <mat-form-field class="example-full-width ml-2">
   
         <mat-label >Select Product</mat-label>
-      <mat-select disableRipple [(ngModel)]="prodName" style="margin-top: 18px;">
+      <mat-select disableRipple [(ngModel)]="prodName" >
         <mat-option value=""></mat-option>
         <mat-option *ngFor="let item of prodList" value={{item}}>{{item}}</mat-option>
        

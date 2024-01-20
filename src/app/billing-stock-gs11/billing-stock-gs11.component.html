@@ -25,7 +25,7 @@ margin-left: 90px;
         <label style="margin-left: 5px !important;">Main Product: </label>
         <mat-form-field class="example-full-width ml-2">
             <mat-label >Select Party</mat-label>
-            <mat-select disableRipple [(ngModel)]="particulars" style="padding-top: 15px !important;">
+            <mat-select disableRipple [(ngModel)]="particulars" >
                 <mat-option value=""></mat-option>
                 <mat-option *ngFor="let item of productList" value={{item}}>{{item}}</mat-option>
             </mat-select>
