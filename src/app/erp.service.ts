@@ -55,7 +55,7 @@ export class ErpService {
   getTodayDuesURL: string = this.URLHostName + "/api/DashBoard/GetTodayDues";
   getMonthDuesURL: string = this.URLHostName + "/api/DashBoard/GetMonthDues";
   getTotalDuesURL: string = this.URLHostName + "/api/DashBoard/GetTotalDues";
-
+  getDayTranscationsURL: string = this.URLHostName + "/api/Erp/GetDayTransactionDetails";
 
 
   headers: any;
@@ -273,6 +273,11 @@ export class ErpService {
   GetStockBalance(): Observable<any> {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     return this.httpClient.get<any>(this.getStockBalanceURL, { 'headers': this.headers });
+  }
+  GetDayTranscations(startDate: any){
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('startDate', startDate)
+    return this.httpClient.get<any>(this.getDayTranscationsURL, { 'params': params, 'headers': this.headers });
   }
 }
 
