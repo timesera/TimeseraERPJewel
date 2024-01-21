@@ -309,3 +309,6 @@ table tr{
 .mat-mdc-icon-button.mat-mdc-button-base {
     top: -1vh !important;
 }
+.mat-datepicker-input {
+    font-size: 2vh !important;
+}

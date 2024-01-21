@@ -1,0 +1,40 @@
+table { 
+    border-collapse: collapse; 
+    margin: 2vh;
+    min-width: 160% !important;
+    
+}
+tr { border: none; }
+td {
+  border-right: solid 1px #98adbf; 
+  border-left: solid 1px #98adbf;
+}
+.show-btn {
+    width: 14vh;
+    min-height: 6vh;
+    margin-top: 1vh;
+    float: inline-end;
+} 
+.lable-wid {
+    margin-left: 5px !important;
+    width: 40%;
+}
+.mat-elevation-z8 {
+    font-size: 2vh;
+    overflow-y: scroll;
+    margin-bottom: 2vh;
+    height: calc(100% - 11vh);
+}
+.export-btn {
+    text-align: end;
+    line-height: 8vh;
+}
+.thead-dt {
+    text-align: center;
+}
+.metal-align {
+    text-align: end;
+}
+.refno-align {
+    text-align: center;
+}

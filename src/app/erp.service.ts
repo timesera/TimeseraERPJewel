@@ -58,7 +58,7 @@ export class ErpService {
   getDayTranscationsURL: string = this.URLHostName + "/api/Erp/GetDayTransactionDetails";
   getOldGoldBookMainTypeURL: string = this.URLHostName + "/api/Erp/GetOldGoldBookMainType";
   getOldGoldBookDetailsURL: string = this.URLHostName + "/api/Erp/GetOldGoldBookDetails";
-
+  getDayGlanceDetailsURL: string = this.URLHostName + "/api/Erp/GetDayGlanceDetails";
 
   headers: any;
   constructor(private httpClient: HttpClient, private cookieService: CookieService,
@@ -290,6 +290,11 @@ export class ErpService {
     this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
     const params = new HttpParams().set('startDate', startDate).set('endDate', endDate).set('mainType', mainType);
     return this.httpClient.get<any>(this.getOldGoldBookDetailsURL, { 'params': params, 'headers': this.headers });
+  }
+  GetDayGlanceDetails(startDate: any, endDate: any): Observable<any> {
+    this.headers = new HttpHeaders().set('tenantName', this.cookieService.get('tenantName').toString());
+    const params = new HttpParams().set('startDate', startDate).set('endDate', endDate);
+    return this.httpClient.get<any>(this.getDayGlanceDetailsURL, { 'params': params, 'headers': this.headers });
   }
 }
 
