@@ -118,7 +118,6 @@
 
 .wishbox {
     border: 1px solid white !important;
-    width: 85%;
     margin-left: 3vh;
     font-size: 4vh;
     text-align: center;
@@ -128,7 +127,6 @@
 }
 .duebox {
     border: 1px solid white !important;
-    width: 85%;
     margin-left: 3vh;
     font-size: 3vh;
     text-align: center;
