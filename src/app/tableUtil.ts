@@ -13,9 +13,15 @@ export class TableUtil {
   static exportTableToExcel(tableId: string, name?: string) {
     let { sheetName, fileName } = getFileName(name!);
     let targetTableElm = document.getElementById(tableId);
-    let wb = XLSX.utils.table_to_book(targetTableElm, <XLSX.Table2SheetOpts>{
-      sheet: sheetName
-    });
+    // let wb = XLSX.utils.table_to_book(targetTableElm, <XLSX.Table2SheetOpts>{
+    //   sheet: sheetName
+    // });
+    // XLSX.writeFile(wb, `${fileName}.xlsx`);
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(targetTableElm);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+
+    /* save to file */
     XLSX.writeFile(wb, `${fileName}.xlsx`);
   }
 
