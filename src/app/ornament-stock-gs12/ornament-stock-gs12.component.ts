@@ -58,7 +58,7 @@ export class OrnamentStockGS12Component implements OnInit {
       });
     }
     else{
-      this.service.showError("Please fill the required fields");
+      this.service.showError("Please fill the required fields","");
     }
   }
   getSerialNumber(index: number): number {

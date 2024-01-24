@@ -45,7 +45,7 @@ export class CounterNetSummaryComponent {
         this.dataSource.paginator = this.paginator;
     });
   }else {
-    this.service.showError("Please fill the required fields");
+    this.service.showError("Please fill the required fields","");
   }
     
    }
