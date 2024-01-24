@@ -118,10 +118,10 @@
 
 .wishbox {
     border: 1px solid white !important;
-    margin-left: 5vh;
-    font-size: 4vh;
+    margin-left: 3vh;
+    font-size: 3vh;
     text-align: center;
-    margin-right: 5vh;
+    margin-right: 3vh;
     background-color: black;
     color: white;
 }
@@ -138,12 +138,13 @@
 .wbleft {
     float: left;
     margin-top: 2vh;
-    width: 55%;
+    width: 50%;
 }
 
 .wbright {
     float: right;
     margin-top: 2vh;
+    width: 50%;
 }
 
 .wishfont {
