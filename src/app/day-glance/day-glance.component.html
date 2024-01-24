@@ -28,7 +28,7 @@
 </div>
 
 <div class="mat-elevation-z8 align row">
-    <table style="height: 5%;">
+    <table style="height: 5%;" id="day-glance-table">
         <thead>
             <tr class="thead-dt" style="background-color: skyblue;">
                 <th>REF NO</th>
@@ -88,7 +88,7 @@
                 <td class="metal-align">{{item.online | number : '1.2-2'}}</td>
             </tr>
             <tr *ngIf="showTotal(item.transtype)" style="background-color: gray; color: white;">
-                <td></td>
+                <td>TOTALS</td>
                 <td></td>
                 <td></td>
                 <td class="metal-align">{{getTotal(item.transtype,'GWT') | number : '1.3-3'}}</td>

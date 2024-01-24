@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ErpService } from '../erp.service';
 import { DatePipe } from '@angular/common';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-day-glance',
@@ -110,7 +111,7 @@ export class DayGlanceComponent implements OnInit {
   }
 
   exportExcelDataSource() {
-
+    TableUtil.exportTableToExcel("day-glance-table","Day Glance Report");
   }
 
   exportPDFDataSource() {

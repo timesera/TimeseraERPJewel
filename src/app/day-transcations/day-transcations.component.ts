@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ErpService } from '../erp.service';
 import { DatePipe } from '@angular/common';
+import { TableUtil } from '../tableUtil';
 
 @Component({
   selector: 'app-day-transcations',
@@ -8,7 +9,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./day-transcations.component.css']
 })
 export class DayTranscationsComponent implements OnInit {
-  
+
   startDate: Date = new Date();
   totalCashReceipt: number = 0;
   totalCashPayment: number = 0;
@@ -82,7 +83,7 @@ export class DayTranscationsComponent implements OnInit {
   }
 
   exportExcelDataSource() {
-
+    TableUtil.exportTableToExcel("day-transcation-table","Day Transcation Report");
   }
 
   exportPDFDataSource() {
