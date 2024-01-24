@@ -8,7 +8,18 @@ import { TableUtil } from '../tableUtil';
   templateUrl: './day-glance.component.html',
   styleUrls: ['./day-glance.component.css']
 })
-export class DayGlanceComponent {
+export class DayGlanceComponent implements OnInit {
+  startDate: Date = new Date();
+  endDate: Date = new Date();
+  mainHeader: any = "";
+  tableTotalHeader: number = 1;
+  tableTotalHeaderName: any = "";
+  dayGlanceList: any = Array<any>();
+  constructor(private service: ErpService, private datePipe: DatePipe) {
+  }
+  ngOnInit() {
+    this.getDayGlanceDetails();
+  }
 
   getDayGlanceDetails() {
     let startDate = this.datePipe.transform(this.startDate, 'yyyy/MM/dd') || '';
