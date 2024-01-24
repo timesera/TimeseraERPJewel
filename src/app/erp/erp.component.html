@@ -1,361 +1,361 @@
 <mat-toolbar color="primary" style="background: linear-gradient(to right, #081658 0%, #000000 100%) !important;">
-    <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu" opened="true"  [ngClass]="isShowing ? 'margintoggle' : ''" style="background-color: red; border-radius: 5px !important; border: 1px solid #000;">
-        <mat-icon>menu</mat-icon>
-      </button>&nbsp;
-      
-  <!-- <span class="app-name">TimeseraERP</span> -->
-  <div class="logo-container-side" >
-    <img src="./assets/images/times (1).png" alt="Logo" style="width: 130px;height: 40px;" class="logo-img-side" >
-  </div>
-     <span class="menu-spacer">
-  </span>
-  
-  
-  <span class="toolbar-item-spacer"></span>
-<!--   
-  <button mat-icon-button matTooltip="Notifications">
-      <mat-icon>notifications</mat-icon>
-  </button> -->
-  <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu" style="background-color: red; border-radius: 5px; border: 1px solid #000; display: flex; align-items: center;">
-    <img src="./assets/images/Timeseralogo.png" alt="Profile Image" style="width: 24px; height: 24px; border-radius: 50%;">
+  <button mat-icon-button (click)="toggleSidenav()" matTooltip="Menu" opened="true" [ngClass]="isShowing ? 'margintoggle' : ''" style="background-color: red; border-radius: 5px !important; border: 1px solid #000;">
+      <mat-icon>menu</mat-icon>
+    </button>&nbsp;
     
-    <!-- <mat-icon style="margin-left: 8px;">account_circle</mat-icon> -->
-    <mat-menu #userAccountMenu="matMenu">
-      <button mat-menu-item (click)="viewProfile()"><mat-icon>person</mat-icon>View Profile</button>
-      <button mat-menu-item (click)="editProfile()"><mat-icon>person</mat-icon>Edit Profile</button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item (click)="signOut()"><mat-icon>exit_to_app</mat-icon>Sign Out</button>
-    </mat-menu>
-  </button>
-<span>Vijay</span>
+<!-- <span class="app-name">TimeseraERP</span> -->
+<div class="logo-container-side" >
+  <img src="./assets/images/times (1).png" alt="Logo" style="width: 130px;height: 40px;" class="logo-img-side" >
+</div>
+   <span class="menu-spacer">
+</span>
+
+
+<span class="toolbar-item-spacer"></span>
+<!--   
+<button mat-icon-button matTooltip="Notifications">
+    <mat-icon>notifications</mat-icon>
+</button> -->
+<button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu" style="background-color: red; border-radius: 5px; border: 1px solid #000; display: flex; align-items: center;">
+  <img src="./assets/images/Timeseralogo.png" alt="Profile Image" style="width: 24px; height: 24px; border-radius: 50%;">
   
+  <!-- <mat-icon style="margin-left: 8px;">account_circle</mat-icon> -->
+  <mat-menu #userAccountMenu="matMenu">
+    <button mat-menu-item (click)="viewProfile()"><mat-icon>person</mat-icon>View Profile</button>
+    <button mat-menu-item (click)="editProfile()"><mat-icon>person</mat-icon>Edit Profile</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="signOut()"><mat-icon>exit_to_app</mat-icon>Sign Out</button>
+  </mat-menu>
+</button>
+<span>Vijay</span>
+
 </mat-toolbar>
 
 <mat-sidenav-container class="app-container" >
-  <mat-sidenav #sidenav mode="side" [class.mat-elevation-z4]="true" class="app-sidenav" opened="true" >
-      <mat-nav-list>
-        <div class="logo-container-side" style="background-color: #081658 !important;">
-            <img src="./assets/images/Timeseralogo.png" alt="Logo" style="width: 120px;height: 100px;margin: 75px;margin-top: -6px !important;" class="logo-img-side">
-            <hr style="color: red !important;margin-top: -70px;">
+<mat-sidenav #sidenav mode="side" [class.mat-elevation-z4]="true" class="app-sidenav" opened="true" >
+    <mat-nav-list>
+      <div class="logo-container-side" style="background-color: #081658 !important;">
+          <img src="./assets/images/Timeseralogo.png" alt="Logo" style="width: 120px;height: 100px;margin: 75px;margin-top: -6px !important;" class="logo-img-side">
+          <hr style="color: red !important;margin-top: -70px;">
 
-          </div>
-       
-        <mat-expansion-panel>
-            <mat-expansion-panel-header routerLink="dashboard">
-                <mat-icon style="color: #FF5733;">dashboard</mat-icon>
-               &nbsp;<span style="color: #21d98e;"> Dashboard</span>
-              </mat-expansion-panel-header>>
-              <mat-nav-list>
-                
-               
-              </mat-nav-list>              
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true" opened="true">
-            <mat-expansion-panel-header>
-                <mat-icon style="color: #FF5733;">explore</mat-icon>
-               &nbsp; Estimation
-              </mat-expansion-panel-header>
-              <mat-nav-list>
-                <a mat-list-item routerLink="erp">
-                 Estimation
-                </a>
-                <hr>
-                <a mat-list-item routerLink="PurchaseEstimation">
-                 Purchase Estimation
-                </a>
-                <hr>
-                <a mat-list-item routerLink="EstimationRegister">
-             Estimation Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="PurchaseEstimationRegister">
-                   Purchase Estimation Register
-                </a>
-                <hr>
-              </mat-nav-list>              
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header>
-                <mat-icon style="color: #0bfc2b;">local_offer&nbsp;</mat-icon>
-              &nbsp;  Stock Module
-              </mat-expansion-panel-header>
-              <mat-nav-list>
-                <a mat-list-item routerLink="TagDetails">
-                  Tag Details
-                </a>
-                <hr>
-                <a mat-list-item routerLink="stockchart">
-                 Stock Chart
-                </a>
-                <hr>
-                <a mat-list-item routerLink="OrnamentStock">
-                  Ornament Stock - GS12
-                </a>
-                <hr>
-                <a mat-list-item routerLink="CounterNetSummary">
-                 Counter Net Summary
-                </a>
-                <hr>
-                <a mat-list-item routerLink="ProductSummary">
-                  Product Summary
-                </a>
-                <hr>
-                <a mat-list-item routerLink="CounterChart">
-                 Counter Chart
-                </a>
-                <hr>
-                <a mat-list-item routerLink="StockBalance">
-                  Stock Balances
-                </a>
-                <hr>
-                <a mat-list-item routerLink="PuritySummary">
-                   Purity Summary
-                </a>
-                <hr>
-                <a mat-list-item routerLink="BillingStockGS11">
-                  Bullion Stock - GS11
-                </a>
-                <hr>
-                <a mat-list-item routerLink="OldGoldSilverBook">
-                 Old gold /Old Silver Book
-                </a>
-                <hr>
-                <a mat-list-item routerLink="DealorWiseStockSumary">
-                  Dealer Wise Stock <Summary></Summary>
-                 </a>
-                 <hr>
-              </mat-nav-list>              
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header>
-                <mat-icon style="color: #fce80b;">shopping_basket&nbsp;</mat-icon>
-              &nbsp;  Purchase Module
-              </mat-expansion-panel-header>
-              <mat-nav-list>
-                <a mat-list-item routerLink="OrnamentPurchaseRegister">
-                  Ornament purchase Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="PurchaseReturnRegister">
-                  Purchasese Return Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="BullionPurchaseRegister">
-                  Bullion Purchase Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="OGSRegister">
-                  Old Gold/Silver Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="StonePurchaseRegister">
-                  Stone Purchase Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="MeltingRegister">
-                  Melting Register
-                </a>
-                <hr>
-              </mat-nav-list>              
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header>
-                <mat-icon  style="color: #9edf08e5;">store</mat-icon> &nbsp;Point of Sale
+        </div>
+     
+      <mat-expansion-panel disabled>
+          <mat-expansion-panel-header routerLink="dashboard">
+              <mat-icon style="color: #FF5733;">dashboard</mat-icon>
+             &nbsp;<span style="color: #21d98e;"> Dashboard</span>
+            </mat-expansion-panel-header>>
+            <mat-nav-list>
+              
+             
+            </mat-nav-list>              
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.mat-elevation-z0]="true" opened="true">
+          <mat-expansion-panel-header>
+              <mat-icon style="color: #FF5733;">explore</mat-icon>
+             &nbsp; Estimation
             </mat-expansion-panel-header>
             <mat-nav-list>
-                <a mat-list-item routerLink="DayGlance">
-                   Day Glance
-                </a>
-                <hr>
-                <a mat-list-item routerLink="SaleRegister">
-                   Sale Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="ProductWiseSaleSummary">
-                    Product Wise Sale
-                </a>
-                <hr>
-                <a mat-list-item routerLink="DiamonsSales">
-                    Diamond Sales
-                </a>
-                <hr>
-                <a mat-list-item routerLink="CustomerReceeipt">
-                    Customer Receipt Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="DayTranscations">   Day Transactions
-                </a>
-                <hr>
-                <a mat-list-item routerLink="CounterWiseSales">
-                  Counter Wise Sales
+              <a mat-list-item routerLink="erp">
+               Estimation
               </a>
               <hr>
-              <a mat-list-item routerLink="EmplyeWiseSales">
-                  Employee Wise Sales
+              <a mat-list-item routerLink="PurchaseEstimation">
+               Purchase Estimation
               </a>
               <hr>
-              <a mat-list-item routerLink="PurtyWiseSales">   Purity Wise Sales
+              <a mat-list-item routerLink="EstimationRegister">
+           Estimation Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="PurchaseEstimationRegister">
+                 Purchase Estimation Register
+              </a>
+              <hr>
+            </mat-nav-list>              
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header>
+              <mat-icon style="color: #0bfc2b;">local_offer&nbsp;</mat-icon>
+            &nbsp;  Stock Module
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="TagDetails">
+                Tag Details
+              </a>
+              <hr>
+              <a mat-list-item routerLink="stockchart">
+               Stock Chart
+              </a>
+              <hr>
+              <a mat-list-item routerLink="OrnamentStock">
+                Ornament Stock - GS12
+              </a>
+              <hr>
+              <a mat-list-item routerLink="CounterNetSummary">
+               Counter Net Summary
+              </a>
+              <hr>
+              <a mat-list-item routerLink="ProductSummary">
+                Product Summary
+              </a>
+              <hr>
+              <a mat-list-item routerLink="CounterChart">
+               Counter Chart
+              </a>
+              <hr>
+              <a mat-list-item routerLink="StockBalance">
+                Stock Balances
+              </a>
+              <hr>
+              <a mat-list-item routerLink="PuritySummary">
+                 Purity Summary
+              </a>
+              <hr>
+              <a mat-list-item routerLink="BillingStockGS11">
+                Bullion Stock - GS11
+              </a>
+              <hr>
+              <a mat-list-item routerLink="OldGoldSilverBook">
+               Old gold /Old Silver Book
+              </a>
+              <hr>
+              <a mat-list-item routerLink="DealorWiseStockSumary">
+                Dealer Wise Stock <Summary></Summary>
+               </a>
+               <hr>
+            </mat-nav-list>              
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header>
+              <mat-icon style="color: #fce80b;">shopping_basket&nbsp;</mat-icon>
+            &nbsp;  Purchase Module
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="OrnamentPurchaseRegister">
+                Ornament purchase Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="PurchaseReturnRegister">
+                Purchase Return Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="BullionPurchaseRegister">
+                Bullion Purchase Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="OGSRegister">
+                Old Gold/Silver Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="StonePurchaseRegister">
+                Stone Purchase Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="MeltingRegister">
+                Melting Register
+              </a>
+              <hr>
+            </mat-nav-list>              
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header>
+              <mat-icon  style="color: #9edf08e5;">store</mat-icon> &nbsp;Point of Sale
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+              <a mat-list-item routerLink="DayGlance">
+                 Day Glance
+              </a>
+              <hr>
+              <a mat-list-item routerLink="SaleRegister">
+                 Sale Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="ProductWiseSaleSummary">
+                  Product Wise Sale
+              </a>
+              <hr>
+              <a mat-list-item routerLink="DiamonsSales">
+                  Diamond Sales
+              </a>
+              <hr>
+              <a mat-list-item routerLink="CustomerReceeipt">
+                  Customer Receipt Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="DayTranscations">   Day Transactions
+              </a>
+              <hr>
+              <a mat-list-item routerLink="CounterWiseSales">
+                Counter Wise Sales
+            </a>
+            <hr>
+            <a mat-list-item routerLink="EmplyeWiseSales">
+                Employee Wise Sales
+            </a>
+            <hr>
+            <a mat-list-item routerLink="PurtyWiseSales">  Purity Wise Sales
+            </a>
+            <hr>
+          </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header >
+              <mat-icon style="color: #e74c3c;">assignment</mat-icon> &nbsp;Order & Repairs
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+              <a mat-list-item routerLink="OrderRegister">
+                 Order Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="OrderStatus">
+                  Order Status
+              </a>
+              <hr>
+              <a mat-list-item routerLink="OrderStatusRegister">
+                  Order Status Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="RepairRecevialsRegister">
+                  Repair Recevials Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="RepairDeliveryRegister">
+                   Repair Delivery Register
+              </a>
+              <hr>
+          </mat-nav-list>            
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header >
+              <mat-icon style="color: #f309cc;">account_balance</mat-icon>&nbsp; Accounts
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+              <a mat-list-item routerLink="DayTranscations">
+                 Day Transactions
+              </a>
+              <hr>
+              <a mat-list-item routerLink="cashbook">
+                  Cash Book
+              </a>
+              <hr>
+              <a mat-list-item routerLink="BankStatement">
+                  Bank Statement
+              </a>
+              <hr>
+              <a mat-list-item routerLink="Journals">
+                Journals
+              </a>
+              <hr>
+              <a mat-list-item routerLink="CustomerLeader">
+                  Customer Leader
+              </a>
+              <hr>
+              <a mat-list-item routerLink="OutstandingCustomers">
+                  Outstanding Customers
+              </a>
+              <hr>
+              <a mat-list-item routerLink="OutstandingDealers">
+                  Outstanding Dealers
+              </a>
+              <hr>
+              <a mat-list-item routerLink="DealerPymntRgstr">
+                Dealer Payment Register
+            </a>
+            <hr>
+            <a mat-list-item routerLink="DealrLdgr">
+                Dealer Ledger
+            </a>
+            <hr>
+          </mat-nav-list>            
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header style="color: #3498db;">
+              <mat-icon style="color: #a9db34;">assessment</mat-icon>&nbsp; Analysis
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+              <a mat-list-item routerLink="SizeWiseStock">
+                Size Wise Stock
+              </a>
+              <hr>
+              <a mat-list-item routerLink="ReOrderStock">
+                  Reorder Stock
+              </a>
+              <hr>
+              <a mat-list-item routerLink="ProductWiseSaleSummary">
+                   Product Wise Sale Summary
+              </a>
+              <hr>
+              <a mat-list-item routerLink="SizeWiseSales">
+                  Size Wise Sales
+              </a>
+              <hr>
+              <a mat-list-item routerLink="CustomerPurchaseAnalysis">
+                   Customer Purchase Analysis
+              </a>
+              <hr>
+          </mat-nav-list>            
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header>
+              <mat-icon style="color: #FF4081;">business</mat-icon>&nbsp; CRM
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+              <a mat-list-item routerLink="MailBook">
+                   Mail Book
+              </a><hr>
+              <a mat-list-item routerLink="OutstandingCustomers">
+                  Outstanding Customers
+              </a><hr>
+              <a mat-list-item routerLink="InvoiceWiseOutstanding">
+                  Invoice Wise Outstanding
+              </a><hr>
+              <a mat-list-item routerLink="CustomerLeader">
+                  Customer Leader
+              </a><hr>
+              <a mat-list-item routerLink="CustomerVistingInfo">
+       Customer Visiting Info
+              </a><hr>
+              <a mat-list-item routerLink="PrevilageCardPoints">
+                  Privilege Card Points
+              </a><hr>
+              <a mat-list-item routerLink="PrevilageCardMemberDetails">
+                  Privilege Card Member Details
+              </a><hr>
+          </mat-nav-list>            
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header style="color: #9b59b6;">
+              <mat-icon style="color: #9b59b6;">work</mat-icon>&nbsp; Smith Transactions
+          </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="smithIssueRegister">
+                Smith Issue Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="SmithReceivalRegister">
+                Smith Receival Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="JobWorkIssueRegister">
+                Job Work Issue Register
+              </a>
+              <hr>
+              <a mat-list-item routerLink="#">
+                Job Work Receival Register
               </a>
               <hr>
             </mat-nav-list>
+            
         </mat-expansion-panel>
-        <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header >
-                <mat-icon style="color: #e74c3c;">assignment</mat-icon> &nbsp;Order & Repairs
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-                <a mat-list-item routerLink="OrderRegister">
-                   Order Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="OrderStatus">
-                    Order Status
-                </a>
-                <hr>
-                <a mat-list-item routerLink="OrderStatusRegister">
-                    Order Status Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="RepairRecevialsRegister">
-                    Repair Recevials Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="RepairDeliveryRegister">
-                     Repair Delivery Register
-                </a>
-                <hr>
-            </mat-nav-list>            
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header >
-                <mat-icon style="color: #f309cc;">account_balance</mat-icon>&nbsp; Accounts
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-                <a mat-list-item routerLink="DayTranscations">
-                   Day Transactions
-                </a>
-                <hr>
-                <a mat-list-item routerLink="cashbook">
-                    Cash Book
-                </a>
-                <hr>
-                <a mat-list-item routerLink="BankStatement">
-                    Bank Statement
-                </a>
-                <hr>
-                <a mat-list-item routerLink="Journals">
-                  Journals
-                </a>
-                <hr>
-                <a mat-list-item routerLink="CustomerLeader">
-                    Customer Leader
-                </a>
-                <hr>
-                <a mat-list-item routerLink="OutstandingCustomers">
-                    Outstanding Customers
-                </a>
-                <hr>
-                <a mat-list-item routerLink="OutstandingDealers">
-                    Outstanding Dealers
-                </a>
-                <hr>
-                <a mat-list-item routerLink="DealerPymntRgstr">
-                  Dealer Payment Register
-              </a>
-              <hr>
-              <a mat-list-item routerLink="DealrLdgr">
-                  Dealer Ledger
-              </a>
-              <hr>
-            </mat-nav-list>            
-          </mat-expansion-panel>
-
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header style="color: #3498db;">
-                <mat-icon style="color: #a9db34;">assessment</mat-icon>&nbsp; Analysis
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-                <a mat-list-item routerLink="SizeWiseStock">
-                  Size Wise Stock
-                </a>
-                <hr>
-                <a mat-list-item routerLink="ReOrderStock">
-                    Reorder Stock
-                </a>
-                <hr>
-                <a mat-list-item routerLink="ProductWiseSaleSummary">
-                     Product Wise Sale Summary
-                </a>
-                <hr>
-                <a mat-list-item routerLink="SizeWiseSales">
-                    Size Wise Sales
-                </a>
-                <hr>
-                <a mat-list-item routerLink="CustomerPurchaseAnalysis">
-                     Customer Purchase Analysis
-                </a>
-                <hr>
-            </mat-nav-list>            
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header>
-                <mat-icon style="color: #FF4081;">business</mat-icon>&nbsp; CRM
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-                <a mat-list-item routerLink="MailBook">
-                     Mail Book
-                </a><hr>
-                <a mat-list-item routerLink="OutstandingCustomers">
-                    Outstanding Customers
-                </a><hr>
-                <a mat-list-item routerLink="InvoiceWiseOutstanding">
-                    Invoice Wise Outstanding
-                </a><hr>
-                <a mat-list-item routerLink="CustomerLeader">
-                    Customer Leader
-                </a><hr>
-                <a mat-list-item routerLink="CustomerVistingInfo">
-         Customer Visiting Info
-                </a><hr>
-                <a mat-list-item routerLink="PrevilageCardPoints">
-                    Privilege Card Points
-                </a><hr>
-                <a mat-list-item routerLink="PrevilageCardMemberDetails">
-                    Privilege Card Member Details
-                </a><hr>
-            </mat-nav-list>            
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header style="color: #9b59b6;">
-                <mat-icon style="color: #9b59b6;">work</mat-icon>&nbsp; Smith Transactions
-            </mat-expansion-panel-header>
-              <mat-nav-list>
-                <a mat-list-item routerLink="smithIssueRegister">
-                  Smith Issue Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="SmithReceivalRegister">
-                  Smith Receival Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="JobWorkIssueRegister">
-                  Job Work Issue Register
-                </a>
-                <hr>
-                <a mat-list-item routerLink="#">
-                  Job Work Receival Register
-                </a>
-                <hr>
-              </mat-nav-list>
-              
-          </mat-expansion-panel>
-         
-      </mat-nav-list>
-      
-    </mat-sidenav>
-  <mat-sidenav-content>
-      <router-outlet>
-         
-      </router-outlet>
-  </mat-sidenav-content>
+       
+    </mat-nav-list>
+    
+  </mat-sidenav>
+<mat-sidenav-content>
+    <router-outlet>
+       
+    </router-outlet>
+</mat-sidenav-content>
 </mat-sidenav-container>
