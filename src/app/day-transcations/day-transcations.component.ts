@@ -8,6 +8,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./day-transcations.component.css']
 })
 export class DayTranscationsComponent implements OnInit {
+  
   startDate: Date = new Date();
   totalCashReceipt: number = 0;
   totalCashPayment: number = 0;
