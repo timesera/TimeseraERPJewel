@@ -11,12 +11,12 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns: string[] = ['position','cntrName','pcs','gwt','nwt','amount'];
+  displayedColumns: string[] = ['position','billDate','jewelType','billNo','custName','pcs','gwt','nwt','totalAmt','discount','grsAmt','cgst','sgst','igst','netAmount'];
 
   todayDate:Date=new Date();
   currentYear:string = new Date().getFullYear().toString();
   userDetails: any = [];
-  dailyRates: any;
+  dailyRates: any = [];
   anniversaryWishBox: any = [];
   birthdayWishBox: any = [];
   genBillNo: any;
@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     const datePipe = new DatePipe('en-US');
     let todayDate = datePipe.transform(this.todayDate, 'yyyy/MM/dd') || '';
+    this.getSaleRegisterData();
     forkJoin(
       this.service.GetDailyRates(todayDate), this.service.GetGenBillNo(this.currentYear), this.service.GetFirmConfigure(),
       this.service.GetTotalBills(this.currentYear), this.service.GetAnniversaryWishBoxDetails(todayDate),
@@ -90,5 +91,31 @@ export class DashboardComponent implements OnInit {
     else {
       this.service.showWarning("No records found!","")
     }
+  }
+
+  getSaleRegisterData(name: any = ""){
+
+    const datePipe = new DatePipe('en-US');
+    let saleStartingDate = datePipe.transform(new Date(), 'yyyy/MM/dd') || '';
+    let saleEndingDate = datePipe.transform(new Date(), 'yyyy/MM/dd') || '';
+   
+    this.service.GetSaleRegistersData(name, saleStartingDate, saleEndingDate, "","").subscribe(data => {
+      if(data.length > 0){
+        this.dataSource.data=data 
+          this.dataSource.paginator = this.paginator;
+      }     
+    });
+  }
+
+  calculateTotal(column: string): number {
+    return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
+  }
+
+  getTotal(_t12: any): string | number {
+    throw new Error('Method not implemented.');
+  }
+
+  getSerialNumber(index: number): number {
+    return index + 1 + this.paginator.pageIndex * this.paginator.pageSize;
   }
 }
