@@ -110,7 +110,7 @@ export class DashboardComponent implements OnInit {
   getDayTranscationDetails() {
     const datePipe = new DatePipe('en-US');
     let saleStartingDate = datePipe.transform(new Date(), 'yyyy/MM/dd') || '';
-    this.service.GetDayTranscations('2023/12/20').subscribe(data => {
+    this.service.GetDayTranscations(saleStartingDate).subscribe(data => {
       this.dayTranscationList = data.dayTransactionsList;
     });
 

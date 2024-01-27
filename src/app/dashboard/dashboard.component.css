@@ -47,6 +47,7 @@
     /* background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%); */
     color: white;
     opacity: 0.95;
+
 }
 
 .alertbox-card {
@@ -63,6 +64,7 @@
     margin-right: 0.5rem;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
+    border-radius: 10px;
 }
 
 .rates-slide {
@@ -72,6 +74,7 @@
     margin-right: 0.5rem;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
+    border-radius: 10px;
 }
 
 .profile-name {
@@ -188,7 +191,7 @@
 }
 
 .carousel-item {
-    height: 16.5vh;
+    height: 16vh;
     overflow-y: auto;
 }
 
