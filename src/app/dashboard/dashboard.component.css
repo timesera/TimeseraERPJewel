@@ -39,14 +39,20 @@
 .name-card {
     margin-left: 2.5vh;
     margin-top: 1vh;
-    background: rgb(140, 166, 218);
+    /* background: rgb(140, 166, 218); */
     height: 40vh;
+    width: 100%;
+    background-color: #1fc8db;
+    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+    color: white;
+    opacity: 0.95;
 }
 
 .alertbox-card {
     width: 64%; 
     margin-left: 5px; 
     margin-top: 5px;
+    height: 100%;
 }
 
 .due-slide {
@@ -87,6 +93,7 @@
     height: 24.5vh;
     margin-left: 15px;
     margin-top: -3px;
+    margin-right: -15px;
 }
 
 .div-left-countone{
@@ -94,6 +101,12 @@
     margin-left: 7vh;
     float: left;
     height: 70px;
+}
+.vallid-color {
+    background-color: #1fc8db;
+    background-image: linear-gradient(140deg, #EADEDB 0%, #081658 50%, #50be91 75%);
+    color: white;
+    opacity: 0.95;
 }
 
 .div-left-counttwo{
@@ -120,9 +133,11 @@
 }
 
 .due-table {
-    height: 90vh;
+    min-height: 50vh;
+    max-height: 90vh;
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
+    overflow-x: hidden;
 }
 
 .wishbox {

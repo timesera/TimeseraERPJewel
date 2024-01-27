@@ -33,11 +33,11 @@
             <div class="mt-1">
                 <div class="card div-left-countone mt-4" style="margin-bottom: 2vh;">
                     <span class="font-box">Xcgtunch dshbv</span>
-                    <div class="inv-box">99999</div>
+                    <div class="inv-box">XXXXX</div>
                 </div>
                 <div class="card div-left-counttwo mt-4" style="margin-bottom: 2vh;">
                     <span class="font-box">Xcgtunch dshbv</span>
-                    <div class="inv-box">99999</div>
+                    <div class="inv-box">XXXXX</div>
                 </div>
             </div>
         </div>
@@ -45,37 +45,25 @@
             <table class="table table-striped table-cash">
                 <thead class="table-dark">
                     <tr>
-                        <th>Payment Type</th>
-                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>GWT</th>
+                        <th>NWT</th>
+                        <th>AMOUNT</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let item of dayTranscationList; let i = index">
                     <tr>
-                        <td>CRIDET</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr>
-                        <td>DEBIT</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr>
-                        <td>G-PAY</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr>
-                        <td>Phone PAY</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr>
-                        <td>CASH</td>
-                        <td>0.00</td>
+                        <td>{{item.mainhead}}</td>
+                        <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'GWT') | number : '1.3-3'}}</td>
+                        <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'NWT') | number : '1.3-3'}}</td>
+                        <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'TOT') | number : '1.3-3'}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="row alertbox-card">
-        <div class="card" style="background: #875e46;">
+        <div class="card vallid-color">
             <div class="validate-baner">
                 Vallid Till 30 / 12 / 2023.
             </div>
@@ -170,7 +158,7 @@
         <div class="card" style="    margin-top: 2.5vh;">
             <div class="align due-table">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-2" style="width: 24% !important;">
                         <input matInput (keyup)="applyFilter($event)" placeholder="Search Here!" class="filter-tab">
                     </div>
                     <div class="col">

@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   todayDuesandCount: any = [];
   totalDuesandCount: any = [];
   hederFlagName: string = "";
+  dayTranscationList: any = [];
 
   wishboxtab: boolean = true;
   duestab: boolean = false;
@@ -40,6 +41,7 @@ export class DashboardComponent implements OnInit {
     const datePipe = new DatePipe('en-US');
     let todayDate = datePipe.transform(this.todayDate, 'yyyy/MM/dd') || '';
     this.getSaleRegisterData();
+    this.getDayTranscationDetails();
     forkJoin(
       this.service.GetDailyRates(todayDate), this.service.GetGenBillNo(this.currentYear), this.service.GetFirmConfigure(),
       this.service.GetTotalBills(this.currentYear), this.service.GetAnniversaryWishBoxDetails(todayDate),
@@ -94,7 +96,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getSaleRegisterData(name: any = ""){
-
     const datePipe = new DatePipe('en-US');
     let saleStartingDate = datePipe.transform(new Date(), 'yyyy/MM/dd') || '';
     let saleEndingDate = datePipe.transform(new Date(), 'yyyy/MM/dd') || '';
@@ -105,6 +106,32 @@ export class DashboardComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
       }     
     });
+  }
+  getDayTranscationDetails() {
+    const datePipe = new DatePipe('en-US');
+    let saleStartingDate = datePipe.transform(new Date(), 'yyyy/MM/dd') || '';
+    this.service.GetDayTranscations('2023/12/20').subscribe(data => {
+      this.dayTranscationList = data.dayTransactionsList;
+    });
+
+  }
+
+  getDayTranscationTotal(title: any, columnName: any){
+    let total = 0;
+    var tempList = this.dayTranscationList.filter((re: any) => re.mainhead == title)
+    tempList.forEach((item: any) => {
+      if(columnName == "GWT"){
+        total += Number(item.isS_GWT);
+      }
+      else if(columnName == "NWT"){
+        total += Number(item.isS_NWT);
+      }
+      else if(columnName == "TOT"){
+        total += Number(item.debiT_PAYMENT);
+      }
+    });
+  
+    return total;
   }
 
   applyFilter(filterValue: any) {
