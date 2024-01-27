@@ -107,6 +107,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  applyFilter(filterValue: any) {
+    this.dataSource.filter = filterValue.target.value.trim().toLowerCase();
+    console.log(this.dataSource.filter);
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   calculateTotal(column: string): number {
     return this.dataSource.data.reduce((total, element) => total + (element[column] || 0), 0);
   }

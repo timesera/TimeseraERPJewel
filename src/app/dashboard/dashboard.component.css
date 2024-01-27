@@ -49,9 +49,18 @@
     margin-top: 5px;
 }
 
+.due-slide {
+    width: 40% !important;
+    height: 22vh;
+    background-color: white;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
 .rates-slide {
-    width: 48% !important;
-    height: 32vh;
+    width: 57% !important;
+    height: 22vh;
     background-color: white;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
@@ -148,7 +157,7 @@
 }
 
 .wishfont {
-    font-size: 8vh !important;
+    font-size: 5vh !important;
 }
 
 .duefont {
@@ -156,16 +165,35 @@
 }
 
 .carousel-item {
-    height: 23vh;
+    height: 16.5vh;
     overflow-y: auto;
 }
 
 .card-align-st {
-    width: 20vh;
+    width: 22vh;
     float: left;
-    padding: 1vh;
+    padding: 3px;
     border: 1px solid #0d6efd;
     text-align: center;
     border-radius: 1vh;
     margin: 0.5vh;
+    font-size: 2vh;
+}
+.filter-tab {
+    width: 100%;
+    margin-top: 2vh;
+    margin-left: 2vh;
+}
+::ng-deep mat-paginator {
+    .mat-mdc-paginator-range-label {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .mat-paginator-navigation-previous {
+        order: 1;
+    }
+    .mat-paginator-navigation-next {
+        order: 3;
+    }
 }
