@@ -120,13 +120,22 @@ export class DashboardComponent implements OnInit {
     let total = 0;
     var tempList = this.dayTranscationList.filter((re: any) => re.mainhead == title)
     tempList.forEach((item: any) => {
-      if(columnName == "GWT"){
+      if(columnName == "MIGWT"){
         total += Number(item.isS_GWT);
       }
-      else if(columnName == "NWT"){
+      else if(columnName == "MINWT"){
         total += Number(item.isS_NWT);
       }
-      else if(columnName == "TOT"){
+      else if(columnName == "MRGWT"){
+        total += Number(item.reC_GWT);
+      }
+      else if(columnName == "MRNWT"){
+        total += Number(item.reC_NWT);
+      }
+      else if(columnName == "CGWT"){
+        total += Number(item.crediT_RECEIPT);
+      }
+      else if(columnName == "CNWT"){
         total += Number(item.debiT_PAYMENT);
       }
     });

@@ -25,7 +25,7 @@
     color: white;
     text-align: center;
     margin: .5vh;
-    font-size: 20px;
+    font-size: 2vh;
     font-weight: bold;
     font-family: monospace;
 }
@@ -39,11 +39,12 @@
 .name-card {
     margin-left: 2.5vh;
     margin-top: 1vh;
-    /* background: rgb(140, 166, 218); */
     height: 40vh;
     width: 100%;
-    background-color: #1fc8db;
-    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+    background-image: url(../../assets/images/custName-BG.png);
+    background-repeat: round;
+    /* background-color: #1fc8db; */
+    /* background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%); */
     color: white;
     opacity: 0.95;
 }
@@ -75,7 +76,7 @@
 
 .profile-name {
     font-size: 20px;
-    font-family: fantasy;
+    font-family: math;
 }
 .div-left-profile {
     width: 35%;
@@ -98,10 +99,12 @@
 }
 
 .div-left-countone{
-    width: 34%; 
+    width: 30%; 
     margin-left: 7vh;
     float: left;
     height: 70px;
+    background-color: #80808061;
+    color: white;
 }
 .vallid-color {
     background-color: #1fc8db;
@@ -111,17 +114,20 @@
 }
 
 .div-left-counttwo{
-    width: 34%; 
-    margin-right: 5vh;
+    width: 30%; 
+    margin-right: 7vh;
     float: right;
     height: 70px;
+    background-color: #80808061;
+    color: white;
 }
 
 .font-box {
     font-size: 12px;
     margin: 5px;
-    color: #dc3545;
+    color: black;
     font-family: monospace;
+    text-align: center;
 }
 
 .inv-box {
@@ -130,7 +136,7 @@
 }
 
 .addres-times {
-    font-size: 2.5vh;
+    font-size: 2vh;
 }
 
 .due-table {
@@ -144,19 +150,19 @@
 .wishbox {
     border: 1px solid white !important;
     margin-left: 3vh;
-    font-size: 3vh;
+    font-size: 2.5vh;
     text-align: center;
     margin-right: 3vh;
-    background-color: black;
+    background-color: #17a689;
     color: white;
 }
 .duebox {
     border: 1px solid white !important;
     margin-left: 3vh;
-    font-size: 3vh;
+    font-size: 2.5vh;
     text-align: center;
     margin-right: 3vh;
-    background-color: black;
+    background-color: #17a689;
     color: white;
 }
 
@@ -174,6 +180,7 @@
 
 .wishfont {
     font-size: 5vh !important;
+    background-color: #1abc9ca6 !important;
 }
 
 .duefont {

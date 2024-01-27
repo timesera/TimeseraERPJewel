@@ -1,19 +1,18 @@
 <div class="row" style="background-color: #8080802e;">
     <div class="div-left-profile">
-        <div class="card name-card" style="height: 40vh;">
+        <div class="card name-card" style="height: 30vh;">
             <div class="row text-center profile-name">
                 <span>
-                    <b style="color: red; font-family: none;">Hello!&nbsp;</b>
-                     <div>{{userDetails.firmname}}</div>
+                     <div style="margin-top: 5px;">{{userDetails.firmname}}</div>
                 </span>
                 <div class="addres-times">
                     <div>{{userDetails.adD1}}</div>
                     <div>{{userDetails.adD2}}</div>
                 </div>
-                <div style="font-size: 2.8vh; margin-top: 20px;">
+                <div style="font-size: 2.4vh; margin-top: 15px;">
                     CITY : {{userDetails.city}}
                 </div>
-                <div>
+                <div style="font-size: 2.4vh">
                     {{userDetails.tinno}}
                 </div>
             </div>
@@ -22,11 +21,11 @@
         <div class="div-left-inv">
             <div class="mt-1">
                 <div class="card div-left-countone" style="margin-top: -6.5vh;">
-                    <span class="font-box">Current Invo.</span>
+                    <span class="font-box">INVOICE NO</span>
                     <div class="inv-box">{{genBillNo}}</div>
                 </div>
                 <div class="card div-left-counttwo" style="margin-top: -6.5vh;">
-                    <span class="font-box">Total Bills</span>
+                    <span class="font-box">TOTAL INVOICES</span>
                     <div class="inv-box">{{totalBillsCount}}</div>
                 </div>
             </div>
@@ -43,23 +42,31 @@
         </div>
         <div class="table-payment mt-2">
             <table class="table table-striped table-cash">
-                <thead class="table-dark">
+                <!-- <thead class="table-dark">
                     <tr>
                         <th>Type</th>
                         <th>GWT</th>
                         <th>NWT</th>
-                        <th>AMOUNT</th>
                     </tr>
-                </thead>
+                </thead> -->
                 <tbody *ngFor="let item of dayTranscationList; let i = index">
                     <tr style="line-height: 2vh;">
                         <td colspan="4" class="vallid-color">{{item.mainhead}}</td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'GWT') | number : '1.3-3'}}</td>
-                        <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'NWT') | number : '1.3-3'}}</td>
-                        <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'TOT') | number : '1.3-3'}}</td>
+                    <tr *ngIf="getDayTranscationTotal(item.mainhead,'MIGWT') > 0 || getDayTranscationTotal(item.mainhead,'MINWT') > 0">
+                        <td>ISSUE WEIGHT</td>
+                        <td class="metal-align"> GWT :{{getDayTranscationTotal(item.mainhead,'MIGWT') | number : '1.3-3'}}</td>
+                        <td class="metal-align">NWT :{{getDayTranscationTotal(item.mainhead,'MINWT') | number : '1.3-3'}}</td>
+                    </tr>
+                    <tr *ngIf="getDayTranscationTotal(item.mainhead,'MRGWT') > 0 || getDayTranscationTotal(item.mainhead,'MRNWT') > 0">
+                        <td>RECEIPT WEIGHT</td>
+                        <td class="metal-align">GWT : {{getDayTranscationTotal(item.mainhead,'MRGWT') | number : '1.3-3'}}</td>
+                        <td class="metal-align">NWT : {{getDayTranscationTotal(item.mainhead,'MRNWT') | number : '1.3-3'}}</td>
+                    </tr>
+                    <tr *ngIf=" getDayTranscationTotal(item.mainhead,'CGWT') > 0 || getDayTranscationTotal(item.mainhead,'CNWT') > 0">
+                        <td>VALUE</td>
+                        <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'CGWT') | number : '1.2-2'}}</td>
+                        <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'CNWT') | number : '1.2-2'}}</td>
                     </tr>
                 </tbody>
             </table>
