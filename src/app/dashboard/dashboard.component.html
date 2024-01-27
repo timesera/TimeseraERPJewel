@@ -52,8 +52,11 @@
                     </tr>
                 </thead>
                 <tbody *ngFor="let item of dayTranscationList; let i = index">
+                    <tr style="line-height: 2vh;">
+                        <td colspan="4" class="vallid-color">{{item.mainhead}}</td>
+                    </tr>
                     <tr>
-                        <td>{{item.mainhead}}</td>
+                        <td></td>
                         <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'GWT') | number : '1.3-3'}}</td>
                         <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'NWT') | number : '1.3-3'}}</td>
                         <td class="metal-align">{{getDayTranscationTotal(item.mainhead,'TOT') | number : '1.3-3'}}</td>
