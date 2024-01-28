@@ -17,7 +17,7 @@
 .btn-align {
     position: relative;
     margin-left: 34%;
-    margin-top: -6vh;
+    margin-top: -2rem;
     margin-bottom: -1vh;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .rates-slide {
-    width: 57% !important;
+    width: 56% !important;
     height: 22vh;
     background-color: white;
     margin-right: 0.5rem;
@@ -95,7 +95,7 @@
 }
 .div-left-inv {
     background-color: white;
-    height: 24.5vh;
+    height: 9.5rem;
     margin-left: 15px;
     margin-top: -3px;
     margin-right: -15px;
@@ -126,7 +126,7 @@
 }
 
 .font-box {
-    font-size: 12px;
+    font-size: .7rem;
     margin: 5px;
     color: black;
     font-family: monospace;
@@ -134,7 +134,7 @@
 }
 
 .inv-box {
-    font-size: 3.5vh;
+    font-size: 1.3rem;
     text-align: center;
 }
 

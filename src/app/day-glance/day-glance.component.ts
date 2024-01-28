@@ -107,7 +107,7 @@ export class DayGlanceComponent implements OnInit {
       }
     });
   
-    return (columnName !="ODS" && columnName !="ODG") ? total : (oggwt +"|"+ ognwt +"|"+ ogamt);
+    return (columnName !="ODS" && columnName !="ODG") ? total : (oggwt.toFixed(3) +"|"+ ognwt.toFixed(3) +"|"+ ogamt.toFixed(2));
   }
 
   exportExcelDataSource() {

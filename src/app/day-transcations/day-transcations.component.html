@@ -1,5 +1,5 @@
 <div class="example-container row">
-    <div class="row row-cols-3" style="float: left; width: 91%;">
+    <div class="row row-cols-3" style="float: left; width: 90%;">
       <div class="col">
         <label class="lable-wid">Date</label>
         <mat-form-field>
@@ -38,21 +38,21 @@
         </mat-form-field>
       </div>
     </div>
-    <div style="float: right; width: 10%;">
+    <div style="float: right; width: 12%;">
       <button mat-raised-button color="warn" class="ml-4 show-btn" (click)="getDayTranscationDetails()">Show</button>
     </div>
   </div>
   <div class="mat-elevation-z8 align row">
   <table id="day-transcation-table">
     <thead>
-        <tr class="thead-dt">
+        <tr class="thead-dt" style="line-height: 5vh;">
             <th colspan="3"></th>
             <th colspan="2" style="background-color: greenyellow;">Melal Issue</th>
             <th colspan="2" style="background-color: gainsboro;">Metal Receipt</th>
             <th colspan="2" style="background-color: rgba(240, 240, 119, 0.651);">Cash</th>
             <th></th>
         </tr>
-        <tr class="thead-dt" style="background-color: skyblue;">
+        <tr class="thead-dt" style="background-color: skyblue; line-height: 5vh;">
             <th>Type</th>
             <th>Particulars</th>
             <th>Ref No</th>
@@ -66,7 +66,7 @@
         </tr>
     </thead>
     <tbody *ngFor="let item of dayTranscationList; let i = index">
-        <tr *ngIf="validateMainHeader(item.mainhead)">
+        <tr *ngIf="validateMainHeader(item.mainhead)" style="line-height: 5vh;">
             <td style="background-color: #50be91; font-weight: bold; width: 35vh; color: red;">{{item.mainhead}}</td>
             <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
         </tr>
@@ -74,12 +74,12 @@
             <td style="font-weight: bold;">{{item.subhead}}</td>
             <td>{{item.particulars}}</td>
             <td class="refno-align">{{item.vno}}</td>
-            <td class="metal-align">{{item.isS_GWT | number : '1.3-3'}}</td>
-            <td class="metal-align">{{item.isS_NWT | number : '1.3-3'}}</td>
-            <td class="metal-align">{{item.reC_GWT | number : '1.3-3'}}</td>
-            <td class="metal-align">{{item.reC_NWT | number : '1.3-3'}}</td>
-            <td class="metal-align">{{item.crediT_RECEIPT | number : '1.2-2'}}</td>
-            <td class="metal-align">{{item.debiT_PAYMENT | number : '1.2-2'}}</td>
+            <td class="metal-align" style="background-color: greenyellow;">{{item.isS_GWT | number : '1.3-3'}}</td>
+            <td class="metal-align" style="background-color: greenyellow;">{{item.isS_NWT | number : '1.3-3'}}</td>
+            <td class="metal-align" style="background-color: gainsboro;">{{item.reC_GWT | number : '1.3-3'}}</td>
+            <td class="metal-align" style="background-color: gainsboro;">{{item.reC_NWT | number : '1.3-3'}}</td>
+            <td class="metal-align" style="background-color: rgba(240, 240, 119, 0.651);">{{item.crediT_RECEIPT | number : '1.2-2'}}</td>
+            <td class="metal-align" style="background-color: rgba(240, 240, 119, 0.651);">{{item.debiT_PAYMENT | number : '1.2-2'}}</td>
             <td class="refno-align" style="width: 30vh;">{{item.description}}</td>
         </tr>
         <tr *ngIf="showTotal(item.mainhead)" style="background-color: gray; color: white;">
